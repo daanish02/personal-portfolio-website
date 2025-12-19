@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red 'D' -->
+  <text 
+    x="4" 
+    y="22" 
+    style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 22px; fill: #dc2626;"
+  >D</text>
+  <!-- White 'A' -->
+  <text 
+    x="13" 
+    y="28" 
+    style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 20px; fill: white;"
+  >A</text>
+</svg>
