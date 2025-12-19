@@ -36,4 +36,4 @@ const nextConfig = {
 
 ## 5. Troubleshooting
 - **404 on Refresh**: Static Web Apps might return 404 for sub-routes (like `/background`) if navigation happens directly. This is handled by Azure's default routing, but if issues persist, ensure a `staticwebapp.config.json` is present with navigation fallbacks.
-- **Build Failures**: Ensure you are using **Node.js 20+** in the GitHub runner settings.
+- **Build Failures**: Ensure you are using **Node.js 20+**. This is now specified in the `package.json` `engines` field, which the Azure Oryx build engine uses to select the correct version. If issues persist, check the GitHub runner settings in the workflow file.
