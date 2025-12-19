@@ -1,0 +1,25 @@
+{
+  "name": "Danish Ahmed",
+  "tagline": "AI Engineer & Problem Solver",
+  "intro": [
+    "I'm a software engineer with 4+ years of experience building scalable systems and solving complex technical challenges. I specialize in full-stack development, cloud architecture, and creating elegant solutions that balance technical excellence with user needs."
+  ],
+  "interests": {
+    "technical": [
+      "Distributed Systems & Microservices",
+      "Machine Learning & AI",
+      "System Design & Architecture",
+      "Cloud Computing (AWS, Azure)",
+      "Open Source Contribution",
+      "DevOps & Infrastructure Automation"
+    ],
+    "nonTechnical": [
+      "Technical Writing & Blogging",
+      "Mentoring & Teaching",
+      "Chess & Strategy Games",
+      "Photography",
+      "Hiking & Outdoor Activities",
+      "Reading (Sci-Fi & Tech Books)"
+    ]
+  }
+}

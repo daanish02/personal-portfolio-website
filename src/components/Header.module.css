@@ -1,0 +1,216 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: all var(--transition-base);
+}
+
+/* Fix blur issue on tablet/laptop range */
+.header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(10, 10, 10, 0.98);
+    /* Solid background for sharpness */
+}
+
+.header.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom-color: var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    max-width: 1920px;
+    width: 100%;
+    /* Ensure full width */
+    box-sizing: border-box;
+    /* Prevent padding from affecting width calculation */
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-3xl);
+    /* Strict lock: Constant padding at all widths */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.logo:hover {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.nav a {
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-base);
+    padding: var(--space-xs) 0;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width var(--transition-base);
+}
+
+.nav a:hover {
+    color: var(--text-primary);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a.active {
+    color: var(--accent);
+}
+
+.nav a.active::after {
+    width: 100%;
+}
+
+
+/* Mobile Menu Button */
+.menuButton {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+    z-index: 1001;
+}
+
+.menuIcon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    position: relative;
+    transition: background var(--transition-base);
+}
+
+.menuIcon::before,
+.menuIcon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all var(--transition-base);
+}
+
+.menuIcon::before {
+    top: -8px;
+}
+
+.menuIcon::after {
+    top: 8px;
+}
+
+.menuIcon.open {
+    background: transparent;
+}
+
+.menuIcon.open::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menuIcon.open::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile Navigation */
+.mobileNav {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.mobileNav a {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+}
+
+.mobileNav a:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.mobileNav a.active {
+    color: var(--accent);
+    background: var(--bg-tertiary);
+}
+
+
+/* Responsive */
+/* Synced with globals.css .container to match H1/H2 alignment exactly */
+@media (max-width: 1024px) {
+    .container {
+        padding: var(--space-lg) var(--space-2xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+    }
+
+    .mobileNav {
+        display: flex;
+    }
+
+    .container {
+        padding: var(--space-lg) var(--space-lg);
+    }
+
+    .logo {
+        font-size: var(--text-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--space-lg) var(--space-md);
+    }
+}

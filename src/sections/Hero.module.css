@@ -1,0 +1,232 @@
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    margin-top: 80px;
+    padding: var(--space-3xl) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.contentBox {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    width: 90%;
+    background: rgba(10, 10, 10, 0.95);
+    /* Increased opacity for readability */
+    padding: 3rem;
+    /* Fixed 48px padding */
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+    margin: var(--space-3xl);
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.tagline {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    /* Reduced bottom margin to welcome availability */
+}
+
+.about p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+    text-align: left;
+}
+
+/* Availability Status - Capsule Style */
+.availability {
+    display: inline-block;
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+    /* Match icon base */
+    /* No blur as requested */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Match icon border */
+    padding: 0.75rem 1.5rem;
+    /* Balanced padding */
+    border-radius: var(--radius-sm);
+    /* Match icon rounding */
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: var(--text-base);
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+    width: fit-content;
+    /* Ensure pill wraps text tightly */
+    max-width: 450px;
+    /* Approx 40% of hero width on large screens */
+    white-space: normal;
+    text-align: left;
+    align-self: flex-start;
+    /* Ensure capsule aligns left */
+}
+
+/* ... existing hover ... */
+.availability:hover {
+    background: rgba(220, 38, 38, 0.15);
+    /* Match icon hover red tint */
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Keep text red on hover */
+    color: var(--accent);
+    opacity: 0.9;
+}
+
+.iconRow {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 10;
+    /* Ensure strictly above everything */
+    position: relative;
+    margin-bottom: var(--space-lg);
+    /* Add margin to separate from CTA below */
+}
+
+.iconRow a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-secondary);
+    transition: all var(--transition-base);
+}
+
+.iconRow a:hover {
+    background: rgba(220, 38, 38, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .contentBox {
+        max-width: 800px;
+        padding: var(--space-3xl);
+        aspect-ratio: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        margin-top: 70px;
+        padding: var(--space-2xl) 0;
+    }
+
+    .contentBox {
+        max-width: 700px;
+        padding: var(--space-2xl);
+    }
+
+    .name {
+        font-size: var(--text-3xl);
+    }
+
+    .tagline {
+        font-size: var(--text-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 60px;
+        padding: var(--space-xl) 0;
+    }
+
+    .contentBox {
+        width: 90%;
+        /* Keep width 90% */
+        max-width: none;
+        padding: var(--space-xl);
+        margin: var(--space-lg);
+    }
+
+    .iconRow {
+        gap: var(--space-md);
+    }
+
+    /* Ensure icons render correctly on mobile */
+    .iconRow a {
+        width: 44px;
+        height: 44px;
+        background: rgba(40, 40, 40, 0.8);
+        /* Darker solid background for visibility */
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (max-width: 480px) {
+    .contentBox {
+        padding: var(--space-lg);
+        margin: var(--space-md);
+    }
+
+    .name {
+        margin-bottom: var(--space-md);
+        font-size: var(--text-2xl);
+    }
+
+    .tagline {
+        font-size: var(--text-base);
+    }
+
+    .iconRow {
+        gap: var(--space-sm);
+    }
+
+    .availability {
+        font-size: var(--text-sm);
+    }
+}

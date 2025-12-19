@@ -1,0 +1,15 @@
+[
+  {
+    "degree": "Bachelor of Science in Computer Science",
+    "institution": "University of Technology",
+    "period": "2016 - 2020",
+    "gpa": "3.85/4.0",
+    "highlights": [
+      "Dean's List all semesters",
+      "Senior Thesis: 'Optimizing Neural Architecture Search using Gradient Descent' - Published in university journal",
+      "Teaching Assistant for Data Structures and Algorithms (2 semesters)",
+      "Recipient of Computer Science Department Excellence Award"
+    ],
+    "isEmpty": false
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "id": "paper-1",
+    "title": "Efficient Neural Architecture Search via Gradient-Based Optimization",
+    "venue": "International Conference on Machine Learning (ICML)",
+    "date": "2023",
+    "status": "Ideation",
+    "overview": "Novel approach to NAS that reduces search time by 10x while maintaining model performance.",
+    "details": {
+      "description": "We propose a differentiable architecture search method that optimizes neural network architectures using gradient descent. Our approach significantly reduces computational requirements compared to traditional NAS methods while achieving competitive accuracy on ImageNet and CIFAR-10 benchmarks.",
+      "links": [
+        { "label": "arXiv", "url": "https://arxiv.org/abs/example" },
+        { "label": "Code", "url": "https://github.com/yourusername/efficient-nas" }
+      ]
+    }
+  },
+  {
+    "id": "paper-2",
+    "title": "Scalable Microservices Architecture for Real-Time Data Processing",
+    "venue": "IEEE International Conference on Cloud Computing",
+    "date": "2022",
+    "status": "In Progress",
+    "overview": "Framework for building scalable microservices that handle millions of events per second.",
+    "details": {
+      "description": "Presents a novel architecture pattern for building event-driven microservices with guaranteed message ordering and exactly-once processing semantics. Demonstrates 5x throughput improvement over traditional approaches.",
+      "links": [
+        { "label": "IEEE Xplore", "url": "https://ieeexplore.ieee.org" },
+        { "label": "Slides", "url": "https://slides.com/presentation" }
+      ]
+    },
+    "isEmpty": false
+  },
+    {
+    "id": "paper-3",
+    "title": "Scalable Microservices Architecture for Real-Time Data Processing",
+    "venue": "IEEE International Conference on Cloud Computing",
+    "date": "2022",
+    "status": "Submitted",
+    "overview": "Framework for building scalable microservices that handle millions of events per second.",
+    "details": {
+      "description": "Presents a novel architecture pattern for building event-driven microservices with guaranteed message ordering and exactly-once processing semantics. Demonstrates 5x throughput improvement over traditional approaches.",
+      "links": [
+        { "label": "IEEE Xplore", "url": "https://ieeexplore.ieee.org" },
+        { "label": "Slides", "url": "https://slides.com/presentation" }
+      ]
+    },
+    "isEmpty": false
+  },
+    {
+    "id": "paper-4",
+    "title": "Scalable Microservices Architecture for Real-Time Data Processing",
+    "venue": "IEEE International Conference on Cloud Computing",
+    "date": "2022",
+    "status": "In Review",
+    "overview": "Framework for building scalable microservices that handle millions of events per second.",
+    "details": {
+      "description": "Presents a novel architecture pattern for building event-driven microservices with guaranteed message ordering and exactly-once processing semantics. Demonstrates 5x throughput improvement over traditional approaches.",
+      "links": [
+        { "label": "IEEE Xplore", "url": "https://ieeexplore.ieee.org" },
+        { "label": "Slides", "url": "https://slides.com/presentation" }
+      ]
+    },
+    "isEmpty": false
+  },
+  {
+    "id": "paper-5",
+    "title": "Scalable Microservices Architecture for Real-Time Data Processing",
+    "venue": "IEEE International Conference on Cloud Computing",
+    "date": "2022",
+    "status": "Published",
+    "overview": "Framework for building scalable microservices that handle millions of events per second.",
+    "details": {
+      "description": "Presents a novel architecture pattern for building event-driven microservices with guaranteed message ordering and exactly-once processing semantics. Demonstrates 5x throughput improvement over traditional approaches.",
+      "links": [
+        { "label": "IEEE Xplore", "url": "https://ieeexplore.ieee.org" },
+        { "label": "Slides", "url": "https://slides.com/presentation" }
+      ]
+    },
+    "isEmpty": false
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "activity-1",
+    "title": "President, Computer Science Club",
+    "organization": "University of Technology",
+    "period": "2018 - 2020",
+    "overview": "Led a team of 60+ students in organizing hackathons, workshops, and tech talks.",
+    "details": {
+      "description": "Managed club operations, coordinated with sponsors, and organized events to promote computer science education and community building.",
+      "impact": "Organized 3 major hackathons with 300+ participants, secured $75K in sponsorships, increased club membership by 200%, and established partnerships with 10+ tech companies for recruiting events."
+    }
+  },
+  {
+    "id": "activity-2",
+    "title": "Lead Developer, University Mobile App",
+    "organization": "Student Innovation Lab",
+    "period": "2019 - 2020",
+    "overview": "Led development of official university mobile app used by 15,000+ students.",
+    "details": {
+      "description": "Managed team of 5 developers building cross-platform mobile app for campus services including course registration, dining hall menus, event calendar, and campus maps.",
+      "impact": "App downloaded by 15,000+ students, 4.6/5 rating on app stores, reduced paper waste by digitizing campus services, and improved student engagement with university events by 40%."
+    }
+  },
+  {
+    "id": "activity-3",
+    "title": "Competitive Programming Team Member",
+    "organization": "ACM ICPC Team",
+    "period": "2017 - 2019",
+    "overview": "Represented university in regional and national programming competitions.",
+    "details": {
+      "description": "Trained 10+ hours weekly on algorithmic problem-solving, participated in team competitions, and mentored junior students.",
+      "impact": "Placed 12th in ACM ICPC Regional Finals 2019, solved 500+ problems on competitive programming platforms, and mentored 20+ students in algorithms and data structures."
+    },
+    "isEmpty": false
+  }
+]

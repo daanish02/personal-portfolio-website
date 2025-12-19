@@ -1,0 +1,192 @@
+/* Grid layout for icon-based items */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.item {
+    position: relative;
+    --item-bg: #f0f0f0;
+    /* Default light for skills */
+    width: 128px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--item-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    cursor: default;
+    color: #000000;
+    /* Black alt text/content for skills */
+}
+
+/* Helper for sections that want to keep original theme (like Languages) */
+.darkItem {
+    --item-bg: var(--bg-secondary);
+    border-color: var(--border);
+    color: #ffffff;
+    /* White alt text/content for languages */
+}
+
+.item:hover {
+    border-color: var(--accent);
+    background: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+}
+
+.darkItem:hover {
+    background: var(--bg-tertiary);
+}
+
+/* Icon styling */
+.icon {
+    width: 64px;
+    /* Doubled from 32px */
+    height: 64px;
+    /* Doubled from 32px */
+    object-fit: contain;
+    opacity: 1;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transition: transform var(--transition-base);
+    /* Removed grayscale to keep icons colorful as requested */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+a.item {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.item:hover .icon {
+    transform: scale(1.1);
+    /* Subtle zoom on hover */
+}
+
+/* Tooltip for name */
+.name {
+    position: absolute;
+    bottom: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #000000;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    /* Slightly larger text for larger icons */
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+    pointer-events: none;
+    border: 1px solid #dddddd;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+}
+
+.darkItem .name {
+    background: #000000;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+.item:hover .name {
+    opacity: 1;
+    visibility: visible;
+    bottom: -44px;
+}
+
+/* Category styling (minimal label) */
+.categoryLabel {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-sm);
+    display: block;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsiveness overrides */
+@media (max-width: 1024px) {
+    .item {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 80px;
+        height: 80px;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .grid {
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 72px;
+        height: 72px;
+    }
+
+    .icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Languages specific override */
+.flagIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-sm);
+    filter: none;
+    object-fit: contain;
+}
+
+.languageGlyph {
+    flex-direction: column;
+}
+
+.proficiency {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.darkItem .proficiency {
+    color: #ffffff;
+}

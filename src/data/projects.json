@@ -1,0 +1,79 @@
+[
+  {
+    "id": "project-1",
+    "title": "AI-Powered Code Review Assistant",
+    "subtitle": "Open Source",
+    "period": "2023 - Present",
+    "overview": "Intelligent code review tool using GPT-4 to provide automated feedback on pull requests, reducing review time by 40%.",
+    "details": {
+      "description": "A VS Code extension that analyzes code changes and provides intelligent suggestions for improvements, bug detection, and best practices.",
+      "problem": "Code reviews are time-consuming and often miss subtle bugs or style inconsistencies.",
+      "approach": "Integrated GPT-4 API with custom prompts for code analysis. Built VS Code extension using TypeScript and implemented caching for performance.",
+      "impact": "1,000+ downloads, 4.8/5 star rating, featured in VS Code marketplace. Reduced average code review time by 40% in beta testing.",
+      "skills": ["TypeScript", "GPT-4 API", "VS Code Extension API", "Node.js", "React"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/yourusername/ai-code-reviewer" },
+        { "label": "VS Code Marketplace", "url": "https://marketplace.visualstudio.com" }
+      ]
+    },
+    "badge": "Ideation"
+  },
+  {
+    "id": "project-2",
+    "title": "Real-Time Collaborative Whiteboard",
+    "subtitle": "Personal Project",
+    "period": "2023",
+    "overview": "Web-based collaborative whiteboard with real-time synchronization, supporting 100+ concurrent users per room.",
+    "details": {
+      "description": "A feature-rich collaborative whiteboard application with drawing tools, shapes, text, and real-time collaboration using WebSockets.",
+      "problem": "Existing whiteboard solutions were expensive or lacked real-time collaboration features.",
+      "approach": "Built with React for frontend, Node.js + Socket.io for real-time communication, and Canvas API for drawing. Implemented operational transformation for conflict resolution.",
+      "impact": "Used by 5,000+ users. Featured on Product Hunt with 200+ upvotes.",
+      "skills": ["React", "Socket.io", "Node.js", "Canvas API", "Redis", "MongoDB"],
+      "links": [
+        { "label": "Live Demo", "url": "https://whiteboard-demo.com" },
+        { "label": "GitHub", "url": "https://github.com/yourusername/collab-whiteboard" }
+      ]
+    },
+    "badge": "Completed"
+  },
+  {
+    "id": "project-3",
+    "title": "Smart Expense Tracker",
+    "subtitle": "Mobile App",
+    "period": "2022",
+    "overview": "Mobile app for tracking expenses with AI-powered categorization and budget insights, 10K+ downloads.",
+    "details": {
+      "description": "Cross-platform mobile app that automatically categorizes expenses using machine learning and provides personalized budget recommendations.",
+      "problem": "Manual expense tracking is tedious and people often lose track of spending patterns.",
+      "approach": "Built with React Native for cross-platform support. Implemented ML model for expense categorization using TensorFlow.js. Used Firebase for backend.",
+      "impact": "10,000+ downloads, 4.5/5 rating on app stores. Helped users save an average of $200/month.",
+      "skills": ["React Native", "TensorFlow.js", "Firebase", "TypeScript", "Machine Learning"],
+      "links": [
+        { "label": "App Store", "url": "https://apps.apple.com" },
+        { "label": "Play Store", "url": "https://play.google.com" }
+      ]
+    },
+    "badge": "In Progress"
+  },
+  {
+    "id": "project-4",
+    "title": "DevOps Automation Toolkit",
+    "subtitle": "CLI Tool",
+    "period": "2021",
+    "overview": "Command-line tool for automating common DevOps tasks, reducing deployment setup time from hours to minutes.",
+    "details": {
+      "description": "A comprehensive CLI toolkit that automates infrastructure provisioning, CI/CD setup, and monitoring configuration.",
+      "problem": "Setting up DevOps infrastructure for new projects was repetitive and error-prone.",
+      "approach": "Built with Python and Click framework. Integrated with AWS, Docker, and Kubernetes APIs. Created templates for common setups.",
+      "impact": "500+ GitHub stars. Reduced infrastructure setup time by 80% for new projects.",
+      "skills": ["Python", "AWS", "Docker", "Kubernetes", "Terraform", "Bash"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/yourusername/devops-toolkit" },
+        { "label": "Documentation", "url": "https://devops-toolkit-docs.com" }
+      ]
+    },
+    "isEmpty": false,
+    "badge": "Active"
+  }
+]

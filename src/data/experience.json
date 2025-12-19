@@ -1,0 +1,45 @@
+[
+  {
+    "id": "exp-1",
+    "title": "Senior Software Engineer",
+    "subtitle": "TechCorp Solutions",
+    "period": "Jan 2022 - Present",
+    "overview": "Leading development of cloud-native microservices architecture serving 2M+ users with 99.9% uptime.",
+    "details": {
+      "problem": "Legacy monolithic application causing deployment bottlenecks, scaling issues, and frequent downtime during peak traffic.",
+      "approach": "Designed and implemented event-driven microservices using Node.js, Kafka, and Kubernetes. Introduced CI/CD pipelines and comprehensive monitoring.",
+      "impact": "Reduced deployment time by 75%, improved system reliability to 99.9% uptime, and decreased infrastructure costs by 40% through auto-scaling.",
+      "skills": ["Node.js", "Kubernetes", "Kafka", "AWS", "Docker", "TypeScript", "PostgreSQL"],
+      "links": []
+    }
+  },
+  {
+    "id": "exp-2",
+    "title": "Full-Stack Developer",
+    "subtitle": "InnovateLabs",
+    "period": "Jun 2020 - Dec 2021",
+    "overview": "Built and maintained customer-facing web applications using React and Python, serving 500K+ monthly active users.",
+    "details": {
+      "problem": "Outdated user interface leading to poor user engagement and high bounce rates.",
+      "approach": "Redesigned frontend using React with modern UI/UX principles. Optimized backend APIs and implemented caching strategies.",
+      "impact": "Increased user engagement by 60%, reduced page load times by 50%, and improved conversion rates by 35%.",
+      "skills": ["React", "Python", "Django", "PostgreSQL", "Redis", "AWS"],
+      "links": []
+    }
+  },
+  {
+    "id": "exp-3",
+    "title": "Software Engineering Intern",
+    "subtitle": "DataFlow Inc",
+    "period": "Jun 2019 - Aug 2019",
+    "overview": "Developed data processing pipelines and contributed to internal analytics dashboard used by 200+ employees.",
+    "details": {
+      "problem": "Manual data processing taking hours and prone to errors.",
+      "approach": "Built automated ETL pipelines using Python and Apache Airflow. Created real-time dashboards with D3.js.",
+      "impact": "Reduced data processing time from 4 hours to 15 minutes. Improved data accuracy to 99.5%.",
+      "skills": ["Python", "Apache Airflow", "D3.js", "MySQL", "JavaScript"],
+      "links": []
+    },
+    "isEmpty": false
+  }
+]

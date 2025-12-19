@@ -1,0 +1,23 @@
+.page {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.pageTitle {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4xl);
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding-top: 80px;
+    }
+
+    .pageTitle {
+        font-size: var(--text-3xl);
+    }
+}

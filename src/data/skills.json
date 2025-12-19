@@ -1,0 +1,32 @@
+{
+  "skills": [
+    { "name": "Python", "icon": null, "url": "https://www.python.org/" },
+    { "name": "NumPy" },
+    { "name": "Pandas" },
+    { "name": "Matplotlib" , "icon": "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg"},
+    { "name": "Seaborn" , "icon": "https://cdn.worldvectorlogo.com/logos/seaborn-1.svg"},
+    { "name": "Scikit-learn" },
+    { "name": "LangChain" },
+    { "name": "LangFlow" },
+    { "name": "LangGraph" },
+    { "name": "Django" },
+    { "name": "FastAPI" },
+    { "name": "PostgreSQL" },
+    { "name": "Docker" },
+    { "name": "Kubernetes" },
+    { "name": "CI/CD" },
+    { "name": "Git" },
+    { "name": "Bash" },
+    { "name": "Agile/Scrum" },
+    { "name": "System Design" },
+    { "name": "PyTorch" },
+    { "name": "Jupyter" },
+    { "name": "Hugging Face" },
+    { "name": "MLFlow" },
+    { "name": "Streamlit" },
+    { "name": "Flask" },
+    { "name": "n8n" },
+    { "name": "C" },
+    { "name": "C++" }
+  ]
+}

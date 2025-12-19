@@ -1,0 +1,33 @@
+[
+  {
+    "id": "award-1",
+    "title": "Best Innovation Award",
+    "context": "Company Hackathon 2023",
+    "year": "2023",
+    "overview": "Awarded for developing AI-powered code review assistant that reduced review time by 40%.",
+    "details": {
+      "description": "Built an intelligent tool using GPT-4 that automatically reviews pull requests and provides actionable feedback. Competed against 50+ teams and won first place for innovation and practical impact."
+    }
+  },
+  {
+    "id": "award-2",
+    "title": "Outstanding Graduate Award",
+    "context": "Computer Science Department",
+    "year": "2020",
+    "overview": "Recognized for academic excellence and contributions to the university community.",
+    "details": {
+      "description": "Awarded to one graduating student for exceptional academic performance, research contributions, and leadership in student organizations."
+    }
+  },
+  {
+    "id": "award-3",
+    "title": "Open Source Contributor of the Year",
+    "context": "University Tech Conference",
+    "year": "2019",
+    "overview": "Recognized for significant contributions to open-source projects and community building.",
+    "details": {
+      "description": "Contributed 500+ commits to various open-source projects, mentored new contributors, and organized open-source workshops on campus."
+    },
+    "isEmpty": false
+  }
+]
