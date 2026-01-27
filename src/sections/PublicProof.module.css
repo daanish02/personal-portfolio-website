@@ -57,6 +57,11 @@
     border-radius: var(--radius-sm);
 }
 
+/* Dark theme for GitHub chart - invert white background to black */
+.githubChart {
+    filter: invert(1) hue-rotate(180deg) saturate(1.2);
+}
+
 .githubStats {
     margin-bottom: var(--space-lg);
     display: flex;

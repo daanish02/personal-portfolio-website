@@ -12,9 +12,9 @@ export default function PublicProof() {
                     <div className={styles.proofCard}>
                         <h3 className={styles.cardTitle}>GitHub Activity</h3>
                         <div className={styles.embedContainer}>
-                            {/* Restored native colors by removing color hex from URL */}
+                            {/* Black and red color scheme matching website theme */}
                             <img
-                                src={`https://ghchart.rshah.org/${contact.github.statsUsername}`}
+                                src={`https://ghchart.rshah.org/dc2626/${contact.github.statsUsername}`}
                                 alt="GitHub Contributions"
                                 className={styles.githubChart}
                             />

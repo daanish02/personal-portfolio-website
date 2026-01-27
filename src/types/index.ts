@@ -39,7 +39,6 @@ export interface Project {
         skills?: string[];
         links?: Link[];
     };
-    badge?: string;
     isEmpty?: boolean;
 }
 
@@ -63,7 +62,6 @@ export interface Certification {
     title: string;
     issuer: string;
     date: string;
-    status: 'Completed' | 'In Progress' | 'Planned';
     overview: string;
     details?: {
         description?: string;
@@ -116,6 +114,7 @@ export interface Research {
     title: string;
     venue: string;
     date: string;
+    status?: 'In Progress' | 'Under Review' | 'Submitted' | 'Published';
     overview: string;
     details?: {
         description?: string;

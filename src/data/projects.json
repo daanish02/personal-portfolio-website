@@ -10,13 +10,24 @@
       "problem": "Code reviews are time-consuming and often miss subtle bugs or style inconsistencies.",
       "approach": "Integrated GPT-4 API with custom prompts for code analysis. Built VS Code extension using TypeScript and implemented caching for performance.",
       "impact": "1,000+ downloads, 4.8/5 star rating, featured in VS Code marketplace. Reduced average code review time by 40% in beta testing.",
-      "skills": ["TypeScript", "GPT-4 API", "VS Code Extension API", "Node.js", "React"],
+      "skills": [
+        "TypeScript",
+        "GPT-4 API",
+        "VS Code Extension API",
+        "Node.js",
+        "React"
+      ],
       "links": [
-        { "label": "GitHub", "url": "https://github.com/yourusername/ai-code-reviewer" },
-        { "label": "VS Code Marketplace", "url": "https://marketplace.visualstudio.com" }
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/ai-code-reviewer"
+        },
+        {
+          "label": "VS Code Marketplace",
+          "url": "https://marketplace.visualstudio.com"
+        }
       ]
-    },
-    "badge": "Ideation"
+    }
   },
   {
     "id": "project-2",
@@ -29,13 +40,22 @@
       "problem": "Existing whiteboard solutions were expensive or lacked real-time collaboration features.",
       "approach": "Built with React for frontend, Node.js + Socket.io for real-time communication, and Canvas API for drawing. Implemented operational transformation for conflict resolution.",
       "impact": "Used by 5,000+ users. Featured on Product Hunt with 200+ upvotes.",
-      "skills": ["React", "Socket.io", "Node.js", "Canvas API", "Redis", "MongoDB"],
+      "skills": [
+        "React",
+        "Socket.io",
+        "Node.js",
+        "Canvas API",
+        "Redis",
+        "MongoDB"
+      ],
       "links": [
         { "label": "Live Demo", "url": "https://whiteboard-demo.com" },
-        { "label": "GitHub", "url": "https://github.com/yourusername/collab-whiteboard" }
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/collab-whiteboard"
+        }
       ]
-    },
-    "badge": "Completed"
+    }
   },
   {
     "id": "project-3",
@@ -48,13 +68,18 @@
       "problem": "Manual expense tracking is tedious and people often lose track of spending patterns.",
       "approach": "Built with React Native for cross-platform support. Implemented ML model for expense categorization using TensorFlow.js. Used Firebase for backend.",
       "impact": "10,000+ downloads, 4.5/5 rating on app stores. Helped users save an average of $200/month.",
-      "skills": ["React Native", "TensorFlow.js", "Firebase", "TypeScript", "Machine Learning"],
+      "skills": [
+        "React Native",
+        "TensorFlow.js",
+        "Firebase",
+        "TypeScript",
+        "Machine Learning"
+      ],
       "links": [
         { "label": "App Store", "url": "https://apps.apple.com" },
         { "label": "Play Store", "url": "https://play.google.com" }
       ]
-    },
-    "badge": "In Progress"
+    }
   },
   {
     "id": "project-4",
@@ -69,11 +94,13 @@
       "impact": "500+ GitHub stars. Reduced infrastructure setup time by 80% for new projects.",
       "skills": ["Python", "AWS", "Docker", "Kubernetes", "Terraform", "Bash"],
       "links": [
-        { "label": "GitHub", "url": "https://github.com/yourusername/devops-toolkit" },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/devops-toolkit"
+        },
         { "label": "Documentation", "url": "https://devops-toolkit-docs.com" }
       ]
     },
-    "isEmpty": false,
-    "badge": "Active"
+    "isEmpty": false
   }
 ]

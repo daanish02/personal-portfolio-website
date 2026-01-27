@@ -1,25 +1,24 @@
 [
   {
     "id": "vol-1",
-    "title": "Technical Mentor",
-    "organization": "Code for Good",
-    "period": "2021 - Present",
-    "overview": "Mentoring underrepresented students in computer science through weekly 1:1 sessions.",
+    "title": "Volunteer",
+    "organization": "National Service Scheme",
+    "period": "Jul 2023 - June 2024",
+    "overview": "Contributed to community welfare and health initiatives through NSS programs.",
     "details": {
-      "description": "Provide guidance on algorithms, system design, career development, and interview preparation. Help students build projects and prepare for technical interviews.",
-      "impact": "Mentored 25+ students, helped 18 secure internships at top tech companies, and contributed to 40% improvement in technical interview success rate among mentees."
+      "description": "Organized and assisted in college health camps and blood donation drives. Provided educational support to children at a local government school, conducting lessons and mentoring activities.",
+      "impact": "Improved community engagement and participation in health and educational initiatives, supporting both the well-being of students and local residents."
     }
   },
   {
     "id": "vol-2",
-    "title": "Workshop Instructor",
-    "organization": "Girls Who Code",
-    "period": "2020 - 2022",
-    "overview": "Teaching web development and programming fundamentals to high school students.",
+    "title": "Treasurer",
+    "organization": "National Service Scheme",
+    "period": "Aug 2023 - Dec 2023",
+    "overview": "Managed financial operations for NSS activities during the tenure as treasurer.",
     "details": {
-      "description": "Designed and delivered 8-week curriculum covering HTML, CSS, JavaScript, and Python. Organized hackathons and project showcases.",
-      "impact": "Taught 100+ students, 60% continued to pursue computer science in college, and created lasting impact on diversity in tech."
-    },
-    "isEmpty": false
+      "description": "Maintained accurate financial records, including receipts, disbursements, and transfers for various NSS initiatives. Ensured compliance with organizational financial procedures.",
+      "impact": "Streamlined financial management of NSS programs, enabling efficient allocation of funds and transparent reporting to stakeholders."
+    }
   }
 ]

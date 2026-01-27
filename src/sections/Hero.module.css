@@ -24,7 +24,7 @@
     z-index: 2;
     max-width: 900px;
     width: 90%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(10, 10, 10, 1);
     /* Increased opacity for readability */
     padding: 3rem;
     /* Fixed 48px padding */

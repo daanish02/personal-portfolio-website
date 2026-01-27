@@ -1,36 +1,32 @@
 [
   {
     "id": "paper-1",
-    "title": "Efficient Neural Architecture Search via Gradient-Based Optimization",
-    "venue": "International Conference on Machine Learning (ICML)",
-    "date": "2023",
-    "status": "Ideation",
-    "overview": "Novel approach to NAS that reduces search time by 10x while maintaining model performance.",
+    "title": "Design And Implementation Of An ESP32-Based Smart Home Automation System With Environmental Monitoring And Automated Controls",
+    "venue": "IOSR Journal of Electronics and Communication Engineering (IOSR-JECE)",
+    "date": "Nov 2024",
+    "status": "Published",
+    "overview": "Developed an ESP32-based smart home automation system integrating environmental monitoring, device control, and automated safety features, accessible through a mobile application over Wi-Fi.",
     "details": {
-      "description": "We propose a differentiable architecture search method that optimizes neural network architectures using gradient descent. Our approach significantly reduces computational requirements compared to traditional NAS methods while achieving competitive accuracy on ImageNet and CIFAR-10 benchmarks.",
+      "description": "The system manages household components such as relay-controlled bulbs and fans, motion-sensor lights, and automated nightlights. Environmental sensors, including DHT22 for temperature/humidity and MQ2/MQ135 for gas detection, provide real-time safety alerts. Smart gardening is supported via soil moisture sensors and submersible pumps for automated irrigation. Overheat protection ensures safe operation by automatically adjusting device activity. All functionality is accessible and controllable via a mobile app with real-time monitoring capabilities, demonstrating the potential of ESP32 in intelligent home environments.",
       "links": [
-        { "label": "arXiv", "url": "https://arxiv.org/abs/example" },
-        { "label": "Code", "url": "https://github.com/yourusername/efficient-nas" }
+        {
+          "label": "IOSR Journal PDF",
+          "url": "https://www.iosrjournals.org/iosr-jece/papers/Vol.%2019%20Issue%206/Ser-1/C1906012328.pdf"
+        }
       ]
     }
   },
   {
     "id": "paper-2",
-    "title": "Scalable Microservices Architecture for Real-Time Data Processing",
-    "venue": "IEEE International Conference on Cloud Computing",
-    "date": "2022",
+    "title": "Event-Free Survival Prediction for Post-HCT Patients Using Ensemble Methods and Identifying Patient Clusters",
     "status": "In Progress",
-    "overview": "Framework for building scalable microservices that handle millions of events per second.",
+    "overview": "",
     "details": {
-      "description": "Presents a novel architecture pattern for building event-driven microservices with guaranteed message ordering and exactly-once processing semantics. Demonstrates 5x throughput improvement over traditional approaches.",
-      "links": [
-        { "label": "IEEE Xplore", "url": "https://ieeexplore.ieee.org" },
-        { "label": "Slides", "url": "https://slides.com/presentation" }
-      ]
+      "description": ""
     },
     "isEmpty": false
   },
-    {
+  {
     "id": "paper-3",
     "title": "Scalable Microservices Architecture for Real-Time Data Processing",
     "venue": "IEEE International Conference on Cloud Computing",
@@ -46,7 +42,7 @@
     },
     "isEmpty": false
   },
-    {
+  {
     "id": "paper-4",
     "title": "Scalable Microservices Architecture for Real-Time Data Processing",
     "venue": "IEEE International Conference on Cloud Computing",

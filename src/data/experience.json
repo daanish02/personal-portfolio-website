@@ -1,45 +1,60 @@
 [
   {
     "id": "exp-1",
-    "title": "Senior Software Engineer",
-    "subtitle": "TechCorp Solutions",
-    "period": "Jan 2022 - Present",
-    "overview": "Leading development of cloud-native microservices architecture serving 2M+ users with 99.9% uptime.",
+    "title": "Artificial Intelligence Engineer",
+    "subtitle": "One Path Business Solutions",
+    "period": "Jan 2025 - Dec 2025",
+    "overview": "Led the design and delivery of production-grade, AI-driven systems across talent acquisition and knowledge-based reasoning use cases, focusing on agentic workflows and RAG architectures.",
     "details": {
-      "problem": "Legacy monolithic application causing deployment bottlenecks, scaling issues, and frequent downtime during peak traffic.",
-      "approach": "Designed and implemented event-driven microservices using Node.js, Kafka, and Kubernetes. Introduced CI/CD pipelines and comprehensive monitoring.",
-      "impact": "Reduced deployment time by 75%, improved system reliability to 99.9% uptime, and decreased infrastructure costs by 40% through auto-scaling.",
-      "skills": ["Node.js", "Kubernetes", "Kafka", "AWS", "Docker", "TypeScript", "PostgreSQL"],
+      "problem": "Existing recruitment and knowledge-reasoning workflows relied on manual processing, simple rule-based logic, and slow AI pipelines, resulting in high latency, low transparency, and limited scalability across enterprise use cases.",
+      "approach": "Designed and optimized end-to-end AI pipelines for resume parsing, candidate ranking, and automation using hybrid LLM + OCR architectures. Built modular, agent-based systems for parsing, scoring, ranking, reporting, and outreach. Implemented custom ranking pipelines with transparent justification via FastAPI and Python ETL workflows. Developed advanced RAG and graph-based reasoning engines for large-scale text corpora, combining knowledge graphs, iterative query refinement, and prompt optimization. Automated orchestration and monitoring using n8n and LangSmith.",
+      "impact": "Reduced resume parsing latency from 15 seconds to 3 seconds through parallel processing and batching while maintaining high accuracy. Achieved candidate scoring at scale, reduced manual data wrangling by 80%, and delivered AI systems with over 90% retrieval and reasoning accuracy. Enabled enterprise clients to deploy transparent, scalable, and auditable AI-driven workflows across recruitment and knowledge reasoning domains.",
+      "skills": [
+        "Python",
+        "Scikit-learn",
+        "LangChain",
+        "LangGraph",
+        "LangSmith",
+        "LangFlow",
+        "FastAPI",
+        "n8n"
+      ],
       "links": []
     }
   },
   {
     "id": "exp-2",
-    "title": "Full-Stack Developer",
-    "subtitle": "InnovateLabs",
-    "period": "Jun 2020 - Dec 2021",
-    "overview": "Built and maintained customer-facing web applications using React and Python, serving 500K+ monthly active users.",
+    "title": "Software Engineer (Intern)",
+    "subtitle": "AheadRace Software Development Services",
+    "period": "Apr 2022 - Sep 2022",
+    "overview": "Built a machine-learning–powered backend service to process structured datasets and serve predictions via REST APIs.",
     "details": {
-      "problem": "Outdated user interface leading to poor user engagement and high bounce rates.",
-      "approach": "Redesigned frontend using React with modern UI/UX principles. Optimized backend APIs and implemented caching strategies.",
-      "impact": "Increased user engagement by 60%, reduced page load times by 50%, and improved conversion rates by 35%.",
-      "skills": ["React", "Python", "Django", "PostgreSQL", "Redis", "AWS"],
+      "problem": "An internal application relied on hard-coded rules to analyze structured input data, making it difficult to adapt when data patterns changed.",
+      "approach": "Collected and cleaned tabular datasets using Pandas, engineered input features, and trained classification models using Scikit-learn. Implemented a PyTorch prototype to compare results against classical models. Wrapped the selected model inside a FastAPI service with a `/predict` endpoint and tested requests using payloads. Managed code versions and iterations using Git.",
+      "impact": "Replaced rule-based logic with a deployable ML inference service, enabling the team to update model behavior through retraining instead of code changes and accelerating experimentation during development.",
+      "skills": [
+        "Python",
+        "Pandas",
+        "Scikit-learn",
+        "PyTorch",
+        "FastAPI",
+        "Git"
+      ],
       "links": []
     }
   },
   {
     "id": "exp-3",
-    "title": "Software Engineering Intern",
-    "subtitle": "DataFlow Inc",
-    "period": "Jun 2019 - Aug 2019",
-    "overview": "Developed data processing pipelines and contributed to internal analytics dashboard used by 200+ employees.",
+    "title": "Teaching Assistant",
+    "subtitle": "Delta Sigma Technologies",
+    "period": "Jun 2022 - Jul 2022",
+    "overview": "Supported hands-on training in Python and applied data science, focusing on practical problem-solving and real-world datasets.",
     "details": {
-      "problem": "Manual data processing taking hours and prone to errors.",
-      "approach": "Built automated ETL pipelines using Python and Apache Airflow. Created real-time dashboards with D3.js.",
-      "impact": "Reduced data processing time from 4 hours to 15 minutes. Improved data accuracy to 99.5%.",
-      "skills": ["Python", "Apache Airflow", "D3.js", "MySQL", "JavaScript"],
+      "problem": "Students struggled to translate theoretical concepts in Python and machine learning into working code for data analysis and modeling tasks.",
+      "approach": "Conducted guided lab sessions covering data preprocessing, data visualization, and implementation of basic machine learning models. Reviewed student code, debugged errors, and provided targeted feedback to improve correctness and clarity.",
+      "impact": "Enabled students to independently complete data analysis and machine learning assignments, improving code quality, conceptual understanding, and confidence in working with real datasets.",
+      "skills": ["Python", "Pandas", "Matplotlib", "NumPy", "Scikit-learn"],
       "links": []
-    },
-    "isEmpty": false
+    }
   }
 ]

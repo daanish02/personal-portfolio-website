@@ -90,11 +90,15 @@ export default function ExpandableCard({ data }: ExpandableCardProps) {
                     </p>
                 ) : null}
 
-                {(('status' in data && data.status) || ('badge' in data && data.badge)) && (
-                    <span className={`${styles.badge} ${styles[((data as any).status || (data as any).badge).toLowerCase().replace(' ', '-')]}`}>
-                        {(data as any).status || (data as any).badge}
+                {('status' in data && data.status && 'venue' in data) ? (
+                    <p className={styles.researchStatus}>{(data as any).status}</p>
+                ) : null}
+
+                {('badge' in data && data.badge) ? (
+                    <span className={`${styles.badge} ${styles[((data as any).badge as string).toLowerCase().replace(' ', '-')]}`}>
+                        {(data as any).badge as string}
                     </span>
-                )}
+                ) : null}
 
                 <p className={styles.overview}>{data.overview}</p>
             </div>

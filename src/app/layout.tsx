@@ -5,9 +5,9 @@ import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
 
 export const metadata: Metadata = {
-    title: 'Danish Ahmed | AI Engineer & Problem Solver',
+    title: 'Danish Ahmed | AI Engineer & Solution Architect',
     description: 'Portfolio of Danish Ahmed - AI Engineer passionate about building scalable systems and solving complex problems.',
-    keywords: ['Danish Ahmed', 'AI Engineer', 'Portfolio'],
+    keywords: ['Danish Ahmed', 'AI Engineer', 'Portfolio', 'Agentic AI', 'AI'],
     authors: [{ name: 'Danish Ahmed' }],
     openGraph: {
         title: 'Danish Ahmed | AI Engineer',

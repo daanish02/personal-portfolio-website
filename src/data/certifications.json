@@ -1,41 +1,44 @@
 [
   {
     "id": "cert-1",
-    "title": "AWS Certified Solutions Architect - Professional",
-    "issuer": "Amazon Web Services",
-    "date": "2023",
-    "status": "Completed",
-    "overview": "Advanced certification demonstrating expertise in designing distributed systems on AWS.",
+    "title": "Machine Learning Specialization",
+    "issuer": "Stanford University",
+    "date": "2024",
+    "overview": "Comprehensive specialization covering supervised, unsupervised learning, with recommender systems and deep learning fundamentals.",
     "details": {
-      "description": "Comprehensive exam covering advanced architecture patterns, security, cost optimization, migration strategies, and operational excellence on AWS. Validates ability to design and deploy dynamically scalable, highly available, fault-tolerant, and reliable applications.",
+      "description": "Three-course specialization taught by Andrew Ng covering regression, classification, neural networks, decision trees, recommender systems, and best practices for ML development. Includes hands-on projects implementing algorithms from scratch.",
       "links": [
-        { "label": "Verify Certificate", "url": "https://aws.amazon.com/verification" }
+        {
+          "label": "Certificate",
+          "url": "https://coursera.org/share/5c3fe44fd9c20349adfdf7825c82585a"
+        }
       ]
     }
   },
   {
     "id": "cert-2",
-    "title": "Certified Kubernetes Administrator (CKA)",
-    "issuer": "Cloud Native Computing Foundation",
-    "date": "2022",
-    "status": "In Progress",
-    "overview": "Hands-on certification validating skills in Kubernetes cluster administration and troubleshooting.",
+    "title": "Mathematics for Machine Learning and Data Science",
+    "issuer": "DeepLearning.AI",
+    "date": "2024",
+    "overview": "Comprehensive specialization covering linear algebra, calculus, probability, and statistics.",
     "details": {
-      "description": "Performance-based exam testing ability to perform tasks in cluster architecture, installation, configuration, networking, storage, security, and troubleshooting. Demonstrates proficiency in managing production-grade Kubernetes environments.",
+      "description": "",
       "links": [
-        { "label": "Verify Certificate", "url": "https://training.linuxfoundation.org/certification/verify/" }
+        {
+          "label": "Certificate",
+          "url": "https://coursera.org/share/3350784bdd2c1800513c9fdc49f5f90e"
+        }
       ]
     }
   },
   {
     "id": "cert-3",
-    "title": "Machine Learning Specialization",
-    "issuer": "Stanford University (Coursera)",
-    "date": "2023",
-    "status": "Planned",
-    "overview": "Comprehensive specialization covering supervised learning, unsupervised learning, and deep learning fundamentals.",
+    "title": "Azure Data Scientist Associate DP-100",
+    "issuer": "Microsoft",
+    "date": "2025",
+    "overview": "Comprehensive certification covering data science, machine learning, with deployment and management of models, along with generative AI apps.",
     "details": {
-      "description": "Three-course specialization taught by Andrew Ng covering regression, classification, neural networks, decision trees, recommender systems, and best practices for ML development. Includes hands-on projects implementing algorithms from scratch.",
+      "description": "",
       "links": [
         { "label": "Certificate", "url": "https://coursera.org/verify" }
       ]
@@ -43,27 +46,15 @@
   },
   {
     "id": "cert-4",
-    "title": "Full-Stack Web Development Bootcamp",
-    "issuer": "Le Wagon",
-    "date": "2020",
-    "status": "Completed",
-    "overview": "Intensive 9-week bootcamp covering full-stack development with Ruby on Rails and JavaScript.",
+    "title": "Azure AI Engineer Associate AI-102",
+    "issuer": "Microsoft",
+    "date": "2025",
+    "overview": "Comprehensive certification covering AI agents, natural language and computer vision solutions, AI information extraction and generative AI apps.",
     "details": {
-      "description": "Intensive program covering web development fundamentals, Ruby on Rails, JavaScript, React, databases, deployment, and agile methodologies. Built 3 full-stack applications including a final project deployed to production.",
-      "links": []
+      "description": "",
+      "links": [
+        { "label": "Certificate", "url": "https://coursera.org/verify" }
+      ]
     }
-  },
-  {
-    "id": "cert-5",
-    "title": "Google Cloud Professional Cloud Architect",
-    "issuer": "Google Cloud",
-    "date": "2024",
-    "status": "In Progress",
-    "overview": "Currently preparing for GCP architect certification to expand multi-cloud expertise.",
-    "details": {
-      "description": "Studying cloud architecture patterns, GCP services, migration strategies, and cost optimization. Planning to take exam in Q1 2024.",
-      "links": []
-    },
-    "isEmpty": false
   }
 ]

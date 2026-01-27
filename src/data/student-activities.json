@@ -1,36 +1,47 @@
 [
   {
     "id": "activity-1",
-    "title": "President, Computer Science Club",
-    "organization": "University of Technology",
-    "period": "2018 - 2020",
-    "overview": "Led a team of 60+ students in organizing hackathons, workshops, and tech talks.",
+    "title": "Vice Chair",
+    "organization": "The Robotics Centre, MJCET",
+    "period": "Jul 2024 - Jun 2025",
+    "overview": "Leading club operations and strategy initiatives to enhance community engagement and streamline event execution.",
     "details": {
-      "description": "Managed club operations, coordinated with sponsors, and organized events to promote computer science education and community building.",
-      "impact": "Organized 3 major hackathons with 300+ participants, secured $75K in sponsorships, increased club membership by 200%, and established partnerships with 10+ tech companies for recruiting events."
+      "description": "Organized meetings to plan events, coordinate strategies, and ensure smooth operations through effective communication with all teams.",
+      "impact": "Improved club reach and participation through strategic initiatives and collaborative efforts, fostering a stronger robotics community within the college."
     }
   },
   {
     "id": "activity-2",
-    "title": "Lead Developer, University Mobile App",
-    "organization": "Student Innovation Lab",
-    "period": "2019 - 2020",
-    "overview": "Led development of official university mobile app used by 15,000+ students.",
+    "title": "Vice Chair",
+    "organization": "IEEE Computer Society SB, MJCET",
+    "period": "Jul 2024 - Jun 2025",
+    "overview": "Assisting the chair in managing and executing events while providing oversight and guidance to team members.",
     "details": {
-      "description": "Managed team of 5 developers building cross-platform mobile app for campus services including course registration, dining hall menus, event calendar, and campus maps.",
-      "impact": "App downloaded by 15,000+ students, 4.6/5 rating on app stores, reduced paper waste by digitizing campus services, and improved student engagement with university events by 40%."
+      "description": "Supported the chair in organizing, coordinating, and executing technical events and workshops, ensuring smooth operations across all teams.",
+      "impact": "Enhanced event quality and team performance by maintaining effective supervision and structured workflows for multiple initiatives."
     }
   },
   {
     "id": "activity-3",
-    "title": "Competitive Programming Team Member",
-    "organization": "ACM ICPC Team",
-    "period": "2017 - 2019",
-    "overview": "Represented university in regional and national programming competitions.",
+    "title": "Technical Head",
+    "organization": "The Robotics Centre, MJCET",
+    "period": "Jul 2023 - Jun 2024",
+    "overview": "Provided technical leadership for system design, testing, and team mentoring in programming and automation.",
     "details": {
-      "description": "Trained 10+ hours weekly on algorithmic problem-solving, participated in team competitions, and mentored junior students.",
-      "impact": "Placed 12th in ACM ICPC Regional Finals 2019, solved 500+ problems on competitive programming platforms, and mentored 20+ students in algorithms and data structures."
+      "description": "Guided team members in technical aspects of robotics projects, organized tech workshops, and supervised system testing and development.",
+      "impact": "Successfully executed workshops and achieved strong performance in RoboVeda competitions, demonstrating technical excellence and mentoring impact."
     },
     "isEmpty": false
+  },
+  {
+    "id": "activity-4",
+    "title": "Core Team Member",
+    "organization": "Robotics Centre, MJCET",
+    "period": "Jul 2022 - Jun 2023",
+    "overview": "Contributed to hands-on robotics projects and educational workshops for students.",
+    "details": {
+      "description": "Conducted workshops providing guidance on microcontrollers, sensors, and actuators. Delivered talks on robotics and drone technologies at events and seminars.",
+      "impact": "Enhanced student learning and engagement in robotics, fostering practical skills and knowledge in electronics and automation."
+    }
   }
 ]

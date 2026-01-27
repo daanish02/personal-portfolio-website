@@ -1,6 +1,6 @@
 import Education from '@/sections/Education';
 import Research from '@/sections/Research';
-import Awards from '@/sections/Awards';
+// import Awards from '@/sections/Awards';
 
 export default function BackgroundPage() {
     return (
@@ -12,7 +12,7 @@ export default function BackgroundPage() {
             <Research />
 
             {/* 3. Awards and Recognition */}
-            <Awards />
+            {/* <Awards /> */}
         </div>
     );
 }

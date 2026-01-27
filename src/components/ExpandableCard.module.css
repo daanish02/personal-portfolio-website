@@ -71,6 +71,14 @@
     margin: 0;
 }
 
+.researchStatus {
+    font-size: var(--text-sm);
+    color: #dc2626;
+    font-style: italic;
+    margin: var(--space-xs) 0 0 0;
+    font-weight: 500;
+}
+
 .overview {
     font-size: var(--text-base);
     color: var(--text-secondary);
@@ -141,6 +149,34 @@
     background: rgba(249, 115, 22, 0.1);
     color: #f97516;
     border-color: rgba(249, 115, 22, 0.3);
+}
+
+.badge.under-review {
+    background: rgba(220, 38, 38, 0.15);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.4);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.badge.in-progress {
+    font-style: italic;
+}
+
+.badge.submitted {
+    background: rgba(220, 38, 38, 0.15);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.4);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.badge.published {
+    background: rgba(220, 38, 38, 0.15);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.4);
+    font-style: italic;
+    font-weight: 600;
 }
 
 /* Chevron Icon */

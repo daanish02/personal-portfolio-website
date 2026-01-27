@@ -8,8 +8,8 @@ import aboutData from '@/data/about.json';
 
 const NAV_LINKS = [
     { href: '/', label: 'Portfolio' },
-    { href: '/background', label: 'Credentials' },
-    { href: '/depth', label: 'More' }
+    { href: '/credentials', label: 'Credentials' },
+    { href: '/more', label: 'More' }
 ];
 
 export default function Header() {

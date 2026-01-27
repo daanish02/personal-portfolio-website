@@ -190,7 +190,7 @@ export default function Hero() {
 
                 {/* Availability Status */}
                 <a href={`mailto:${contactData.email}`} className={styles.availability}>
-                    Build. Design. Deliver. Whatever is needed.
+                    Design. Build. Deliver. As needed.
                 </a>
             </div>
         </section>
