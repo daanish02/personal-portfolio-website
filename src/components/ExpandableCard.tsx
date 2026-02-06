@@ -38,8 +38,9 @@ export default function ExpandableCard({ data }: ExpandableCardProps) {
             role={hasDetails && !isEmpty ? 'button' : 'article'}
             aria-expanded={hasDetails && !isEmpty ? isExpanded : undefined}
         >
-            {/* Header - Always Visible */}
-            <div className={styles.header}>
+            <div className={styles.cardInner}>
+                {/* Header - Always Visible */}
+                <div className={styles.header}>
                 <div className={styles.titleRow}>
                     <h3 className={styles.title}>{data.title}</h3>
                     {hasDetails && !isEmpty && (
@@ -182,6 +183,7 @@ export default function ExpandableCard({ data }: ExpandableCardProps) {
             {isEmpty && (
                 <p className={styles.emptyMessage}>Details coming soon</p>
             )}
+            </div>
         </div>
     );
 }

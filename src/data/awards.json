@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "award-1",
+    "title": "Top 30 Under 30 in AI",
+    "context": "Forbes",
+    "year": "2023",
+    "overview": "Recognized for contributions to efficient deep learning.",
+    "isEmpty": false,
+    "details": {
+      "description": "Selected based on research impact and industry contributions."
+    }
+  }
+]

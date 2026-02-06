@@ -18,7 +18,7 @@ export default function Education() {
                                 <h3 className={styles.degree}>{edu.degree}</h3>
                                 <p className={styles.institution}>{edu.institution}</p>
                                 <p className={styles.period}>{edu.period}</p>
-                                {edu.gpa && <p className={styles.gpa}>GPA: {edu.gpa}</p>}
+                                {edu.gpa && <p className={styles.gpa}>Grade: {edu.gpa}</p>}
                                 {edu.highlights && edu.highlights.length > 0 && (
                                     <ul className={styles.highlights}>
                                         {edu.highlights.map((highlight, i) => (

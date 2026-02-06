@@ -35,6 +35,17 @@
   },
   {
     "id": "activity-4",
+    "title": "Student Chief Editor",
+    "organization": "Channel ECE",
+    "period": "Dec 2023 - Nov 2024",
+    "overview": "Led editorial planning and publication of departmental newsletters.",
+    "details": {
+      "description": "Managed multiple editorial projects simultaneously, coordinating content collection, editing, and design workflows. Oversaw the creation and publication of both annual and monthly newsletters.",
+      "impact": "Ensured consistent and timely newsletter releases under tight deadlines, improving communication and information sharing within the department."
+    }
+  },
+  {
+    "id": "activity-5",
     "title": "Core Team Member",
     "organization": "Robotics Centre, MJCET",
     "period": "Jul 2022 - Jun 2023",

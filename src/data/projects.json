@@ -1,106 +1,222 @@
 [
   {
     "id": "project-1",
-    "title": "AI-Powered Code Review Assistant",
-    "subtitle": "Open Source",
-    "period": "2023 - Present",
-    "overview": "Intelligent code review tool using GPT-4 to provide automated feedback on pull requests, reducing review time by 40%.",
+    "title": "Energy Demand Forecasting System",
+    "subtitle": "Machine Learning Project",
+    "period": "2025",
+    "overview": "Time-series forecasting system on Spain energy data achieving 1% MAPE with LSTM.",
     "details": {
-      "description": "A VS Code extension that analyzes code changes and provides intelligent suggestions for improvements, bug detection, and best practices.",
-      "problem": "Code reviews are time-consuming and often miss subtle bugs or style inconsistencies.",
-      "approach": "Integrated GPT-4 API with custom prompts for code analysis. Built VS Code extension using TypeScript and implemented caching for performance.",
-      "impact": "1,000+ downloads, 4.8/5 star rating, featured in VS Code marketplace. Reduced average code review time by 40% in beta testing.",
+      "description": "Built a comprehensive time-series forecasting pipeline to predict hourly energy demand using statistical and deep learning models.",
+      "problem": "Accurate energy demand forecasting is crucial for grid stability and cost optimization.",
+      "approach": "Implemented ARIMA, Prophet, and LSTM on 35K hourly records (2015–2018). Created automated backtesting and a Streamlit dashboard for comparison.",
+      "impact": "Achieved 1% MAPE with LSTM, reducing forecasting error by 83%.",
       "skills": [
-        "TypeScript",
-        "GPT-4 API",
-        "VS Code Extension API",
-        "Node.js",
-        "React"
+        "Python",
+        "LSTM",
+        "ARIMA",
+        "Prophet",
+        "Pandas",
+        "Streamlit",
+        "Time-Series Forecasting"
       ],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/ai-code-reviewer"
-        },
-        {
-          "label": "VS Code Marketplace",
-          "url": "https://marketplace.visualstudio.com"
-        }
-      ]
+      "links": []
     }
   },
   {
     "id": "project-2",
-    "title": "Real-Time Collaborative Whiteboard",
-    "subtitle": "Personal Project",
-    "period": "2023",
-    "overview": "Web-based collaborative whiteboard with real-time synchronization, supporting 100+ concurrent users per room.",
+    "title": "Blockchain-based Voting System",
+    "subtitle": "Security Project",
+    "period": "2025",
+    "overview": "Decentralized voting platform with privacy-preserving verification.",
     "details": {
-      "description": "A feature-rich collaborative whiteboard application with drawing tools, shapes, text, and real-time collaboration using WebSockets.",
-      "problem": "Existing whiteboard solutions were expensive or lacked real-time collaboration features.",
-      "approach": "Built with React for frontend, Node.js + Socket.io for real-time communication, and Canvas API for drawing. Implemented operational transformation for conflict resolution.",
-      "impact": "Used by 5,000+ users. Featured on Product Hunt with 200+ upvotes.",
+      "description": "Developed a secure digital voting system using a custom blockchain and cryptographic techniques.",
+      "problem": "Traditional voting systems face transparency and tampering concerns.",
+      "approach": "Implemented Python-based blockchain with homomorphic encryption for privacy-preserving vote validation.",
+      "impact": "Enabled verifiable and auditable elections while preserving voter anonymity.",
       "skills": [
-        "React",
-        "Socket.io",
-        "Node.js",
-        "Canvas API",
-        "Redis",
-        "MongoDB"
+        "Python",
+        "Blockchain",
+        "Cryptography",
+        "Homomorphic Encryption",
+        "Distributed Systems"
       ],
-      "links": [
-        { "label": "Live Demo", "url": "https://whiteboard-demo.com" },
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/collab-whiteboard"
-        }
-      ]
+      "links": []
     }
   },
   {
     "id": "project-3",
-    "title": "Smart Expense Tracker",
-    "subtitle": "Mobile App",
-    "period": "2022",
-    "overview": "Mobile app for tracking expenses with AI-powered categorization and budget insights, 10K+ downloads.",
+    "title": "Survival Modelling in Post-HCT Patients",
+    "subtitle": "Healthcare ML",
+    "period": "2025",
+    "overview": "Clinical survival prediction using ensemble ML models.",
     "details": {
-      "description": "Cross-platform mobile app that automatically categorizes expenses using machine learning and provides personalized budget recommendations.",
-      "problem": "Manual expense tracking is tedious and people often lose track of spending patterns.",
-      "approach": "Built with React Native for cross-platform support. Implemented ML model for expense categorization using TensorFlow.js. Used Firebase for backend.",
-      "impact": "10,000+ downloads, 4.5/5 rating on app stores. Helped users save an average of $200/month.",
+      "description": "Performed survival analysis on censored transplant patient data to identify outcome predictors.",
+      "problem": "Highly censored medical datasets complicate outcome prediction.",
+      "approach": "Feature engineering and model comparison using XGBoost, LightGBM, and CatBoost.",
+      "impact": "Achieved 0.79 AUC in patient outcome prediction.",
       "skills": [
-        "React Native",
-        "TensorFlow.js",
-        "Firebase",
-        "TypeScript",
-        "Machine Learning"
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "XGBoost",
+        "LightGBM",
+        "CatBoost",
+        "Survival Analysis"
       ],
-      "links": [
-        { "label": "App Store", "url": "https://apps.apple.com" },
-        { "label": "Play Store", "url": "https://play.google.com" }
-      ]
+      "links": []
     }
   },
   {
     "id": "project-4",
-    "title": "DevOps Automation Toolkit",
-    "subtitle": "CLI Tool",
-    "period": "2021",
-    "overview": "Command-line tool for automating common DevOps tasks, reducing deployment setup time from hours to minutes.",
+    "title": "Vision-based Navigational Autonomous Vehicle",
+    "subtitle": "Robotics Project",
+    "period": "2025",
+    "overview": "Autonomous robot using YOLOv5 for real-time navigation.",
     "details": {
-      "description": "A comprehensive CLI toolkit that automates infrastructure provisioning, CI/CD setup, and monitoring configuration.",
-      "problem": "Setting up DevOps infrastructure for new projects was repetitive and error-prone.",
-      "approach": "Built with Python and Click framework. Integrated with AWS, Docker, and Kubernetes APIs. Created templates for common setups.",
-      "impact": "500+ GitHub stars. Reduced infrastructure setup time by 80% for new projects.",
-      "skills": ["Python", "AWS", "Docker", "Kubernetes", "Terraform", "Bash"],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/devops-toolkit"
-        },
-        { "label": "Documentation", "url": "https://devops-toolkit-docs.com" }
-      ]
-    },
-    "isEmpty": false
+      "description": "Designed a navigation robot with computer vision and multi-sensor fusion.",
+      "problem": "Autonomous navigation requires reliable real-time obstacle detection.",
+      "approach": "Used YOLOv5 on Jetson Nano with ultrasonic and IR sensors integrated via Arduino and ESP32.",
+      "impact": "Enabled dynamic speed control and accurate point-to-point navigation.",
+      "skills": [
+        "YOLOv5",
+        "NVIDIA Jetson Nano",
+        "Arduino",
+        "ESP32",
+        "Computer Vision",
+        "Robotics"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-5",
+    "title": "Crop Recommendation System",
+    "subtitle": "Data Science Project",
+    "period": "2024",
+    "overview": "ML system recommending optimal crops using long-term agricultural data.",
+    "details": {
+      "description": "Built a predictive system to recommend top crops based on soil and climate data.",
+      "problem": "Farmers struggle to select crops that maximize yield.",
+      "approach": "Performed cleaning, merging, and regression modeling on 30 years of data.",
+      "impact": "Achieved 0.84 R² and delivered top-5 crop predictions.",
+      "skills": [
+        "Scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Data Cleaning",
+        "Regression Modeling"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-6",
+    "title": "Real-Time Sign Language Recognition",
+    "subtitle": "Embedded ML",
+    "period": "2024",
+    "overview": "Sensor-based glove system translating gestures to speech.",
+    "details": {
+      "description": "Built smart gloves capturing hand motion and transmitting data for ML classification.",
+      "problem": "Communication barriers for sign language users.",
+      "approach": "Used flex sensors and IMU sensors with ESP32 and cloud-based Random Forest.",
+      "impact": "Achieved 98% classification accuracy with real-time TTS output.",
+      "skills": ["ESP32", "Sensors", "Random Forest", "WebSockets", "IoT"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-7",
+    "title": "Smart Home Management System",
+    "subtitle": "IoT Project",
+    "period": "2023",
+    "overview": "Voice-controlled IoT home automation ecosystem.",
+    "details": {
+      "description": "Designed a low-cost smart home system with safety and automation features.",
+      "problem": "Smart home solutions are often expensive and complex.",
+      "approach": "Integrated ESP32 with gas, smoke, and thermal sensors plus irrigation automation.",
+      "impact": "Enabled no-code automation for end-users.",
+      "skills": ["ESP32", "IoT", "Sensors", "Home Automation"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-8",
+    "title": "CNC Handwriting Machine",
+    "subtitle": "Mechatronics Project",
+    "period": "2023",
+    "overview": "Two-axis CNC plotter replicating handwriting.",
+    "details": {
+      "description": "Built CNC system to reproduce text and drawings with high precision.",
+      "problem": "Automated handwriting replication requires fine motor control.",
+      "approach": "Programmed G-code interpreter controlling stepper motors on a custom frame.",
+      "impact": "Achieved sub-millimeter drawing accuracy.",
+      "skills": ["CNC", "Arduino", "G-code", "Stepper Motors", "3D Printing"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-9",
+    "title": "Collision Avoidance Bot",
+    "subtitle": "Robotics Project",
+    "period": "2022",
+    "overview": "Autonomous robot with dynamic obstacle avoidance.",
+    "details": {
+      "description": "Built a robot that adjusts speed based on real-time distance sensing.",
+      "problem": "Robots require adaptive navigation in cluttered spaces.",
+      "approach": "Used ultrasonic sensors and proportional control algorithms.",
+      "impact": "Enabled safe navigation in variable environments.",
+      "skills": [
+        "Arduino",
+        "Ultrasonic Sensors",
+        "Control Systems",
+        "Robotics"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-10",
+    "title": "Automatic Result Collection Bot",
+    "subtitle": "Automation Project",
+    "period": "2022",
+    "overview": "Selenium bot for automated academic result scraping.",
+    "details": {
+      "description": "Created a bot to retrieve and organize student results automatically.",
+      "problem": "Manual result collection is repetitive and slow.",
+      "approach": "Used Selenium WebDriver with structured storage logic.",
+      "impact": "Saved significant manual effort for bulk result retrieval.",
+      "skills": ["Python", "Selenium", "Web Scraping", "Automation"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-11",
+    "title": "Kaggle 2022 MLDS Survey Analysis",
+    "subtitle": "Data Analysis",
+    "period": "2022",
+    "overview": "EDA and dashboard on global ML practitioner trends.",
+    "details": {
+      "description": "Analyzed Kaggle survey data for industry insights.",
+      "problem": "Understanding global ML trends requires deep data analysis.",
+      "approach": "Performed cleaning, augmentation, and visualization with Streamlit.",
+      "impact": "Identified salary and technology adoption patterns.",
+      "skills": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-12",
+    "title": "Unmanned Person-Following Drone",
+    "subtitle": "Aerial Robotics",
+    "period": "2022",
+    "overview": "Vision-based quadcopter that tracks and follows a person.",
+    "details": {
+      "description": "Built a drone capable of autonomous person tracking.",
+      "problem": "Maintaining stable tracking requires robust vision algorithms.",
+      "approach": "Used Jetson Nano with Pixhawk and pixel-based tracking.",
+      "impact": "Achieved stable real-time following behavior.",
+      "skills": ["Jetson Nano", "Pixhawk", "Computer Vision", "Drone Control"],
+      "links": []
+    }
   }
 ]

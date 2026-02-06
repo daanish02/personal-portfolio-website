@@ -1,13 +1,13 @@
 [
   {
     "id": "exp-1",
-    "title": "Artificial Intelligence Engineer",
-    "subtitle": "One Path Business Solutions",
-    "period": "Jan 2025 - Dec 2025",
-    "overview": "Led the design and delivery of production-grade, AI-driven systems across talent acquisition and knowledge-based reasoning use cases, focusing on agentic workflows and RAG architectures.",
+    "title": "Software Developer",
+    "subtitle": "TriStar Consulting Agency",
+    "period": "Apr 2025 - Present",
+    "overview": "Led design and delivery of production-grade, AI systems across talent acquisition and knowledge-based reasoning, focusing on agentic workflows and RAG architectures.",
     "details": {
       "problem": "Existing recruitment and knowledge-reasoning workflows relied on manual processing, simple rule-based logic, and slow AI pipelines, resulting in high latency, low transparency, and limited scalability across enterprise use cases.",
-      "approach": "Designed and optimized end-to-end AI pipelines for resume parsing, candidate ranking, and automation using hybrid LLM + OCR architectures. Built modular, agent-based systems for parsing, scoring, ranking, reporting, and outreach. Implemented custom ranking pipelines with transparent justification via FastAPI and Python ETL workflows. Developed advanced RAG and graph-based reasoning engines for large-scale text corpora, combining knowledge graphs, iterative query refinement, and prompt optimization. Automated orchestration and monitoring using n8n and LangSmith.",
+      "approach": "Designed and optimized end-to-end AI pipelines for resume parsing, candidate ranking, and automation using hybrid LLM + OCR architectures. Built modular, agent-based systems for parsing, scoring, ranking, reporting, and outreach. Implemented custom ranking pipelines with transparent justification via FastAPI and Python ETL workflows. Developed advanced RAG and graph-based reasoning engines for large-scale text corpora, combining knowledge graphs, iterative query refinement, and prompt optimization. Developed LLM applications using LangChain, LangGraph, and Hugging Face, implementing RAG systems with ChromaDB for context-aware responses and multi-agent workflows. Built agentic AI systems with autonomous decision-making, enabling task decomposition, tool use, and self-correction through iterative reasoning with open-source models via Ollama. Automated orchestration and monitoring using n8n and LangSmith.",
       "impact": "Reduced resume parsing latency from 15 seconds to 3 seconds through parallel processing and batching while maintaining high accuracy. Achieved candidate scoring at scale, reduced manual data wrangling by 80%, and delivered AI systems with over 90% retrieval and reasoning accuracy. Enabled enterprise clients to deploy transparent, scalable, and auditable AI-driven workflows across recruitment and knowledge reasoning domains.",
       "skills": [
         "Python",
@@ -17,43 +17,85 @@
         "LangSmith",
         "LangFlow",
         "FastAPI",
-        "n8n"
+        "n8n",
+        "Hugging Face",
+        "ChromaDB",
+        "Ollama"
       ],
       "links": []
     }
   },
   {
     "id": "exp-2",
-    "title": "Software Engineer (Intern)",
-    "subtitle": "AheadRace Software Development Services",
-    "period": "Apr 2022 - Sep 2022",
-    "overview": "Built a machine-learning–powered backend service to process structured datasets and serve predictions via REST APIs.",
+    "title": "AI Engineer",
+    "subtitle": "KingScote Informatics",
+    "period": "Mar 2024 - Present",
+    "overview": "Built machine-learning–powered backend services and recommendation systems to process structured datasets, generate predictions, and improve user engagement.",
     "details": {
-      "problem": "An internal application relied on hard-coded rules to analyze structured input data, making it difficult to adapt when data patterns changed.",
-      "approach": "Collected and cleaned tabular datasets using Pandas, engineered input features, and trained classification models using Scikit-learn. Implemented a PyTorch prototype to compare results against classical models. Wrapped the selected model inside a FastAPI service with a `/predict` endpoint and tested requests using payloads. Managed code versions and iterations using Git.",
-      "impact": "Replaced rule-based logic with a deployable ML inference service, enabling the team to update model behavior through retraining instead of code changes and accelerating experimentation during development.",
+      "problem": "An internal application relied on hard-coded rules to analyze structured input data, making it difficult to adapt when data patterns changed and limiting personalization capabilities.",
+      "approach": "Collected and cleaned tabular datasets using Pandas, engineered input features, and trained classification models using Scikit-learn. Developed recommendation systems using collaborative filtering (SVD, ALS) and content-based filtering (TF-IDF, cosine similarity). Built classification pipelines with Random Forest and XGBoost on imbalanced datasets, applying SMOTE for data augmentation and hyperparameter tuning via GridSearchCV. Implemented a PyTorch prototype to compare results against classical models. Wrapped selected models inside FastAPI services with `/predict` endpoints and validated requests using structured payloads. Managed code versions and iterations using Git.",
+      "impact": "Replaced rule-based logic with deployable ML inference services, enabling model-driven decision-making and faster iteration cycles. Improved user engagement by 23% and click-through rate by 20% through recommendation systems. Achieved 92% precision on classification tasks involving imbalanced data, increasing reliability of predictions in production scenarios.",
       "skills": [
         "Python",
         "Pandas",
         "Scikit-learn",
         "PyTorch",
         "FastAPI",
-        "Git"
+        "Git",
+        "XGBoost",
+        "Recommendation Systems",
+        "SMOTE",
+        "GridSearchCV"
       ],
       "links": []
     }
   },
   {
     "id": "exp-3",
-    "title": "Teaching Assistant",
-    "subtitle": "Delta Sigma Technologies",
-    "period": "Jun 2022 - Jul 2022",
-    "overview": "Supported hands-on training in Python and applied data science, focusing on practical problem-solving and real-world datasets.",
+    "title": "AI Engineer",
+    "subtitle": "Arc Systems",
+    "period": "Oct 2023 - Feb 2024",
+    "overview": "Supported hands-on Python and applied data science, focusing on practical problem-solving and real-world datasets while contributing to ML pipeline development.",
     "details": {
       "problem": "Students struggled to translate theoretical concepts in Python and machine learning into working code for data analysis and modeling tasks.",
-      "approach": "Conducted guided lab sessions covering data preprocessing, data visualization, and implementation of basic machine learning models. Reviewed student code, debugged errors, and provided targeted feedback to improve correctness and clarity.",
-      "impact": "Enabled students to independently complete data analysis and machine learning assignments, improving code quality, conceptual understanding, and confidence in working with real datasets.",
-      "skills": ["Python", "Pandas", "Matplotlib", "NumPy", "Scikit-learn"],
+      "approach": "Conducted guided lab sessions covering data preprocessing, exploratory data analysis using Pandas, and data visualization. Implemented and tested baseline machine learning models including Logistic Regression and Random Forest. Conducted model evaluation experiments comparing classification algorithms and generated reports with visualizations using Matplotlib and Seaborn. Reviewed student code, debugged errors, and provided targeted feedback to improve correctness and clarity. Assisted senior engineers with dataset cleaning and feature engineering tasks as part of ML pipeline development.",
+      "impact": "Enabled students to independently complete data analysis and machine learning assignments, improving code quality, conceptual understanding, and confidence in working with real datasets. Contributed to more reliable baseline model selection and clearer evaluation reporting for internal projects.",
+      "skills": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Scikit-learn",
+        "Logistic Regression",
+        "Random Forest",
+        "EDA",
+        "Feature Engineering"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "exp-4",
+    "title": "Teaching Assistant",
+    "subtitle": "Delta Sigma Technologies",
+    "period": "Jul 2022 - Aug 2022",
+    "overview": "Supported hands-on training in Python and applied data science, focusing on practical problem-solving and real-world datasets while mentoring large student cohorts.",
+    "details": {
+      "problem": "Students struggled to translate theoretical concepts in Python and machine learning into working code for data analysis and modeling tasks.",
+      "approach": "Mentored 120 students in Python programming labs through hands-on exercises. Taught implementation of algorithms related to linear algebra, calculus, and statistics in practical coding contexts. Conducted guided lab sessions covering data preprocessing, data visualization, and implementation of basic machine learning models. Reviewed student code, debugged errors, and provided targeted feedback to improve correctness and clarity.",
+      "impact": "Enabled students to independently complete data analysis and machine learning assignments, improving code quality, conceptual understanding, and confidence in working with real datasets. Supported large-scale instruction that increased student engagement and hands-on proficiency in quantitative programming.",
+      "skills": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Scikit-learn",
+        "Teaching",
+        "Debugging",
+        "Linear Algebra",
+        "Statistics"
+      ],
       "links": []
     }
   }

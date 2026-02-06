@@ -2,17 +2,26 @@
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: var(--space-2xl);
-    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
-    /* Faster, snappier easing */
+    /* No padding - moved to .cardInner for smooth grid animation */
+    padding: 0;
+    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    /* Stronger elevation */
     position: relative;
     margin-bottom: var(--space-md);
-    /* Breathing room */
-    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+/* Inner wrapper for content - holds the padding */
+.cardInner {
+    padding: var(--space-xl) var(--space-2xl);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    gap: 0;
 }
 
 .card.clickable {
@@ -198,12 +207,12 @@
 .details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-slow);
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .details.visible {
     max-height: 2000px;
-    margin-top: var(--space-lg);
+    /* No margin-top here to prevent jumping - handled by child padding */
 }
 
 .detailsContent {
@@ -301,7 +310,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .card {
+    .cardInner {
         padding: var(--space-md);
     }
 

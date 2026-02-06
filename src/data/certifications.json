@@ -30,31 +30,5 @@
         }
       ]
     }
-  },
-  {
-    "id": "cert-3",
-    "title": "Azure Data Scientist Associate DP-100",
-    "issuer": "Microsoft",
-    "date": "2025",
-    "overview": "Comprehensive certification covering data science, machine learning, with deployment and management of models, along with generative AI apps.",
-    "details": {
-      "description": "",
-      "links": [
-        { "label": "Certificate", "url": "https://coursera.org/verify" }
-      ]
-    }
-  },
-  {
-    "id": "cert-4",
-    "title": "Azure AI Engineer Associate AI-102",
-    "issuer": "Microsoft",
-    "date": "2025",
-    "overview": "Comprehensive certification covering AI agents, natural language and computer vision solutions, AI information extraction and generative AI apps.",
-    "details": {
-      "description": "",
-      "links": [
-        { "label": "Certificate", "url": "https://coursera.org/verify" }
-      ]
-    }
   }
 ]

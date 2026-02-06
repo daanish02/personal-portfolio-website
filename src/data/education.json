@@ -1,19 +1,18 @@
 [
   {
     "degree": "Master of Engineering in Software Systems",
-    "institution": "Birla Institute of Technology and Science",
+    "institution": "Birla Institute of Technology and Science, Pilani",
     "period": "2025 - 2027",
+    "gpa": "9.22 / 10",
     "highlights": [],
     "isEmpty": false
   },
-    {
+  {
     "degree": "Bachelor of Engineering in Electronics and Communication Engineering",
     "institution": "Osmania University",
     "period": "2021 - 2025",
-    "gpa": "7.71 / 10 (First Class with Distinction)",
-    "highlights": [
-      "Chief Student Editor of the department newsletter, and managed the publication of monthly and annual newsletters."
-    ],
+    "gpa": "First Class with Distinction",
+    "highlights": [],
     "isEmpty": false
   }
 ]
