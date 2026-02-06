@@ -22,7 +22,7 @@
     "date": "2024",
     "overview": "Comprehensive specialization covering linear algebra, calculus, probability, and statistics.",
     "details": {
-      "description": "",
+      "description": "Focused on building the mathematical foundations required for machine learning, including linear algebra, calculus, and probability & statistics. Included practical exercises applying math concepts to real ML problems.",
       "links": [
         {
           "label": "Certificate",
