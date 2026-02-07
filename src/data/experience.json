@@ -52,31 +52,6 @@
   },
   {
     "id": "exp-3",
-    "title": "AI Engineer",
-    "subtitle": "Arc Systems",
-    "period": "Oct 2023 - Feb 2024",
-    "overview": "Supported hands-on Python and applied data science, focusing on practical problem-solving and real-world datasets while contributing to ML pipeline development.",
-    "details": {
-      "problem": "Students struggled to translate theoretical concepts in Python and machine learning into working code for data analysis and modeling tasks.",
-      "approach": "Conducted guided lab sessions covering data preprocessing, exploratory data analysis using Pandas, and data visualization. Implemented and tested baseline machine learning models including Logistic Regression and Random Forest. Conducted model evaluation experiments comparing classification algorithms and generated reports with visualizations using Matplotlib and Seaborn. Reviewed student code, debugged errors, and provided targeted feedback to improve correctness and clarity. Assisted senior engineers with dataset cleaning and feature engineering tasks as part of ML pipeline development.",
-      "impact": "Enabled students to independently complete data analysis and machine learning assignments, improving code quality, conceptual understanding, and confidence in working with real datasets. Contributed to more reliable baseline model selection and clearer evaluation reporting for internal projects.",
-      "skills": [
-        "Python",
-        "Pandas",
-        "NumPy",
-        "Matplotlib",
-        "Seaborn",
-        "Scikit-learn",
-        "Logistic Regression",
-        "Random Forest",
-        "EDA",
-        "Feature Engineering"
-      ],
-      "links": []
-    }
-  },
-  {
-    "id": "exp-4",
     "title": "Teaching Assistant",
     "subtitle": "Delta Sigma Technologies",
     "period": "Jul 2022 - Aug 2022",
