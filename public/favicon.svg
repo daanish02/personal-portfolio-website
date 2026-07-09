@@ -1,12 +1,12 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <rect width="32" height="32" rx="4" fill="#0E1116"/>
   <text
-    x="3"
+    x="6"
     y="19"
     style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; fill: #FBBF24;"
   >D</text>
   <text
-    x="13"
+    x="16"
     y="27"
     style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; fill: #E8E6E1;"
   >A</text>
