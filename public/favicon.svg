@@ -2,12 +2,12 @@
   <rect width="32" height="32" rx="4" fill="#0E1116"/>
   <text
     x="6"
-    y="21"
+    y="20"
     style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; fill: #FBBF24;"
   >D</text>
   <text
     x="16"
-    y="29"
+    y="28"
     style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; fill: #E8E6E1;"
   >A</text>
 </svg>

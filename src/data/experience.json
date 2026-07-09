@@ -7,7 +7,15 @@
     "overview": "Designing and deploying AI solutions across trading algorithms, customer experience, and operational efficiency.",
     "details": {
       "approach": "Scope covers deep learning model development, NLP applications, real-time vector search systems, and generative AI integration — deployed via MLOps tooling and cloud platforms with a focus on model fairness, transparency, and production performance.",
-      "skills": ["Python", "PyTorch", "NLP", "Vector Search", "MLOps", "Generative AI", "Cloud Platforms"],
+      "skills": [
+        "Python",
+        "PyTorch",
+        "NLP",
+        "Vector Search",
+        "MLOps",
+        "Generative AI",
+        "Cloud Platforms"
+      ],
       "links": []
     }
   },
@@ -25,19 +33,6 @@
     }
   },
   {
-    "id": "exp-1",
-    "title": "Software Developer",
-    "subtitle": "TriStar Consulting Agency",
-    "period": "Apr 2025 - Mar 2026",
-    "overview": "Built production-grade agentic and RAG systems for enterprise recruitment and knowledge reasoning.",
-    "details": {
-      "approach": "Hybrid LLM + OCR pipeline for resume parsing, scoring, and ranking; RAG + knowledge graphs over large text corpora; multi-agent workflows with task decomposition and self-correction, orchestrated via n8n and monitored with LangSmith.",
-      "impact": "Cut resume-parsing latency 15s → 3s, reduced manual data wrangling 80%, 90%+ retrieval and reasoning accuracy.",
-      "skills": ["Python", "LangChain", "LangGraph", "LangSmith", "FastAPI", "n8n", "Hugging Face", "ChromaDB", "Ollama"],
-      "links": []
-    }
-  },
-  {
     "id": "exp-2",
     "title": "AI Engineer",
     "subtitle": "KingScote Informatics",
@@ -46,7 +41,15 @@
     "details": {
       "approach": "Collaborative (SVD, ALS) + content-based filtering for recommendations; XGBoost + SMOTE for imbalanced classification; wrapped models in FastAPI /predict endpoints.",
       "impact": "Engagement +23%, CTR +20%, 92% precision on imbalanced classification in production.",
-      "skills": ["Python", "Pandas", "Scikit-learn", "PyTorch", "FastAPI", "XGBoost", "SMOTE"],
+      "skills": [
+        "Python",
+        "Pandas",
+        "Scikit-learn",
+        "PyTorch",
+        "FastAPI",
+        "XGBoost",
+        "SMOTE"
+      ],
       "links": []
     }
   },
