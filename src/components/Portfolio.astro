@@ -1,0 +1,129 @@
+---
+import ExpandableCard from './ExpandableCard.astro';
+import experienceData from '../data/experience.json';
+import projectsData from '../data/projects.json';
+import certificationsData from '../data/certifications.json';
+import educationData from '../data/education.json';
+import activitiesData from '../data/student-activities.json';
+import skillsData from '../data/skills.json';
+
+const top5Projects = projectsData.slice(0, 5);
+---
+
+<div class="container">
+
+    <!-- Experience -->
+    <p class="label" id="experience">Experience</p>
+    {experienceData.map(item => (
+        <ExpandableCard
+            title={item.title}
+            org={item.subtitle}
+            date={item.period}
+            overview={item.overview}
+            details={item.details}
+        />
+    ))}
+
+    <!-- Projects -->
+    <p class="label" id="projects">Projects</p>
+    {top5Projects.map(item => (
+        <ExpandableCard
+            title={item.title}
+            date={item.period}
+            overview={item.overview}
+            details={item.details}
+        />
+    ))}
+
+    <!-- Credentials -->
+    <p class="label" id="credentials">Credentials</p>
+    {certificationsData.map(item => (
+        <ExpandableCard
+            title={item.title}
+            org={item.issuer}
+            date={item.date}
+            overview={item.overview}
+            details={item.details}
+        />
+    ))}
+
+    <!-- Education -->
+    <p class="label" id="education">Education</p>
+    {educationData.map(item => (
+        <div class="edu-entry">
+            <div class="edu-row">
+                <span class="edu-degree">{item.degree}</span>
+                <span class="edu-date">{item.period}</span>
+            </div>
+            <div class="edu-institution">{item.institution}</div>
+            {item.gpa && <div class="edu-gpa">{item.gpa}</div>}
+        </div>
+    ))}
+
+    <!-- Leadership -->
+    <p class="label" id="leadership">Voluntary Work</p>
+    {activitiesData.map(item => (
+        <ExpandableCard
+            title={item.title}
+            org={item.organization}
+            date={item.period}
+            overview={item.overview}
+            details={item.details}
+        />
+    ))}
+
+    <!-- Skills -->
+    <p class="label" id="skills">Skills</p>
+    <div class="techCloud skillsCloud">
+        {skillsData.skills.map(skill => (
+            <span class="techTag">
+                {skill.icon && <img src={skill.icon} alt="" loading="lazy" width="14" height="14" />}
+                {skill.name}
+            </span>
+        ))}
+    </div>
+
+</div>
+
+<style>
+.edu-entry {
+    border-left: 1px solid var(--line);
+    padding: 6px 0 6px 18px;
+    margin-bottom: 16px;
+}
+
+.edu-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.edu-degree {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 15px;
+}
+
+.edu-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.edu-institution {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.edu-gpa {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 4px;
+}
+</style>

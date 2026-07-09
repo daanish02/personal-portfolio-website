@@ -1,0 +1,52 @@
+---
+import '../styles/globals.css';
+import Footer from '../components/Footer.astro';
+import StarField from '../components/StarField.astro';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = 'Danish Ahmed | AI Engineer',
+    description = 'Portfolio of Danish Ahmed — AI Engineer building scalable, production-grade AI systems.',
+} = Astro.props;
+
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const isProd = import.meta.env.PROD;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Danish Ahmed, AI Engineer, Portfolio, Agentic AI" />
+    <meta name="author" content="Danish Ahmed" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://danishahmed.me" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    {isProd && GA_ID && <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>}
+    {isProd && GA_ID && (
+        <script define:vars={{ GA_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', GA_ID);
+        </script>
+    )}
+</head>
+<body>
+    <StarField />
+    <main>
+        <slot />
+    </main>
+    <Footer />
+</body>
+</html>

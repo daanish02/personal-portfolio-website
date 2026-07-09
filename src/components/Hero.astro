@@ -1,0 +1,110 @@
+---
+import aboutData from '../data/about.json';
+import contactData from '../data/contact.json';
+---
+
+<section class="hero container">
+    <h1 class="name">{aboutData.name}</h1>
+    <p class="tagline">{aboutData.tagline}</p>
+    <p class="intro">{aboutData.intro[0]}</p>
+    <ul class="interests">
+        {aboutData.interests.technical.map(item => (
+            <li>{item}</li>
+        ))}
+    </ul>
+    <div class="contact">
+        <a href={`mailto:${contactData.email}`}>{contactData.email}</a>
+        <span class="sep">·</span>
+        <a href={contactData.github.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="sep">·</span>
+        <a href={contactData.linkedin.url} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+</section>
+
+<style>
+.hero {
+    padding-top: 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+}
+
+.name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+}
+
+.tagline {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.intro {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.interests {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 0;
+    margin-bottom: 24px;
+}
+
+.interests li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+    flex-basis: 50%;
+}
+
+.interests li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--dim);
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.contact a {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+    border-bottom: none;
+}
+
+.contact a:first-child {
+    color: var(--accent);
+}
+
+.contact a:hover {
+    color: var(--text);
+    border-bottom: none;
+}
+
+.sep {
+    color: var(--dim);
+    font-size: 13px;
+}
+
+@media (max-width: 480px) {
+    .interests li { flex-basis: 100%; }
+}
+</style>

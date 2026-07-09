@@ -1,27 +1,39 @@
 [
   {
+    "id": "exp-0",
+    "title": "AI Engineer",
+    "subtitle": "Deriv",
+    "period": "Jul 2026 - Present",
+    "overview": "Designing and deploying AI solutions across trading algorithms, customer experience, and operational efficiency.",
+    "details": {
+      "approach": "Scope covers deep learning model development, NLP applications, real-time vector search systems, and generative AI integration — deployed via MLOps tooling and cloud platforms with a focus on model fairness, transparency, and production performance.",
+      "skills": ["Python", "PyTorch", "NLP", "Vector Search", "MLOps", "Generative AI", "Cloud Platforms"],
+      "links": []
+    }
+  },
+  {
+    "id": "exp-omni",
+    "title": "Data & Automation Engineer",
+    "subtitle": "OMNI Group",
+    "period": "Apr 2026 - Jun 2026",
+    "overview": "First analyst hired; built the company's entire data and reporting function from scratch on a 150+ table SQL Server database with millions of rows.",
+    "details": {
+      "approach": "Designed an executive arrears dashboard covering 3,000+ live cases (CPI, PPI, Trust Deed) with drill-down into arrears, catch-up balances, and assignment-stage pipeline. Built a Node.js API layer to serve query results since direct DB access wasn't permitted for reporting tools, and engineered custom SQL logic with the co-founder/GM to recover ~50 cases silently dropped by the in-house system.",
+      "impact": "Exposed £60K in previously invisible arrears and catch-up payments, tracked ~£500K in customer payments; dashboard adopted operationally by the co-founder/GM and two business teams.",
+      "skills": ["MS SQL Server", "Node.js", "Power BI", "DAX", "Excel"],
+      "links": []
+    }
+  },
+  {
     "id": "exp-1",
     "title": "Software Developer",
     "subtitle": "TriStar Consulting Agency",
-    "period": "Apr 2025 - Present",
-    "overview": "Led design and delivery of production-grade, AI systems across talent acquisition and knowledge-based reasoning, focusing on agentic workflows and RAG architectures.",
+    "period": "Apr 2025 - Mar 2026",
+    "overview": "Built production-grade agentic and RAG systems for enterprise recruitment and knowledge reasoning.",
     "details": {
-      "problem": "Existing recruitment and knowledge-reasoning workflows relied on manual processing, simple rule-based logic, and slow AI pipelines, resulting in high latency, low transparency, and limited scalability across enterprise use cases.",
-      "approach": "Designed and optimized end-to-end AI pipelines for resume parsing, candidate ranking, and automation using hybrid LLM + OCR architectures. Built modular, agent-based systems for parsing, scoring, ranking, reporting, and outreach. Implemented custom ranking pipelines with transparent justification via FastAPI and Python ETL workflows. Developed advanced RAG and graph-based reasoning engines for large-scale text corpora, combining knowledge graphs, iterative query refinement, and prompt optimization. Developed LLM applications using LangChain, LangGraph, and Hugging Face, implementing RAG systems with ChromaDB for context-aware responses and multi-agent workflows. Built agentic AI systems with autonomous decision-making, enabling task decomposition, tool use, and self-correction through iterative reasoning with open-source models via Ollama. Automated orchestration and monitoring using n8n and LangSmith.",
-      "impact": "Reduced resume parsing latency from 15 seconds to 3 seconds through parallel processing and batching while maintaining high accuracy. Achieved candidate scoring at scale, reduced manual data wrangling by 80%, and delivered AI systems with over 90% retrieval and reasoning accuracy. Enabled enterprise clients to deploy transparent, scalable, and auditable AI-driven workflows across recruitment and knowledge reasoning domains.",
-      "skills": [
-        "Python",
-        "Scikit-learn",
-        "LangChain",
-        "LangGraph",
-        "LangSmith",
-        "LangFlow",
-        "FastAPI",
-        "n8n",
-        "Hugging Face",
-        "ChromaDB",
-        "Ollama"
-      ],
+      "approach": "Hybrid LLM + OCR pipeline for resume parsing, scoring, and ranking; RAG + knowledge graphs over large text corpora; multi-agent workflows with task decomposition and self-correction, orchestrated via n8n and monitored with LangSmith.",
+      "impact": "Cut resume-parsing latency 15s → 3s, reduced manual data wrangling 80%, 90%+ retrieval and reasoning accuracy.",
+      "skills": ["Python", "LangChain", "LangGraph", "LangSmith", "FastAPI", "n8n", "Hugging Face", "ChromaDB", "Ollama"],
       "links": []
     }
   },
@@ -29,24 +41,12 @@
     "id": "exp-2",
     "title": "AI Engineer",
     "subtitle": "KingScote Informatics",
-    "period": "Mar 2024 - Present",
-    "overview": "Built machine-learning–powered backend services and recommendation systems to process structured datasets, generate predictions, and improve user engagement.",
+    "period": "Mar 2024 - Feb 2026",
+    "overview": "Replaced rule-based logic with ML inference services for recommendations and classification.",
     "details": {
-      "problem": "An internal application relied on hard-coded rules to analyze structured input data, making it difficult to adapt when data patterns changed and limiting personalization capabilities.",
-      "approach": "Collected and cleaned tabular datasets using Pandas, engineered input features, and trained classification models using Scikit-learn. Developed recommendation systems using collaborative filtering (SVD, ALS) and content-based filtering (TF-IDF, cosine similarity). Built classification pipelines with Random Forest and XGBoost on imbalanced datasets, applying SMOTE for data augmentation and hyperparameter tuning via GridSearchCV. Implemented a PyTorch prototype to compare results against classical models. Wrapped selected models inside FastAPI services with `/predict` endpoints and validated requests using structured payloads. Managed code versions and iterations using Git.",
-      "impact": "Replaced rule-based logic with deployable ML inference services, enabling model-driven decision-making and faster iteration cycles. Improved user engagement by 23% and click-through rate by 20% through recommendation systems. Achieved 92% precision on classification tasks involving imbalanced data, increasing reliability of predictions in production scenarios.",
-      "skills": [
-        "Python",
-        "Pandas",
-        "Scikit-learn",
-        "PyTorch",
-        "FastAPI",
-        "Git",
-        "XGBoost",
-        "Recommendation Systems",
-        "SMOTE",
-        "GridSearchCV"
-      ],
+      "approach": "Collaborative (SVD, ALS) + content-based filtering for recommendations; XGBoost + SMOTE for imbalanced classification; wrapped models in FastAPI /predict endpoints.",
+      "impact": "Engagement +23%, CTR +20%, 92% precision on imbalanced classification in production.",
+      "skills": ["Python", "Pandas", "Scikit-learn", "PyTorch", "FastAPI", "XGBoost", "SMOTE"],
       "links": []
     }
   },
@@ -55,22 +55,11 @@
     "title": "Teaching Assistant",
     "subtitle": "Delta Sigma Technologies",
     "period": "Jul 2022 - Aug 2022",
-    "overview": "Supported hands-on training in Python and applied data science, focusing on practical problem-solving and real-world datasets while mentoring large student cohorts.",
+    "overview": "Mentored 120 students in Python and applied ML across guided lab sessions.",
     "details": {
-      "problem": "Students struggled to translate theoretical concepts in Python and machine learning into working code for data analysis and modeling tasks.",
-      "approach": "Mentored 120 students in Python programming labs through hands-on exercises. Taught implementation of algorithms related to linear algebra, calculus, and statistics in practical coding contexts. Conducted guided lab sessions covering data preprocessing, data visualization, and implementation of basic machine learning models. Reviewed student code, debugged errors, and provided targeted feedback to improve correctness and clarity.",
-      "impact": "Enabled students to independently complete data analysis and machine learning assignments, improving code quality, conceptual understanding, and confidence in working with real datasets. Supported large-scale instruction that increased student engagement and hands-on proficiency in quantitative programming.",
-      "skills": [
-        "Python",
-        "Pandas",
-        "NumPy",
-        "Matplotlib",
-        "Scikit-learn",
-        "Teaching",
-        "Debugging",
-        "Linear Algebra",
-        "Statistics"
-      ],
+      "approach": "Ran labs on preprocessing, visualization, and basic ML algorithms; reviewed code and gave targeted feedback to improve correctness.",
+      "impact": "Students independently completed data analysis and ML assignments by end of cohort.",
+      "skills": ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
       "links": []
     }
   }

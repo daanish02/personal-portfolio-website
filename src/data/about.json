@@ -2,7 +2,7 @@
   "name": "Danish Ahmed",
   "tagline": "AI Engineer",
   "intro": [
-    "I design and build scalable end-to-end systems that turn data and AI into measurable business outcomes. My work focuses on architecting reliable, production-grade solutions that solve complex, real-world problems."
+    "I design and build scalable, secure end-to-end systems that turn data and AI into measurable business outcomes. My work focuses on architecting reliable, production-grade solutions that solve complex, real-world problems."
   ],
   "interests": {
     "technical": [
@@ -11,14 +11,7 @@
       "LLMs & Agentic AI",
       "System Design & Architecture",
       "Computer Vision",
-      "Robotics"
-    ],
-    "nonTechnical": [
-      "Critiquing Food",
-      "Table Tennis",
-      "Badminton",
-      "Trekking",
-      "Reading"
+      "Robotics & IoT"
     ]
   }
 }

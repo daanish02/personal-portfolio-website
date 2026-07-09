@@ -2,23 +2,23 @@
   {
     "id": "activity-1",
     "title": "Vice Chair",
-    "organization": "The Robotics Centre, MJCET",
+    "organization": "IEEE Computer Society SB, MJCET",
     "period": "Jul 2024 - Jun 2025",
-    "overview": "Leading club operations and strategy initiatives to enhance community engagement and streamline event execution.",
+    "overview": "Assisted the chair in organizing technical events, workshops, and coordinating teams across initiatives.",
     "details": {
-      "description": "Organized meetings to plan events, coordinate strategies, and ensure smooth operations through effective communication with all teams.",
-      "impact": "Improved club reach and participation through strategic initiatives and collaborative efforts, fostering a stronger robotics community within the college."
+      "impact": "Improved event quality and team performance through structured workflows across multiple initiatives.",
+      "links": []
     }
   },
   {
     "id": "activity-2",
     "title": "Vice Chair",
-    "organization": "IEEE Computer Society SB, MJCET",
+    "organization": "The Robotics Centre, MJCET",
     "period": "Jul 2024 - Jun 2025",
-    "overview": "Assisting the chair in managing and executing events while providing oversight and guidance to team members.",
+    "overview": "Led club operations and strategic planning to grow community engagement and streamline event execution.",
     "details": {
-      "description": "Supported the chair in organizing, coordinating, and executing technical events and workshops, ensuring smooth operations across all teams.",
-      "impact": "Enhanced event quality and team performance by maintaining effective supervision and structured workflows for multiple initiatives."
+      "impact": "Improved club reach and participation through collaborative initiatives.",
+      "links": []
     }
   },
   {
@@ -26,33 +26,21 @@
     "title": "Technical Head",
     "organization": "The Robotics Centre, MJCET",
     "period": "Jul 2023 - Jun 2024",
-    "overview": "Provided technical leadership for system design, testing, and team mentoring in programming and automation.",
+    "overview": "Led technical direction for robotics projects, workshops, and competition preparation.",
     "details": {
-      "description": "Guided team members in technical aspects of robotics projects, organized tech workshops, and supervised system testing and development.",
-      "impact": "Successfully executed workshops and achieved strong performance in RoboVeda competitions, demonstrating technical excellence and mentoring impact."
-    },
-    "isEmpty": false
+      "impact": "Executed workshops and achieved strong results at RoboVeda competitions.",
+      "links": []
+    }
   },
   {
     "id": "activity-4",
     "title": "Student Chief Editor",
     "organization": "Channel ECE",
     "period": "Dec 2023 - Nov 2024",
-    "overview": "Led editorial planning and publication of departmental newsletters.",
+    "overview": "Led editorial planning and publication of departmental newsletters (annual and monthly).",
     "details": {
-      "description": "Managed multiple editorial projects simultaneously, coordinating content collection, editing, and design workflows. Oversaw the creation and publication of both annual and monthly newsletters.",
-      "impact": "Ensured consistent and timely newsletter releases under tight deadlines, improving communication and information sharing within the department."
-    }
-  },
-  {
-    "id": "activity-5",
-    "title": "Core Team Member",
-    "organization": "Robotics Centre, MJCET",
-    "period": "Jul 2022 - Jun 2023",
-    "overview": "Contributed to hands-on robotics projects and educational workshops for students.",
-    "details": {
-      "description": "Conducted workshops providing guidance on microcontrollers, sensors, and actuators. Delivered talks on robotics and drone technologies at events and seminars.",
-      "impact": "Enhanced student learning and engagement in robotics, fostering practical skills and knowledge in electronics and automation."
+      "impact": "Delivered consistent, timely releases under tight deadlines.",
+      "links": []
     }
   }
 ]

@@ -1,0 +1,193 @@
+---
+interface Details {
+    description?: string;
+    problem?: string;
+    approach?: string;
+    impact?: string;
+    skills?: string[];
+    links?: { label: string; url: string }[];
+}
+
+interface Props {
+    title: string;
+    org?: string;
+    date?: string;
+    overview?: string;
+    details?: Details;
+}
+
+const { title, org, date, overview, details } = Astro.props;
+
+const hasDetails = details && Object.keys(details).some(k => {
+    const v = (details as any)[k];
+    return v && (Array.isArray(v) ? v.length > 0 : true);
+});
+---
+
+{hasDetails ? (
+    <details class="entry">
+        <summary class="summary">
+            <span class="chev" aria-hidden="true">›</span>
+            <span class="title">{title}</span>
+            {org && <span class="org">· {org}</span>}
+            <span class="tag">expand</span>
+            {date && <span class="date">{date}</span>}
+        </summary>
+        {overview && <p class="outcome">{overview}</p>}
+        {details && (
+            <div class="body">
+                {details.description && <div class="sub"><p>{details.description}</p></div>}
+                {details.problem && <div class="sub"><h4>Problem</h4><p>{details.problem}</p></div>}
+                {details.approach && <div class="sub"><h4>Approach</h4><p>{details.approach}</p></div>}
+                {details.impact && <div class="sub"><h4>Impact</h4><p>{details.impact}</p></div>}
+                {details.skills && details.skills.length > 0 && (
+                    <div class="tech">
+                        {details.skills.map(s => <span>{s}</span>)}
+                    </div>
+                )}
+                {details.links && details.links.length > 0 && (
+                    <div class="links">
+                        {details.links.map(link => (
+                            <a href={link.url} target="_blank" rel="noopener noreferrer" class="code-link">
+                                {link.label} ↗
+                            </a>
+                        ))}
+                    </div>
+                )}
+            </div>
+        )}
+    </details>
+) : (
+    <div class="entry">
+        <div class="summary-static">
+            <span class="title">{title}</span>
+            {org && <span class="org">· {org}</span>}
+            {date && <span class="date">{date}</span>}
+        </div>
+        {overview && <p class="outcome">{overview}</p>}
+    </div>
+)}
+
+<style>
+.entry {
+    border-left: 1px solid var(--line);
+    padding: 2px 0 2px 18px;
+    margin-bottom: 6px;
+}
+
+.summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+    outline: none;
+    padding: 6px 0;
+}
+
+.summary::-webkit-details-marker { display: none; }
+
+.summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+details.entry[open] .chev { transform: rotate(90deg); }
+
+.summary-static {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+    padding: 6px 0;
+}
+
+.chev {
+    font-family: var(--font-mono);
+    color: var(--dim);
+    transition: transform 0.2s;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 15px;
+}
+
+.org { color: var(--muted); font-size: 15px; }
+
+.date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--dim);
+    margin-left: auto;
+}
+
+.tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    border-radius: 3px;
+    padding: 1px 6px;
+}
+
+.outcome {
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 6px;
+    line-height: 1.6;
+}
+
+.body { margin-top: 14px; padding-bottom: 8px; }
+
+.sub { margin-bottom: 10px; }
+
+.sub h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 3px;
+}
+
+.sub p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tech span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 2px 7px;
+}
+
+.links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+.code-link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    border: none;
+    text-decoration: none;
+}
+
+.code-link:hover { color: var(--text); border-bottom: none; }
+
+@media (max-width: 560px) {
+    .date { margin-left: 0; flex-basis: 100%; }
+}
+</style>

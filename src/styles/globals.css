@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0E1116;
+  --raised: #171B22;
+  --line: #262C36;
+  --text: #E8E6E1;
+  --muted: #9CA4B4;
+  --dim: #5A626E;
+  --accent: #FBBF24;
+  --accent-dim: #D97706;
+  --accent-rgb: 251, 191, 36;
+  --maxw: 720px;
+
+  /* aliases for any remaining module CSS refs */
+  --bg-primary: var(--bg);
+  --bg-secondary: var(--raised);
+  --bg-tertiary: #1E2430;
+  --text-primary: var(--text);
+  --text-secondary: var(--muted);
+  --text-tertiary: var(--dim);
+  --border: var(--line);
+  --border-hover: #3a4250;
+  --accent-hover: var(--accent);
+
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding: 0 24px;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+a:hover { border-bottom-color: var(--accent-dim); }
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+  border-bottom: none;
+}
+
+/* Section label — mono uppercase with accent line prefix */
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  margin-top: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: none;
+}
+.label::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--accent-dim);
+  flex-shrink: 0;
+}
+
+/* Skill tech tags (global, used in UnifiedExperience) */
+.techCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.techTag {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: #B0B8C8;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.techTag:hover { color: var(--text); border-color: var(--accent-dim); }
+.skillsCloud .techTag { color: var(--text); }
+.techTag img { width: 14px; height: 14px; object-fit: contain; opacity: 0.75; flex-shrink: 0; }
+
+/* Bullet list */
+.list {
+  list-style: none;
+}
+.list > li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 15px;
+}
+.list > li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body { padding: 0 16px; }
+}

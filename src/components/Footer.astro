@@ -1,0 +1,45 @@
+---
+import contactData from '../data/contact.json';
+const year = new Date().getFullYear();
+---
+<footer class="footer container">
+    <a href={`mailto:${contactData.email}`}>Email</a>
+    <a href={contactData.github.url} target="_blank" rel="noopener noreferrer">Github</a>
+    <a href={contactData.linkedin.url} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <span class="copy">© {year} Danish Ahmed</span>
+</footer>
+
+<style>
+.footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    padding-bottom: 48px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.footer a {
+    color: var(--muted);
+    font-size: 14px;
+    border: none;
+}
+
+.footer a:hover {
+    color: var(--accent);
+    border-bottom: none;
+}
+
+.copy {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--dim);
+    margin-left: auto;
+}
+
+@media (max-width: 560px) {
+    .copy { margin-left: 0; }
+}
+</style>

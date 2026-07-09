@@ -1,140 +1,203 @@
 [
   {
-    "id": "project-1",
-    "title": "Energy Demand Forecasting System",
-    "subtitle": "Machine Learning Project",
-    "period": "2025",
-    "overview": "Time-series forecasting system on Spain energy data achieving 1% MAPE with LSTM.",
+    "id": "project-mast",
+    "title": "MAST Meta-Observer — Metacognitive Monitoring for Multi-Agent AI",
+    "period": "2026",
+    "overview": "Non-intrusive observer layer for LangGraph multi-agent systems that detects 7 behavioral failure signatures and auto-recovers via checkpoint rollback — 100% task completion across 24 benchmark runs.",
     "details": {
-      "description": "Built a comprehensive time-series forecasting pipeline to predict hourly energy demand using statistical and deep learning models.",
-      "problem": "Accurate energy demand forecasting is crucial for grid stability and cost optimization.",
-      "approach": "Implemented ARIMA, Prophet, and LSTM on 35K hourly records (2015–2018). Created automated backtesting and a Streamlit dashboard for comparison.",
-      "impact": "Achieved 1% MAPE with LSTM, reducing forecasting error by 83%.",
+      "approach": "ObserverEngine evaluates 7 MAST failure signatures (stagnation, tool loops, context overload, role violations, etc.) over a sliding event window; when a signature persists above threshold, injects a natural-language recovery hint and restores the LangGraph MemorySaver checkpoint to the last stable state. Attaches asynchronously without modifying agent prompts, roles, or tool definitions.",
+      "impact": "100% task completion across 12 matched observer/baseline pairs; event-count reduction in 7/12 cases (median −14 events); up to 69% token savings on longer runs.",
       "skills": [
         "Python",
-        "LSTM",
-        "ARIMA",
-        "Prophet",
-        "Pandas",
-        "Streamlit",
-        "Time-Series Forecasting"
+        "LangGraph",
+        "LangChain",
+        "OpenAI",
+        "Multi-agent Systems",
+        "Observer Pattern"
       ],
       "links": []
     }
   },
   {
-    "id": "project-2",
-    "title": "Blockchain-based Voting System",
-    "subtitle": "Security Project",
-    "period": "2025",
-    "overview": "Decentralized voting platform with privacy-preserving verification.",
+    "id": "project-nizam",
+    "title": "Nizam — Personal & Business AI Operating System",
+    "period": "2026",
+    "overview": "Private AI operating system on a live VPS — 10 autonomous agents each own a domain of personal life or business, controlled entirely through Discord.",
     "details": {
-      "description": "Developed a secure digital voting system using a custom blockchain and cryptographic techniques.",
-      "problem": "Traditional voting systems face transparency and tampering concerns.",
-      "approach": "Implemented Python-based blockchain with homomorphic encryption for privacy-preserving vote validation.",
-      "impact": "Enabled verifiable and auditable elections while preserving voter anonymity.",
+      "approach": "10 agents, 3 layers: personal layer (sysadmin, knowledge curator, personal assistant), a dedicated researcher agent for multi-source due diligence, an investor agent with IBKR read access and compliance-aligned screening, and a business C-suite (Chief of Staff, CFO, COO, CTO, CMO). Each calls domain-specific MCP servers backed by PostgreSQL + pgvector; all LLM calls route through LiteLLM + Redis to OpenRouter — models are plug-and-play. Knowledge vault ingests from multiple sources with approval-gated writes. Full observability via Prometheus, Grafana, Loki, and LangFuse.",
+      "impact": "One VPS, one Discord server — complete personal and business operating layer covering infrastructure, knowledge curation, finance, habits, tasks, research, investment due diligence, and a full business C-suite.",
       "skills": [
         "Python",
-        "Blockchain",
-        "Cryptography",
-        "Homomorphic Encryption",
-        "Distributed Systems"
+        "MCP",
+        "Hermes",
+        "LiteLLM",
+        "PostgreSQL",
+        "pgvector",
+        "Redis",
+        "Discord",
+        "Prometheus",
+        "Grafana",
+        "Loki",
+        "OpenRouter"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-nlnosql",
+    "title": "NL for NoSQL — Natural Language Movie Query Agent",
+    "period": "2026",
+    "overview": "Agentic chatbot that lets users query a MongoDB Atlas database in plain English, combining vector search, full-text search, and document retrieval in a stateful ReAct loop.",
+    "details": {
+      "approach": "LangGraph StateGraph orchestrates an LLM agent over three tools — semantic plot vector search, Atlas full-text title search, and full document retrieval — with MongoDBSaver checkpointing full conversation state and MongoDBStore persisting long-term user memory across sessions. Dual interface: Streamlit web UI and terminal CLI.",
+      "impact": "Fully stateful multi-turn querying over the sample_mflix dataset; agent autonomously selects the right retrieval strategy per question without user knowledge of query syntax.",
+      "skills": [
+        "Python",
+        "LangGraph",
+        "LangChain",
+        "MongoDB Atlas",
+        "Vector Search",
+        "OpenAI",
+        "Streamlit"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-1",
+    "title": "Real-Time Sign Language Recognition",
+    "period": "2024",
+    "overview": "Wearable sensor glove that translates ASL hand gestures into speech in real time — 98% classification accuracy with sub-second end-to-end latency.",
+    "details": {
+      "approach": "Flex and IMU sensors embedded in a glove capture finger bend angles and wrist orientation on an ESP32, streaming raw motion data over WebSockets to a cloud-hosted Random Forest classifier trained on labelled gesture sequences. Classified output is passed to a text-to-speech engine and played back in real time, closing the loop from gesture to spoken word without any manual trigger.",
+      "impact": "98% classification accuracy across the ASL gesture set with sub-second latency from gesture to speech; end-to-end pipeline runs on commodity hardware with no GPU.",
+      "skills": ["ESP32", "Python", "Random Forest", "WebSockets", "IoT", "Scikit-learn", "Text-to-Speech"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-2",
+    "title": "Energy Demand Forecasting",
+    "period": "2025",
+    "overview": "Time-series forecasting on 35K hourly records from the Spain national grid — LSTM achieved 1% MAPE, an 83% error reduction over the statistical baseline.",
+    "details": {
+      "approach": "Systematic model comparison across three families on Spain grid data (2015–2018): ARIMA for statistical baseline with differencing and ACF/PACF tuning, Prophet for trend and seasonality decomposition with holiday effects, and a stacked LSTM for sequence-level demand learning. Automated backtesting with rolling windows evaluated each model on identical holdout periods; results surfaced in a Streamlit dashboard with interactive metric overlays and residual analysis.",
+      "impact": "LSTM achieved 1% MAPE vs. ARIMA baseline — 83% forecasting error reduction; dashboard enables direct side-by-side model comparison across the full backtesting horizon.",
+      "skills": ["Python", "LSTM", "ARIMA", "Prophet", "Pandas", "PyTorch", "Streamlit", "Time-Series Analysis"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-nids",
+    "title": "AI-Based Network Intrusion Detection System — Architecture Design",
+    "period": "2026",
+    "overview": "Architecture-centric design for a scalable AI NIDS that co-designs software design patterns with distributed microservices for production reliability.",
+    "details": {
+      "approach": "Combined creational (registry + factory for model instantiation), structural (decorator preprocessing chains, adapter bridges), and behavioral (strategy context for runtime policy switching, observer propagation to response sinks) GoF patterns with microservices, event-driven messaging, and pipe-and-filter decomposition inside the detection path.",
+      "impact": "Implementation-ready architecture addressing four gaps in classical AI-NIDS — scalability, maintainability, extensibility, and adversarial robustness — with evaluation framework against NSL-KDD and CICIDS-class datasets.",
+      "skills": [
+        "Software Architecture",
+        "Design Patterns",
+        "Deep Learning",
+        "Microservices",
+        "Cybersecurity",
+        "Python"
       ],
       "links": []
     }
   },
   {
     "id": "project-3",
-    "title": "Survival Modelling in Post-HCT Patients",
-    "subtitle": "Healthcare ML",
+    "title": "Survival Modelling — Post-HCT Patients",
     "period": "2025",
-    "overview": "Clinical survival prediction using ensemble ML models.",
+    "overview": "Clinical outcome prediction on heavily censored transplant data — 0.79 AUC.",
     "details": {
-      "description": "Performed survival analysis on censored transplant patient data to identify outcome predictors.",
-      "problem": "Highly censored medical datasets complicate outcome prediction.",
-      "approach": "Feature engineering and model comparison using XGBoost, LightGBM, and CatBoost.",
-      "impact": "Achieved 0.79 AUC in patient outcome prediction.",
+      "approach": "Feature engineering and ensemble comparison (XGBoost, LightGBM, CatBoost) on censored medical records.",
+      "impact": "0.79 AUC on patient outcome prediction from imbalanced clinical data.",
       "skills": [
-        "Pandas",
-        "NumPy",
-        "Scikit-learn",
         "XGBoost",
         "LightGBM",
         "CatBoost",
-        "Survival Analysis"
+        "Survival Analysis",
+        "Scikit-learn"
       ],
       "links": []
     }
   },
   {
     "id": "project-4",
-    "title": "Vision-based Navigational Autonomous Vehicle",
-    "subtitle": "Robotics Project",
+    "title": "Vision-based Autonomous Vehicle",
     "period": "2025",
-    "overview": "Autonomous robot using YOLOv5 for real-time navigation.",
+    "overview": "Computer-vision robot with real-time obstacle detection and point-to-point navigation.",
     "details": {
-      "description": "Designed a navigation robot with computer vision and multi-sensor fusion.",
-      "problem": "Autonomous navigation requires reliable real-time obstacle detection.",
-      "approach": "Used YOLOv5 on Jetson Nano with ultrasonic and IR sensors integrated via Arduino and ESP32.",
-      "impact": "Enabled dynamic speed control and accurate point-to-point navigation.",
+      "approach": "YOLOv5 on Jetson Nano fused with ultrasonic and IR sensors via Arduino and ESP32 for dynamic speed control.",
+      "impact": "Accurate point-to-point navigation in cluttered environments at real-time inference speed.",
       "skills": [
         "YOLOv5",
-        "NVIDIA Jetson Nano",
+        "Jetson Nano",
         "Arduino",
         "ESP32",
-        "Computer Vision",
-        "Robotics"
+        "Computer Vision"
       ],
       "links": []
     }
   },
   {
     "id": "project-5",
-    "title": "Crop Recommendation System",
-    "subtitle": "Data Science Project",
-    "period": "2024",
-    "overview": "ML system recommending optimal crops using long-term agricultural data.",
+    "title": "Blockchain-based Voting System",
+    "period": "2025",
+    "overview": "Tamper-evident elections with homomorphic encryption preserving voter anonymity.",
     "details": {
-      "description": "Built a predictive system to recommend top crops based on soil and climate data.",
-      "problem": "Farmers struggle to select crops that maximize yield.",
-      "approach": "Performed cleaning, merging, and regression modeling on 30 years of data.",
-      "impact": "Achieved 0.84 R² and delivered top-5 crop predictions.",
+      "approach": "Custom Python blockchain with homomorphic encryption for privacy-preserving vote validation and public auditability.",
+      "impact": "Verifiable, anonymous elections with a transparent and immutable audit trail.",
       "skills": [
-        "Scikit-learn",
-        "Pandas",
-        "NumPy",
-        "Data Cleaning",
-        "Regression Modeling"
+        "Python",
+        "Blockchain",
+        "Cryptography",
+        "Homomorphic Encryption"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-lastmile",
+    "title": "Last-Mile Delivery Optimization — SQL Analysis & Dispatch Simulation",
+    "period": "2025",
+    "overview": "SQL-heavy diagnostic study on a large last-mile delivery dataset isolating peak-hour delay patterns, with a clustering-based batching simulation to estimate dispatch efficiency gains.",
+    "details": {
+      "approach": "PostgreSQL CTEs, window functions, and grouped diagnostics decompose delays by hour, traffic density, weather, and city; dataset split into a star schema (rider, city, vehicle, route dimensions + delivery fact table). KMeans clustering over geospatial order points with time-window constraints simulates batch dispatch. Power BI report for executive storytelling.",
+      "impact": "Peak-hour bottleneck patterns fully evidenced across operational dimensions; batching simulation produced directional efficiency gain estimates under available data constraints.",
+      "skills": [
+        "PostgreSQL",
+        "Python",
+        "KMeans",
+        "Power BI",
+        "SQL",
+        "Geospatial Analysis"
       ],
       "links": []
     }
   },
   {
     "id": "project-6",
-    "title": "Real-Time Sign Language Recognition",
-    "subtitle": "Embedded ML",
+    "title": "Crop Recommendation System",
     "period": "2024",
-    "overview": "Sensor-based glove system translating gestures to speech.",
+    "overview": "ML system recommending optimal crops using 30 years of agricultural data — 0.84 R².",
     "details": {
-      "description": "Built smart gloves capturing hand motion and transmitting data for ML classification.",
-      "problem": "Communication barriers for sign language users.",
-      "approach": "Used flex sensors and IMU sensors with ESP32 and cloud-based Random Forest.",
-      "impact": "Achieved 98% classification accuracy with real-time TTS output.",
-      "skills": ["ESP32", "Sensors", "Random Forest", "WebSockets", "IoT"],
+      "approach": "Cleaned and merged 30-year soil/climate datasets; trained regression models with Scikit-learn.",
+      "impact": "0.84 R² and top-5 crop predictions tailored to soil and climate conditions.",
+      "skills": ["Scikit-learn", "Pandas", "NumPy", "Regression Modeling"],
       "links": []
     }
   },
   {
     "id": "project-7",
     "title": "Smart Home Management System",
-    "subtitle": "IoT Project",
     "period": "2023",
-    "overview": "Voice-controlled IoT home automation ecosystem.",
+    "overview": "Voice-controlled IoT home automation with safety sensors.",
     "details": {
-      "description": "Designed a low-cost smart home system with safety and automation features.",
-      "problem": "Smart home solutions are often expensive and complex.",
       "approach": "Integrated ESP32 with gas, smoke, and thermal sensors plus irrigation automation.",
-      "impact": "Enabled no-code automation for end-users.",
+      "impact": "Enabled no-code automation for end-users at low cost.",
       "skills": ["ESP32", "IoT", "Sensors", "Home Automation"],
       "links": []
     }
@@ -142,29 +205,35 @@
   {
     "id": "project-8",
     "title": "CNC Handwriting Machine",
-    "subtitle": "Mechatronics Project",
     "period": "2023",
-    "overview": "Two-axis CNC plotter replicating handwriting.",
+    "overview": "Two-axis CNC plotter replicating handwriting with sub-millimeter precision.",
     "details": {
-      "description": "Built CNC system to reproduce text and drawings with high precision.",
-      "problem": "Automated handwriting replication requires fine motor control.",
-      "approach": "Programmed G-code interpreter controlling stepper motors on a custom frame.",
-      "impact": "Achieved sub-millimeter drawing accuracy.",
+      "approach": "G-code interpreter controlling stepper motors on a custom frame with 3D-printed parts.",
+      "impact": "Sub-millimeter drawing accuracy across text and freeform paths.",
       "skills": ["CNC", "Arduino", "G-code", "Stepper Motors", "3D Printing"],
       "links": []
     }
   },
   {
     "id": "project-9",
-    "title": "Collision Avoidance Bot",
-    "subtitle": "Robotics Project",
+    "title": "Unmanned Person-Following Drone",
     "period": "2022",
-    "overview": "Autonomous robot with dynamic obstacle avoidance.",
+    "overview": "Vision-based quadcopter that autonomously tracks and follows a person.",
     "details": {
-      "description": "Built a robot that adjusts speed based on real-time distance sensing.",
-      "problem": "Robots require adaptive navigation in cluttered spaces.",
-      "approach": "Used ultrasonic sensors and proportional control algorithms.",
-      "impact": "Enabled safe navigation in variable environments.",
+      "approach": "Jetson Nano + Pixhawk with pixel-based tracking algorithm for stable real-time following.",
+      "impact": "Stable real-time person-following behavior in open environments.",
+      "skills": ["Jetson Nano", "Pixhawk", "Computer Vision", "Drone Control"],
+      "links": []
+    }
+  },
+  {
+    "id": "project-10",
+    "title": "Collision Avoidance Bot",
+    "period": "2022",
+    "overview": "Autonomous robot with dynamic obstacle avoidance using proportional control.",
+    "details": {
+      "approach": "Ultrasonic sensors with proportional control algorithms for real-time speed adjustment.",
+      "impact": "Safe adaptive navigation in variable environments.",
       "skills": [
         "Arduino",
         "Ultrasonic Sensors",
@@ -175,47 +244,26 @@
     }
   },
   {
-    "id": "project-10",
+    "id": "project-11",
     "title": "Automatic Result Collection Bot",
-    "subtitle": "Automation Project",
     "period": "2022",
-    "overview": "Selenium bot for automated academic result scraping.",
+    "overview": "Selenium bot for automated academic result scraping and storage.",
     "details": {
-      "description": "Created a bot to retrieve and organize student results automatically.",
-      "problem": "Manual result collection is repetitive and slow.",
-      "approach": "Used Selenium WebDriver with structured storage logic.",
-      "impact": "Saved significant manual effort for bulk result retrieval.",
+      "approach": "Selenium WebDriver with structured storage logic for bulk result retrieval.",
+      "impact": "Eliminated manual result collection for large student batches.",
       "skills": ["Python", "Selenium", "Web Scraping", "Automation"],
       "links": []
     }
   },
   {
-    "id": "project-11",
-    "title": "Kaggle 2022 MLDS Survey Analysis",
-    "subtitle": "Data Analysis",
-    "period": "2022",
-    "overview": "EDA and dashboard on global ML practitioner trends.",
-    "details": {
-      "description": "Analyzed Kaggle survey data for industry insights.",
-      "problem": "Understanding global ML trends requires deep data analysis.",
-      "approach": "Performed cleaning, augmentation, and visualization with Streamlit.",
-      "impact": "Identified salary and technology adoption patterns.",
-      "skills": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit"],
-      "links": []
-    }
-  },
-  {
     "id": "project-12",
-    "title": "Unmanned Person-Following Drone",
-    "subtitle": "Aerial Robotics",
+    "title": "Kaggle 2022 MLDS Survey Analysis",
     "period": "2022",
-    "overview": "Vision-based quadcopter that tracks and follows a person.",
+    "overview": "EDA and Streamlit dashboard on global ML practitioner trends.",
     "details": {
-      "description": "Built a drone capable of autonomous person tracking.",
-      "problem": "Maintaining stable tracking requires robust vision algorithms.",
-      "approach": "Used Jetson Nano with Pixhawk and pixel-based tracking.",
-      "impact": "Achieved stable real-time following behavior.",
-      "skills": ["Jetson Nano", "Pixhawk", "Computer Vision", "Drone Control"],
+      "approach": "Cleaned and augmented Kaggle survey data; built interactive visualizations in Streamlit.",
+      "impact": "Surfaced salary and technology adoption patterns across global ML practitioners.",
+      "skills": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit"],
       "links": []
     }
   }
