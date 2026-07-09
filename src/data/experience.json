@@ -36,7 +36,7 @@
     "id": "exp-2",
     "title": "AI Engineer",
     "subtitle": "KingScote Informatics",
-    "period": "Mar 2024 - Feb 2026",
+    "period": "Apr 2024 - Marc 2026",
     "overview": "Replaced rule-based logic with ML inference services for recommendations and classification.",
     "details": {
       "approach": "Collaborative (SVD, ALS) + content-based filtering for recommendations; XGBoost + SMOTE for imbalanced classification; wrapped models in FastAPI /predict endpoints.",
