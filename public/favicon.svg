@@ -3,11 +3,11 @@
   <text
     x="3"
     y="19"
-    style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 17px; fill: #FBBF24;"
+    style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; fill: #FBBF24;"
   >D</text>
   <text
     x="13"
     y="27"
-    style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; fill: #E8E6E1;"
+    style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; fill: #E8E6E1;"
   >A</text>
 </svg>
