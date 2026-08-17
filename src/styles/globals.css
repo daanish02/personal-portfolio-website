@@ -73,6 +73,7 @@ a:focus-visible {
 .label {
   font-family: var(--font-mono);
   font-size: 12px;
+  font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
