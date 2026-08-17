@@ -13,7 +13,7 @@ const top5Projects = projectsData.slice(0, 5);
 <div class="container">
 
     <!-- Experience -->
-    <p class="label" id="experience">Experience</p>
+    <h2 class="label" id="experience">Experience</h2>
     {experienceData.map(item => (
         <ExpandableCard
             title={item.title}
@@ -25,7 +25,7 @@ const top5Projects = projectsData.slice(0, 5);
     ))}
 
     <!-- Projects -->
-    <p class="label" id="projects">Projects</p>
+    <h2 class="label" id="projects">Projects</h2>
     {top5Projects.map(item => (
         <ExpandableCard
             title={item.title}
@@ -36,7 +36,7 @@ const top5Projects = projectsData.slice(0, 5);
     ))}
 
     <!-- Credentials -->
-    <p class="label" id="credentials">Credentials</p>
+    <h2 class="label" id="credentials">Credentials</h2>
     {certificationsData.map(item => (
         <ExpandableCard
             title={item.title}
@@ -48,11 +48,11 @@ const top5Projects = projectsData.slice(0, 5);
     ))}
 
     <!-- Education -->
-    <p class="label" id="education">Education</p>
+    <h2 class="label" id="education">Education</h2>
     {educationData.map(item => (
         <div class="edu-entry">
             <div class="edu-row">
-                <span class="edu-degree">{item.degree}</span>
+                <h3 class="edu-degree">{item.degree}</h3>
                 <span class="edu-date">{item.period}</span>
             </div>
             <div class="edu-institution">{item.institution}</div>
@@ -61,7 +61,7 @@ const top5Projects = projectsData.slice(0, 5);
     ))}
 
     <!-- Leadership -->
-    <p class="label" id="leadership">Voluntary Work</p>
+    <h2 class="label" id="leadership">Voluntary Work</h2>
     {activitiesData.map(item => (
         <ExpandableCard
             title={item.title}
@@ -73,11 +73,11 @@ const top5Projects = projectsData.slice(0, 5);
     ))}
 
     <!-- Skills -->
-    <p class="label" id="skills">Skills</p>
+    <h2 class="label" id="skills">Skills</h2>
     <div class="techCloud skillsCloud">
         {skillsData.skills.map(skill => (
             <span class="techTag">
-                {skill.icon && <img src={skill.icon} alt="" loading="lazy" width="14" height="14" />}
+                {skill.icon && <img src={skill.icon} alt={skill.name} loading="lazy" width="14" height="14" />}
                 {skill.name}
             </span>
         ))}

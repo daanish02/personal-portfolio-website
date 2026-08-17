@@ -37,9 +37,9 @@ const hasDetails = details && Object.keys(details).some(k => {
         {details && (
             <div class="body">
                 {details.description && <div class="sub"><p>{details.description}</p></div>}
-                {details.problem && <div class="sub"><h4>Problem</h4><p>{details.problem}</p></div>}
-                {details.approach && <div class="sub"><h4>Approach</h4><p>{details.approach}</p></div>}
-                {details.impact && <div class="sub"><h4>Impact</h4><p>{details.impact}</p></div>}
+                {details.problem && <div class="sub"><p class="sub-label">Problem</p><p>{details.problem}</p></div>}
+                {details.approach && <div class="sub"><p class="sub-label">Approach</p><p>{details.approach}</p></div>}
+                {details.impact && <div class="sub"><p class="sub-label">Impact</p><p>{details.impact}</p></div>}
                 {details.skills && details.skills.length > 0 && (
                     <div class="tech">
                         {details.skills.map(s => <span>{s}</span>)}
@@ -147,7 +147,7 @@ details.entry[open] .chev { transform: rotate(90deg); }
 
 .sub { margin-bottom: 10px; }
 
-.sub h4 {
+.sub-label {
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.1em;
@@ -156,7 +156,7 @@ details.entry[open] .chev { transform: rotate(90deg); }
     margin-bottom: 3px;
 }
 
-.sub p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+.sub p:not(.sub-label) { color: var(--muted); font-size: 15px; line-height: 1.6; }
 
 .tech {
     display: flex;
