@@ -4,17 +4,19 @@
     "title": "AI Engineer",
     "subtitle": "Deriv",
     "period": "Jul 2026 - Present",
-    "overview": "Designing and deploying AI solutions across trading algorithms, customer experience, and operational efficiency.",
+    "overview": "Building AI and automation systems that eliminate manual operational bottlenecks and improve engineering reliability.",
     "details": {
-      "approach": "Scope covers deep learning model development, NLP applications, real-time vector search systems, and generative AI integration — deployed via MLOps tooling and cloud platforms with a focus on model fairness, transparency, and production performance.",
+      "approach": "Built an end-to-end agentic pipeline that handles data access requests autonomously — gathering and consolidating requestor data, formatting output to organizational standards, and redacting third-party PII before routing the completed package for compliance review and sign-off. Separately, authored full technical documentation for an existing production system that had none; became the primary maintainer — triaging inbound issues from stakeholders, resolving defects directly, and escalating to the wider team where needed.",
+      "impact": "Data access request turnaround reduced from 7 days to under 15 minutes. Production system gained a documented, maintained baseline — stakeholder issues now routed and resolved systematically rather than ad hoc.",
       "skills": [
         "Python",
-        "PyTorch",
+        "Agentic AI",
+        "LLMs",
         "NLP",
-        "Vector Search",
         "MLOps",
-        "Generative AI",
-        "Cloud Platforms"
+        "GCP",
+        "Docker",
+        "Kubernetes"
       ],
       "links": []
     }
@@ -24,31 +26,57 @@
     "title": "Data & Automation Engineer",
     "subtitle": "OMNI Group",
     "period": "Apr 2026 - Jun 2026",
-    "overview": "First analyst hired; built the company's entire data and reporting function from scratch on a 150+ table SQL Server database with millions of rows.",
+    "overview": "First analyst hired; built the company's entire data and reporting function from scratch on a 150+ table SQL database with millions of rows.",
     "details": {
-      "approach": "Designed an executive arrears dashboard covering 3,000+ live cases (CPI, PPI, Trust Deed) with drill-down into arrears, catch-up balances, and assignment-stage pipeline. Built a Node.js API layer to serve query results since direct DB access wasn't permitted for reporting tools, and engineered custom SQL logic with the co-founder/GM to recover ~50 cases silently dropped by the in-house system.",
-      "impact": "Exposed £60K in previously invisible arrears and catch-up payments, tracked ~£500K in customer payments; dashboard adopted operationally by the co-founder/GM and two business teams.",
-      "skills": ["MS SQL Server", "Node.js", "Power BI", "DAX", "Excel"],
+      "approach": "Designed an executive arrears dashboard covering 3,000+ live cases with drill-down into arrears, catch-up balances, and assignment-stage pipeline. Built an API layer to serve query results to reporting tools, and engineered custom SQL logic with senior leadership to surface and reconcile cases not accounted for by existing systems.",
+      "impact": "Exposed £60K in previously untracked arrears and catch-up payments, tracked ~£500K in customer payments; dashboard adopted operationally by senior leadership and two business teams.",
+      "skills": ["SQL Server", "Node.js", "Power BI", "DAX", "Excel"],
+      "links": []
+    }
+  },
+  {
+    "id": "exp-2b",
+    "title": "Software Engineer",
+    "subtitle": "KingScote Informatics",
+    "period": "Feb 2025 - Mar 2026",
+    "overview": "Built and shipped AI-native backend systems and agentic pipelines spanning data infrastructure, production incident management, and enterprise AI tooling.",
+    "details": {
+      "approach": "Designed and built AI-native backend systems and agentic pipelines across multiple domains: a unified data access layer serving multiple sources through a single secured REST API; an automated incident analysis pipeline with timeline reconstruction, root cause analysis, and post-mortem generation; an agentic multi-platform content publishing system with human-in-the-loop approval; a conversational AI booking agent handling natural-language requests end-to-end; a multi-agent customer support triage system with RAG-powered responses; and a permission-aware enterprise knowledge assistant with role-based document retrieval and cited, auditable answers.",
+      "impact": "Unified data layer adopted across all operational teams, providing consistent access to both SQL and NoSQL sources through a single interface. Incident analysis turnaround reduced from 1 day of manual work to under 10 minutes, fully automated. Booking agent served ~3,000 customers weekly with 24/7 availability. Authorization and compliance constraints enforced at the infrastructure level — sensitive data filtered before reaching AI models.",
+      "skills": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "LangGraph",
+        "LLMs",
+        "RAG",
+        "Pinecone",
+        "PostgreSQL",
+        "Redis",
+        "Docker"
+      ],
       "links": []
     }
   },
   {
     "id": "exp-2",
-    "title": "AI Engineer",
+    "title": "Data Scientist",
     "subtitle": "KingScote Informatics",
-    "period": "Apr 2024 - Marc 2026",
-    "overview": "Replaced rule-based logic with ML inference services for recommendations and classification.",
+    "period": "Nov 2024 - Jan 2025",
+    "overview": "Applied end-to-end ML pipelines to energy forecasting and clinical survival prediction, with emphasis on model interpretability and production-ready model evaluation.",
     "details": {
-      "approach": "Collaborative (SVD, ALS) + content-based filtering for recommendations; XGBoost + SMOTE for imbalanced classification; wrapped models in FastAPI /predict endpoints.",
-      "impact": "Engagement +23%, CTR +20%, 92% precision on imbalanced classification in production.",
+      "approach": "Built a time-series forecasting pipeline systematically comparing ARIMA, Prophet, and a stacked LSTM on 35K hourly energy demand records, with automated rolling-window backtesting and an interactive dashboard for model comparison and residual analysis. Separately, developed a clinical survival prediction model for post-HCT patients — benchmarked six ensemble and gradient boosting algorithms, optimized the best performer via Optuna with recall prioritized to minimize false negatives, and applied SHAP values and decision tree visualization for clinical interpretability. Conducted unsupervised patient clustering to surface sub-groups within the high-dimensional clinical dataset.",
+      "impact": "LSTM achieved 1% MAPE vs. ARIMA baseline — 83% forecasting error reduction. Post-HCT model achieved 0.94 recall and 0.80 precision after tuning; clustering surfaced clinically meaningful patient sub-groups consistent across multiple algorithms.",
       "skills": [
         "Python",
-        "Pandas",
+        "LightGBM",
+        "XGBoost",
         "Scikit-learn",
         "PyTorch",
-        "FastAPI",
-        "XGBoost",
-        "SMOTE"
+        "SHAP",
+        "LSTM",
+        "ARIMA",
+        "Pandas"
       ],
       "links": []
     }
@@ -60,9 +88,9 @@
     "period": "Jul 2022 - Aug 2022",
     "overview": "Mentored 120 students in Python and applied ML across guided lab sessions.",
     "details": {
-      "approach": "Ran labs on preprocessing, visualization, and basic ML algorithms; reviewed code and gave targeted feedback to improve correctness.",
-      "impact": "Students independently completed data analysis and ML assignments by end of cohort.",
-      "skills": ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+      "approach": "Ran labs on preprocessing, visualization, and ML algorithms; covered engineering-level mathematics in Python — calculus, linear algebra, and signal processing. Reviewed code and gave targeted feedback to improve correctness.",
+      "impact": "Students independently completed data analysis, ML, and applied mathematics assignments by end of cohort.",
+      "skills": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "SciPy", "SymPy"],
       "links": []
     }
   }

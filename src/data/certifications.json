@@ -3,7 +3,7 @@
     "id": "cert-1",
     "title": "Machine Learning Specialization",
     "issuer": "Stanford University",
-    "date": "2024",
+    "date": "2025",
     "overview": "Comprehensive specialization covering supervised, unsupervised learning, with recommender systems and deep learning fundamentals.",
     "details": {
       "description": "Three-course specialization taught by Andrew Ng covering regression, classification, neural networks, decision trees, recommender systems, and best practices for ML development. Includes hands-on projects implementing algorithms from scratch.",

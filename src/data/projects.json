@@ -1,7 +1,7 @@
 [
   {
     "id": "project-mast",
-    "title": "MAST Meta-Observer — Metacognitive Monitoring for Multi-Agent AI",
+    "title": "MAST Metacognitive Monitoring for Agentic Software Development",
     "period": "2026",
     "overview": "Non-intrusive observer layer for LangGraph multi-agent systems that detects 7 behavioral failure signatures and auto-recovers via checkpoint rollback — 100% task completion across 24 benchmark runs.",
     "details": {
@@ -20,7 +20,7 @@
   },
   {
     "id": "project-nizam",
-    "title": "Nizam — Personal & Business AI Operating System",
+    "title": "Nizam — AI Operating System",
     "period": "2026",
     "overview": "Private AI operating system on a live VPS — 10 autonomous agents each own a domain of personal life or business, controlled entirely through Discord.",
     "details": {
@@ -45,7 +45,7 @@
   },
   {
     "id": "project-nlnosql",
-    "title": "NL for NoSQL — Natural Language Movie Query Agent",
+    "title": "NL for NoSQL — Natural Language Query Agent",
     "period": "2026",
     "overview": "Agentic chatbot that lets users query a MongoDB Atlas database in plain English, combining vector search, full-text search, and document retrieval in a stateful ReAct loop.",
     "details": {
@@ -65,13 +65,40 @@
   },
   {
     "id": "project-1",
-    "title": "Real-Time Sign Language Recognition",
+    "title": "SignWave — Real-Time Sign Language Recognition",
     "period": "2024",
     "overview": "Wearable sensor glove that translates ASL hand gestures into speech in real time — 98% classification accuracy with sub-second end-to-end latency.",
     "details": {
       "approach": "Flex and IMU sensors embedded in a glove capture finger bend angles and wrist orientation on an ESP32, streaming raw motion data over WebSockets to a cloud-hosted Random Forest classifier trained on labelled gesture sequences. Classified output is passed to a text-to-speech engine and played back in real time, closing the loop from gesture to spoken word without any manual trigger.",
       "impact": "98% classification accuracy across the ASL gesture set with sub-second latency from gesture to speech; end-to-end pipeline runs on commodity hardware with no GPU.",
-      "skills": ["ESP32", "Python", "Random Forest", "WebSockets", "IoT", "Scikit-learn", "Text-to-Speech"],
+      "skills": [
+        "ESP32",
+        "Python",
+        "Random Forest",
+        "WebSockets",
+        "IoT",
+        "Scikit-learn",
+        "Text-to-Speech"
+      ],
+      "links": []
+    }
+  },
+  {
+    "id": "project-lastmile",
+    "title": "Last-Mile Delivery Optimization",
+    "period": "2025",
+    "overview": "SQL-driven diagnostic study on a large last-mile delivery dataset isolating peak-hour delay patterns, with a clustering-based batching simulation to estimate dispatch efficiency gains.",
+    "details": {
+      "approach": "PostgreSQL CTEs, window functions, and grouped diagnostics decompose delays by hour, traffic density, weather, and city; dataset split into a star schema (rider, city, vehicle, route dimensions + delivery fact table). K-Means clustering over geospatial order points with time-window constraints simulates batch dispatch. Power BI report for executive storytelling.",
+      "impact": "Peak-hour bottleneck patterns fully evidenced across operational dimensions; batching simulation produced directional efficiency gain estimates under available data constraints.",
+      "skills": [
+        "PostgreSQL",
+        "Python",
+        "KMeans",
+        "Power BI",
+        "SQL",
+        "Geospatial Analysis"
+      ],
       "links": []
     }
   },
@@ -81,9 +108,18 @@
     "period": "2025",
     "overview": "Time-series forecasting on 35K hourly records from the Spain national grid — LSTM achieved 1% MAPE, an 83% error reduction over the statistical baseline.",
     "details": {
-      "approach": "Systematic model comparison across three families on Spain grid data (2015–2018): ARIMA for statistical baseline with differencing and ACF/PACF tuning, Prophet for trend and seasonality decomposition with holiday effects, and a stacked LSTM for sequence-level demand learning. Automated backtesting with rolling windows evaluated each model on identical holdout periods; results surfaced in a Streamlit dashboard with interactive metric overlays and residual analysis.",
+      "approach": "Systematic model comparison across three families on Spain grid data (2015–2018): ARIMA for statistical baseline with differencing and statistical tuning, Prophet for trend and seasonality decomposition with holiday effects, and a stacked LSTM for sequence-level demand learning. Automated backtesting with rolling windows evaluated each model on identical holdout periods; results surfaced in a Streamlit dashboard with interactive metric overlays and residual analysis.",
       "impact": "LSTM achieved 1% MAPE vs. ARIMA baseline — 83% forecasting error reduction; dashboard enables direct side-by-side model comparison across the full backtesting horizon.",
-      "skills": ["Python", "LSTM", "ARIMA", "Prophet", "Pandas", "PyTorch", "Streamlit", "Time-Series Analysis"],
+      "skills": [
+        "Python",
+        "LSTM",
+        "ARIMA",
+        "Prophet",
+        "Pandas",
+        "PyTorch",
+        "Streamlit",
+        "Time-Series Analysis"
+      ],
       "links": []
     }
   },
@@ -93,7 +129,7 @@
     "period": "2026",
     "overview": "Architecture-centric design for a scalable AI NIDS that co-designs software design patterns with distributed microservices for production reliability.",
     "details": {
-      "approach": "Combined creational (registry + factory for model instantiation), structural (decorator preprocessing chains, adapter bridges), and behavioral (strategy context for runtime policy switching, observer propagation to response sinks) GoF patterns with microservices, event-driven messaging, and pipe-and-filter decomposition inside the detection path.",
+      "approach": "Combined creational, structural, and behavioral software design patterns (factory, decorator, strategy, observer) with microservices, event-driven messaging, and pipe-and-filter decomposition inside the detection path.",
       "impact": "Implementation-ready architecture addressing four gaps in classical AI-NIDS — scalability, maintainability, extensibility, and adversarial robustness — with evaluation framework against NSL-KDD and CICIDS-class datasets.",
       "skills": [
         "Software Architecture",
@@ -160,25 +196,6 @@
     }
   },
   {
-    "id": "project-lastmile",
-    "title": "Last-Mile Delivery Optimization — SQL Analysis & Dispatch Simulation",
-    "period": "2025",
-    "overview": "SQL-heavy diagnostic study on a large last-mile delivery dataset isolating peak-hour delay patterns, with a clustering-based batching simulation to estimate dispatch efficiency gains.",
-    "details": {
-      "approach": "PostgreSQL CTEs, window functions, and grouped diagnostics decompose delays by hour, traffic density, weather, and city; dataset split into a star schema (rider, city, vehicle, route dimensions + delivery fact table). KMeans clustering over geospatial order points with time-window constraints simulates batch dispatch. Power BI report for executive storytelling.",
-      "impact": "Peak-hour bottleneck patterns fully evidenced across operational dimensions; batching simulation produced directional efficiency gain estimates under available data constraints.",
-      "skills": [
-        "PostgreSQL",
-        "Python",
-        "KMeans",
-        "Power BI",
-        "SQL",
-        "Geospatial Analysis"
-      ],
-      "links": []
-    }
-  },
-  {
     "id": "project-6",
     "title": "Crop Recommendation System",
     "period": "2024",
@@ -220,7 +237,7 @@
     "period": "2022",
     "overview": "Vision-based quadcopter that autonomously tracks and follows a person.",
     "details": {
-      "approach": "Jetson Nano + Pixhawk with pixel-based tracking algorithm for stable real-time following.",
+      "approach": "Jetson Nano + Pixhawk with real-time visual tracking for stable person-following behavior.",
       "impact": "Stable real-time person-following behavior in open environments.",
       "skills": ["Jetson Nano", "Pixhawk", "Computer Vision", "Drone Control"],
       "links": []
@@ -249,8 +266,8 @@
     "period": "2022",
     "overview": "Selenium bot for automated academic result scraping and storage.",
     "details": {
-      "approach": "Selenium WebDriver with structured storage logic for bulk result retrieval.",
-      "impact": "Eliminated manual result collection for large student batches.",
+      "approach": "Selenium WebDriver with structured storage logic for automated bulk data collection.",
+      "impact": "Eliminated manual data collection for large student batches.",
       "skills": ["Python", "Selenium", "Web Scraping", "Automation"],
       "links": []
     }
