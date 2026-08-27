@@ -1,0 +1,16 @@
+  {
+    "id": "project-2",
+    "title": "Energy Demand Forecasting",
+    "period": "2025",
+    "overview": "Time-series forecasting on 35K hourly records from the Spain national grid — LSTM achieved 1% MAPE, an 83% error reduction over the statistical baseline.",
+    "details": {
+      "approach": "Systematic model comparison across three families on Spain grid data (2015–2018): ARIMA for statistical baseline with differencing and ACF/PACF tuning, Prophet for trend and seasonality decomposition with holiday effects, and a stacked LSTM for sequence-level demand learning. Automated backtesting with rolling windows evaluated each model on identical holdout periods; results surfaced in a Streamlit dashboard with interactive metric overlays and residual analysis.",
+      "impact": "LSTM achieved 1% MAPE vs. ARIMA baseline — 83% forecasting error reduction; dashboard enables direct side-by-side model comparison across the full backtesting horizon.",
+      "skills": ["Python", "LSTM", "ARIMA", "Prophet", "Pandas", "PyTorch", "Streamlit", "Time-Series Analysis"],
+      "links": []
+    }
+  },
+
+Energy Demand Forecasting System: Built a time-series forecasting pipeline using ARIMA, Prophet and LSTM on 
+35K hourly Spain energy records. Achieved 1% MAPE with LSTM, reducing error by 83%. Developed an 
+automated backtesting framework and interactive Streamlit dashboard for model comparison and prediction

@@ -1,0 +1,1586 @@
+# Unified Data Layer
+
+A production-grade REST data access layer that provides a consistent interface to heterogeneous data sources, including relational databases, NoSQL databases, legacy systems, and other backend data services.
+
+The platform abstracts source-specific implementation details behind a unified API while providing enterprise-grade security, reliability, observability, governance, and performance controls.
+
+---
+
+## 1. Overview
+
+Organizations often have data distributed across multiple database systems:
+
+```text
+PostgreSQL
+MySQL
+Oracle
+MongoDB
+Redis
+Legacy Systems
+External APIs
+      |
+      v
++-------------------------+
+|    Unified Data Layer   |
+|                         |
+|  Authentication         |
+|  Authorization          |
+|  Data Modeling          |
+|  Query Translation      |
+|  Rate Limiting          |
+|  Caching                |
+|  Observability          |
+|  Audit                  |
++-------------------------+
+      |
+      v
+Unified REST APIs
+      |
+      v
+Applications / Services / Analytics / AI
+```
+
+The Unified Data Layer provides a single contract for accessing this distributed data without requiring consumers to understand the underlying database technology.
+
+### Goals
+
+* Provide a consistent REST API across heterogeneous data sources.
+* Hide backend-specific implementation details.
+* Establish a canonical data model.
+* Provide centralized authentication and authorization.
+* Enforce security, rate limits, quotas, and resource protection.
+* Provide consistent pagination, filtering, sorting, and querying.
+* Standardize errors and API behavior.
+* Provide observability across the complete request path.
+* Support reliable reads and writes across distributed systems.
+* Provide data lineage, provenance, and auditability.
+* Enable independent evolution of source databases and API consumers.
+
+---
+
+# 2. Design Principles
+
+### Backend independence
+
+Consumers should not need to know whether data comes from PostgreSQL, MongoDB, Oracle, or another system.
+
+### Contract first
+
+The REST API and canonical schema are the contracts. Backend schemas are implementation details.
+
+### Secure by default
+
+Authentication, authorization, encryption, validation, auditing, and resource limits are built into the platform rather than delegated to individual consumers.
+
+### Fail explicitly
+
+Unsupported operations, stale data, backend failures, and consistency limitations should be explicit rather than silently producing incorrect results.
+
+### Observable by default
+
+Every request should be traceable across the API, data layer, adapters, and underlying databases.
+
+### Protect the source systems
+
+The unified layer must prevent consumers from accidentally overwhelming legacy or capacity-constrained databases.
+
+---
+
+# 3. High-Level Architecture
+
+```text
+                         Consumers
+                            |
+                    +---------------+
+                    | API Gateway   |
+                    | / WAF         |
+                    +-------+-------+
+                            |
+              +-------------+-------------+
+              |                           |
+       Authentication              Rate Limiting
+              |                           |
+              +-------------+-------------+
+                            |
+                    Unified REST API
+                            |
+              +-------------+-------------+
+              |                           |
+        Authorization              API Policies
+              |                           |
+              +-------------+-------------+
+                            |
+                  Query / Command Layer
+                            |
+                  Canonical Data Model
+                            |
+                     Query Planner
+                            |
+              +-------------+-------------+
+              |             |             |
+          PostgreSQL      MongoDB       Oracle
+           Adapter        Adapter       Adapter
+              |             |             |
+              +-------------+-------------+
+                            |
+                     Source Systems
+```
+
+Cross-cutting infrastructure:
+
+```text
+Security
+Observability
+Caching
+Audit
+Configuration
+Secrets
+Schema Registry
+Data Governance
+```
+
+---
+
+# 4. Core Components
+
+## 4.1 API Gateway
+
+Responsible for platform-level concerns such as:
+
+* TLS termination
+* Authentication
+* Request routing
+* Rate limiting
+* Quotas
+* IP restrictions
+* Request size limits
+* API version routing
+* WAF protection
+* Request correlation IDs
+
+---
+
+## 4.2 Authentication
+
+Supported mechanisms may include:
+
+* OAuth 2.0
+* OpenID Connect
+* JWT
+* API keys
+* Service accounts
+* Machine-to-machine authentication
+
+Example:
+
+```http
+Authorization: Bearer <access_token>
+```
+
+Authentication establishes the identity of the caller.
+
+---
+
+## 4.3 Authorization
+
+Authorization determines what an authenticated caller can access.
+
+The platform should support:
+
+* RBAC
+* ABAC where required
+* OAuth scopes
+* Resource-level permissions
+* Field-level permissions
+* Row-level restrictions
+* Tenant-level isolation
+* Read/write/delete permissions
+
+Example:
+
+```text
+Application A
+ └── Customer data
+      ├── READ       ✓
+      ├── CREATE     ✓
+      ├── UPDATE     ✓
+      └── DELETE     ✗
+```
+
+Authorization must be enforced by the data layer rather than relying solely on consumers.
+
+---
+
+# 5. Canonical Data Model
+
+The platform exposes a canonical representation of data.
+
+For example, three source systems may represent a customer differently:
+
+```text
+PostgreSQL:
+customer_id
+first_name
+last_name
+
+MongoDB:
+_id
+name
+surname
+
+Oracle:
+CUST_NO
+FNAME
+LNAME
+```
+
+The Unified Data Layer exposes:
+
+```json
+{
+  "id": "123",
+  "firstName": "John",
+  "lastName": "Smith"
+}
+```
+
+The canonical model defines:
+
+* Entity names
+* Field names
+* Data types
+* Relationships
+* Enumerations
+* Required fields
+* Optional fields
+* Units
+* Identity mappings
+* Source mappings
+
+---
+
+# 6. Data Source Adapters
+
+Each backend is accessed through an adapter.
+
+```text
+Unified Data Layer
+        |
+        +-- PostgreSQL Adapter
+        |
+        +-- MySQL Adapter
+        |
+        +-- MongoDB Adapter
+        |
+        +-- Oracle Adapter
+        |
+        +-- External API Adapter
+```
+
+An adapter is responsible for:
+
+* Connection management
+* Authentication to the source
+* Query translation
+* Data-type conversion
+* Pagination translation
+* Error translation
+* Transaction handling
+* Backend-specific capabilities
+* Connection pooling
+
+Backend-specific logic should not leak into the public API.
+
+---
+
+# 7. REST API
+
+All resources should follow consistent REST conventions.
+
+Example:
+
+```http
+GET    /v1/customers
+GET    /v1/customers/{id}
+POST   /v1/customers
+PATCH  /v1/customers/{id}
+DELETE /v1/customers/{id}
+```
+
+---
+
+# 8. API Versioning
+
+APIs are versioned explicitly.
+
+```text
+/v1/customers
+/v2/customers
+```
+
+The platform should define:
+
+* Breaking-change policy
+* Backward compatibility requirements
+* Deprecation periods
+* Migration procedures
+* Sunset policy
+
+Non-breaking changes should preferably be introduced without creating a new version.
+
+---
+
+# 9. Pagination
+
+Large collections must always be paginated.
+
+Cursor pagination is preferred:
+
+```http
+GET /v1/customers?limit=100&cursor=<cursor>
+```
+
+Response:
+
+```json
+{
+  "data": [],
+  "pagination": {
+    "nextCursor": "<cursor>",
+    "hasMore": true
+  }
+}
+```
+
+Requirements:
+
+* Maximum page size
+* Default page size
+* Stable ordering
+* Cursor validation
+* Cursor expiration where appropriate
+* Consistent pagination semantics
+
+---
+
+# 10. Filtering
+
+Resources should support controlled filtering.
+
+Example:
+
+```http
+GET /v1/customers?status=active&country=IN
+```
+
+Range filtering:
+
+```http
+GET /v1/orders?createdAt[gte]=2026-01-01
+```
+
+Filtering capabilities must be validated and translated by the adapter layer.
+
+Arbitrary SQL execution must not be exposed through the public API.
+
+---
+
+# 11. Sorting
+
+Example:
+
+```http
+GET /v1/customers?sort=-createdAt
+```
+
+Multiple fields:
+
+```http
+GET /v1/customers?sort=-createdAt,name
+```
+
+Only explicitly supported fields should be sortable.
+
+---
+
+# 12. Field Selection
+
+Clients should be able to request only required fields.
+
+```http
+GET /v1/customers/123?fields=id,name,email
+```
+
+This reduces:
+
+* Network traffic
+* Serialization cost
+* Database work
+* Response latency
+
+Sensitive fields must remain subject to authorization regardless of field selection.
+
+---
+
+# 13. Standard Error Model
+
+All APIs should return a consistent error structure.
+
+Example:
+
+```json
+{
+  "error": {
+    "code": "CUSTOMER_NOT_FOUND",
+    "message": "Customer does not exist.",
+    "requestId": "req_123456",
+    "details": {}
+  }
+}
+```
+
+Common HTTP status codes:
+
+| Status | Meaning             |
+| ------ | ------------------- |
+| `400`  | Invalid request     |
+| `401`  | Unauthenticated     |
+| `403`  | Unauthorized        |
+| `404`  | Resource not found  |
+| `409`  | Conflict            |
+| `422`  | Validation failure  |
+| `429`  | Rate limit exceeded |
+| `500`  | Internal error      |
+| `502`  | Backend failure     |
+| `503`  | Service unavailable |
+| `504`  | Backend timeout     |
+
+Raw database errors must never be exposed to consumers.
+
+---
+
+# 14. Rate Limiting
+
+Rate limits should be enforceable at multiple levels:
+
+```text
+IP
+User
+API Key
+Service
+Tenant
+Endpoint
+```
+
+Example:
+
+```text
+1000 requests/minute per API key
+10,000 requests/minute per tenant
+```
+
+When exceeded:
+
+```http
+HTTP/1.1 429 Too Many Requests
+Retry-After: 30
+```
+
+Rate limiting should be complemented by concurrency limits and query-cost controls.
+
+---
+
+# 15. Quotas
+
+Quotas control longer-term resource consumption.
+
+Possible dimensions:
+
+* Requests/day
+* Requests/month
+* Data volume
+* Export volume
+* Concurrent requests
+* Expensive query execution
+* Storage
+* Async jobs
+
+---
+
+# 16. Query Protection
+
+The platform must protect source databases from expensive requests.
+
+Controls include:
+
+* Query timeout
+* Maximum result size
+* Maximum page size
+* Maximum query complexity
+* Maximum joins
+* Maximum concurrent queries
+* Maximum export size
+* Backend-specific query limits
+
+Example:
+
+```text
+Client
+  |
+  | expensive query
+  v
+Unified Layer
+  |
+  +-- Query validation
+  +-- Cost estimation
+  +-- Authorization
+  +-- Resource limits
+  |
+  v
+Database
+```
+
+---
+
+# 17. Timeouts
+
+Every request and backend operation should have explicit timeouts.
+
+Example:
+
+```text
+API timeout:             5 seconds
+Database query timeout:  3 seconds
+Connection timeout:      1 second
+```
+
+Timeout values should be configurable by operation and backend where necessary.
+
+---
+
+# 18. Retries
+
+Retries should be carefully controlled.
+
+Safe candidates generally include:
+
+* Idempotent reads
+* Transient network failures
+* Temporary backend unavailability
+
+Retries should use:
+
+* Exponential backoff
+* Jitter
+* Maximum retry count
+* Retryable-error classification
+
+Non-idempotent writes must not be blindly retried.
+
+---
+
+# 19. Idempotency
+
+Write operations should support idempotency where duplicate execution would be harmful.
+
+Example:
+
+```http
+POST /v1/orders
+
+Idempotency-Key: 8f7e2c1a
+```
+
+Repeated requests using the same idempotency key should produce the same logical operation rather than creating duplicate records.
+
+---
+
+# 20. Concurrency Control
+
+The platform should support optimistic concurrency.
+
+Example:
+
+```http
+If-Match: "version-42"
+```
+
+If another client has modified the resource:
+
+```http
+409 Conflict
+```
+
+or an appropriate precondition status can be returned.
+
+This prevents lost updates.
+
+---
+
+# 21. Consistency
+
+The platform must explicitly document consistency guarantees.
+
+Possible models:
+
+* Strong consistency
+* Eventual consistency
+* Read-after-write consistency
+* Source-dependent consistency
+
+Example:
+
+```text
+Customer database
+      |
+      | update
+      v
+Unified API
+      |
+      +--> Customer DB
+      |
+      +--> Search index
+```
+
+The API must make it clear when the search index may temporarily lag behind the source database.
+
+---
+
+# 22. Distributed Writes
+
+When a single operation modifies multiple databases, distributed transaction behavior must be explicitly defined.
+
+Possible approaches:
+
+* Database transaction
+* Two-phase commit where appropriate
+* Saga
+* Outbox pattern
+* Event-driven processing
+* Compensation
+* Retry and reconciliation
+
+Example:
+
+```text
+API
+ |
+ +--> DB A
+ |      |
+ |    Outbox
+ |      |
+ |    Event
+ |      |
+ +--> Queue
+        |
+        +--> DB B
+```
+
+---
+
+# 23. Bulk Operations
+
+Bulk APIs should be supported for high-volume operations.
+
+Example:
+
+```http
+POST /v1/customers/bulk
+```
+
+Bulk operations require:
+
+* Maximum batch size
+* Validation
+* Partial failure handling
+* Per-record errors
+* Idempotency
+* Async processing for large jobs
+
+---
+
+# 24. Asynchronous Operations
+
+Long-running operations should not block HTTP requests.
+
+Example:
+
+```http
+POST /v1/exports
+```
+
+Response:
+
+```json
+{
+  "jobId": "job_123",
+  "status": "pending"
+}
+```
+
+Then:
+
+```http
+GET /v1/jobs/job_123
+```
+
+Suitable for:
+
+* Large exports
+* Bulk updates
+* Data synchronization
+* Backfills
+* Large reports
+* Data migrations
+
+---
+
+# 25. Caching
+
+Caching may be implemented at multiple layers:
+
+```text
+Client
+  |
+API Gateway
+  |
+Application Cache
+  |
+Query Cache
+  |
+Database
+```
+
+The caching strategy must define:
+
+* TTL
+* Cache keys
+* Invalidation
+* Stale data behavior
+* Consistency guarantees
+
+Caching should not violate authorization boundaries.
+
+---
+
+# 26. Observability
+
+Every request should be observable end-to-end.
+
+## Metrics
+
+Track:
+
+* Request rate
+* Error rate
+* P50 latency
+* P95 latency
+* P99 latency
+* Database latency
+* Cache hit rate
+* Rate-limit events
+* Query volume
+* Connection pool utilization
+* Resource utilization
+
+## Logging
+
+Every request should have a correlation ID.
+
+```http
+X-Request-ID: req_123456
+```
+
+The ID should propagate through:
+
+```text
+API
+ |
+Service
+ |
+Adapter
+ |
+Database
+```
+
+## Distributed Tracing
+
+Use distributed tracing, preferably OpenTelemetry-compatible instrumentation.
+
+Example:
+
+```text
+API request
+   |
+   +-- Authentication     5ms
+   +-- Authorization       3ms
+   +-- Service             8ms
+   +-- PostgreSQL         80ms
+   +-- Redis               2ms
+```
+
+---
+
+# 27. Audit Logging
+
+Sensitive operations must be auditable.
+
+Audit records should capture:
+
+```text
+Actor
+Action
+Resource
+Timestamp
+Tenant
+Source
+Request ID
+Result
+```
+
+For sensitive data modifications, optionally record:
+
+```text
+Before
+After
+Reason
+```
+
+Audit logs should be tamper-resistant and access-controlled.
+
+---
+
+# 28. Data Provenance
+
+The platform should be able to determine where a value originated.
+
+Example:
+
+```json
+{
+  "id": "123",
+  "email": "user@example.com",
+  "_metadata": {
+    "source": "crm",
+    "sourceSystem": "postgresql",
+    "sourceTable": "customers",
+    "sourceUpdatedAt": "2026-08-17T03:00:00Z"
+  }
+}
+```
+
+This enables:
+
+* Data lineage
+* Debugging
+* Reconciliation
+* Compliance
+* Source attribution
+
+---
+
+# 29. Data Quality
+
+The platform should support data-quality metadata and validation.
+
+Relevant dimensions:
+
+* Completeness
+* Validity
+* Accuracy
+* Consistency
+* Uniqueness
+* Freshness
+
+Example:
+
+```json
+{
+  "_quality": {
+    "valid": true,
+    "lastVerifiedAt": "2026-08-17T03:00:00Z"
+  }
+}
+```
+
+---
+
+# 30. Data Freshness
+
+When multiple sources have different update frequencies, freshness should be measurable.
+
+Example:
+
+```json
+{
+  "_metadata": {
+    "sourceUpdatedAt": "2026-08-17T03:00:00Z",
+    "retrievedAt": "2026-08-17T03:01:00Z"
+  }
+}
+```
+
+This allows consumers to distinguish real-time data from replicated or cached data.
+
+---
+
+# 31. Security
+
+Security requirements include:
+
+* TLS for all network communication
+* Encryption at rest
+* Secret management
+* Credential rotation
+* Database credential isolation
+* Network segmentation
+* Private networking where applicable
+* API key rotation
+* Token expiration
+* PII protection
+* Sensitive-field masking
+* Secure logging
+* Input validation
+* Output filtering
+
+Secrets must never be committed to source control.
+
+---
+
+# 32. Multi-Tenancy
+
+For multi-tenant deployments, tenant boundaries must be enforced at every layer.
+
+```text
+Tenant A
+ |
+ +-- Authentication
+ +-- Authorization
+ +-- API
+ +-- Query
+ +-- Database
+ +-- Cache
+ +-- Audit
+
+Tenant B
+ |
+ +-- Authentication
+ +-- Authorization
+ +-- API
+ +-- Query
+ +-- Database
+ +-- Cache
+ +-- Audit
+```
+
+Cross-tenant data access must be explicitly authorized.
+
+Tenant information should never be trusted solely from client-provided parameters.
+
+---
+
+# 33. Health Checks
+
+Provide separate health endpoints.
+
+```http
+GET /health/live
+GET /health/ready
+```
+
+### Liveness
+
+Determines whether the service process is functioning.
+
+### Readiness
+
+Determines whether the service can accept traffic.
+
+Dependency health can be exposed internally:
+
+```text
+PostgreSQL     HEALTHY
+MongoDB        HEALTHY
+Oracle         DEGRADED
+Redis          HEALTHY
+```
+
+---
+
+# 34. Backpressure
+
+The platform must protect constrained backend systems.
+
+Example:
+
+```text
+10,000 API requests
+        |
+        v
+Unified Data Layer
+        |
+        | concurrency limit = 50
+        v
+Legacy Database
+```
+
+Mechanisms include:
+
+* Connection pools
+* Concurrency limits
+* Queues
+* Load shedding
+* Priority queues
+* Rate limits
+* Circuit breakers
+
+---
+
+# 35. Circuit Breakers
+
+If a backend becomes unhealthy:
+
+```text
+Unified API
+     |
+     v
+Oracle Adapter
+     |
+     X
+Oracle unavailable
+```
+
+The adapter should eventually open its circuit and fail fast rather than continuously generating additional load.
+
+States:
+
+```text
+CLOSED
+   |
+   v
+OPEN
+   |
+   v
+HALF-OPEN
+   |
+   v
+CLOSED
+```
+
+---
+
+# 36. Backend Capability Model
+
+Different databases have different capabilities.
+
+Example:
+
+| Capability        | PostgreSQL | MongoDB | Legacy DB |
+| ----------------- | ---------: | ------: | --------: |
+| Filtering         |        Yes |     Yes |       Yes |
+| Sorting           |        Yes |     Yes |       Yes |
+| Transactions      |        Yes |     Yes |   Depends |
+| Aggregation       |        Yes |     Yes |   Depends |
+| Full-text search  |        Yes |     Yes |        No |
+| Cursor pagination |        Yes |     Yes |   Depends |
+
+The platform must not pretend that every backend supports identical functionality.
+
+Unsupported operations should return explicit errors.
+
+---
+
+# 37. API Documentation
+
+Every API should have an OpenAPI specification.
+
+The platform should provide:
+
+* OpenAPI specification
+* Interactive documentation
+* Authentication documentation
+* Request examples
+* Response examples
+* Error documentation
+* Rate-limit documentation
+* Version history
+* Deprecation notices
+
+---
+
+# 38. Schema Management
+
+Schema definitions should be centrally managed.
+
+Each schema should define:
+
+```text
+Entity
+Fields
+Types
+Required fields
+Optional fields
+Enums
+Relationships
+Validation rules
+Version
+Compatibility
+```
+
+Schema changes should undergo compatibility checks before deployment.
+
+---
+
+# 39. Events and Change Data Capture
+
+REST should be complemented by event-driven mechanisms where consumers need real-time updates.
+
+Example:
+
+```text
+Database
+   |
+   v
+CDC
+   |
+   v
+Event Bus
+   |
+   +--> Search Index
+   +--> Cache
+   +--> Analytics
+   +--> Downstream Services
+```
+
+Example events:
+
+```text
+CustomerCreated
+CustomerUpdated
+CustomerDeleted
+
+OrderCreated
+OrderUpdated
+OrderCancelled
+```
+
+---
+
+# 40. Disaster Recovery
+
+The platform should define:
+
+* Availability target
+* Recovery Point Objective (RPO)
+* Recovery Time Objective (RTO)
+* Backup strategy
+* Database failover
+* Service failover
+* Regional recovery
+* Disaster recovery testing
+
+Example:
+
+```text
+Availability: 99.9%
+RPO:           5 minutes
+RTO:           30 minutes
+```
+
+Actual values should be determined by business requirements.
+
+---
+
+# 41. Performance Requirements
+
+Example initial SLOs:
+
+| Metric                 |   Target |
+| ---------------------- | -------: |
+| Availability           |    99.9% |
+| P95 read latency       | < 300 ms |
+| P99 read latency       |  < 1 sec |
+| API error rate         |   < 0.1% |
+| Authentication latency | < 100 ms |
+
+Different endpoints may have different SLOs.
+
+---
+
+# 42. API Response Format
+
+A consistent response structure should be used.
+
+### Collection
+
+```json
+{
+  "data": [
+    {
+      "id": "123",
+      "name": "John Smith"
+    }
+  ],
+  "pagination": {
+    "nextCursor": "abc123",
+    "hasMore": true
+  },
+  "metadata": {
+    "requestId": "req_123"
+  }
+}
+```
+
+### Single resource
+
+```json
+{
+  "data": {
+    "id": "123",
+    "name": "John Smith"
+  },
+  "metadata": {
+    "requestId": "req_123"
+  }
+}
+```
+
+---
+
+# 43. Example API
+
+### Get customers
+
+```http
+GET /v1/customers?status=active&limit=100
+Authorization: Bearer <token>
+```
+
+### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "cust_123",
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john@example.com"
+    }
+  ],
+  "pagination": {
+    "nextCursor": "eyJpZCI6MTIzfQ",
+    "hasMore": true
+  },
+  "metadata": {
+    "requestId": "req_789"
+  }
+}
+```
+
+---
+
+# 44. Request Lifecycle
+
+A typical request should flow through:
+
+```text
+1. Receive request
+       |
+2. Generate/propagate request ID
+       |
+3. Authenticate
+       |
+4. Authorize
+       |
+5. Validate request
+       |
+6. Apply rate limits
+       |
+7. Apply query/resource limits
+       |
+8. Resolve canonical resource
+       |
+9. Select backend adapter
+       |
+10. Translate query
+       |
+11. Execute backend operation
+       |
+12. Transform backend response
+       |
+13. Apply data filtering/masking
+       |
+14. Record metrics/traces/audit
+       |
+15. Return standardized response
+```
+
+---
+
+# 45. Non-Functional Requirements
+
+The platform should be evaluated across:
+
+### Security
+
+* Authentication
+* Authorization
+* Encryption
+* Secrets
+* Tenant isolation
+* Auditability
+
+### Reliability
+
+* High availability
+* Timeouts
+* Retries
+* Circuit breakers
+* Backpressure
+* Disaster recovery
+
+### Performance
+
+* Low latency
+* Caching
+* Connection pooling
+* Query optimization
+* Resource limits
+
+### Scalability
+
+* Horizontal scaling
+* Stateless API services
+* Distributed rate limiting
+* Scalable caching
+* Async processing
+
+### Observability
+
+* Logs
+* Metrics
+* Traces
+* Alerts
+* Audit trails
+
+### Governance
+
+* Schema management
+* Data lineage
+* Data quality
+* Data ownership
+* Privacy
+* Retention
+
+---
+
+# 46. Recommended Technology-Agnostic Stack
+
+The implementation should remain replaceable, but a possible architecture is:
+
+```text
+                    API Gateway / WAF
+                           |
+                    REST API Service
+                           |
+              +------------+------------+
+              |                         |
+         Auth/AuthZ                Rate Limiter
+              |                         |
+              +------------+------------+
+                           |
+                    Query Service
+                           |
+                   Canonical Model
+                           |
+                  Adapter Framework
+             +-------------+-------------+
+             |             |             |
+          Postgres       MongoDB       Oracle
+             |             |             |
+             +-------------+-------------+
+                           |
+                    Observability
+             +-------------+-------------+
+             |             |             |
+          Metrics         Logs         Traces
+```
+
+Potential infrastructure components:
+
+```text
+API Gateway       → Kong / Envoy / cloud gateway
+Identity          → Keycloak / Auth0 / cloud IAM
+Cache             → Redis
+Event Streaming   → Kafka / cloud event bus
+Tracing           → OpenTelemetry
+Metrics           → Prometheus
+Visualization     → Grafana
+Search            → OpenSearch / Elasticsearch
+Secrets           → Vault / cloud secret manager
+```
+
+The exact technologies should be selected based on deployment environment and organizational constraints.
+
+---
+
+# 47. Initial Implementation Priorities
+
+A practical implementation can be divided into phases.
+
+## Phase 1 — Foundation
+
+* REST API
+* API versioning
+* Authentication
+* Authorization
+* Canonical data model
+* Database adapter framework
+* Standard errors
+* Pagination
+* Filtering
+* Request IDs
+* Basic logging
+* OpenAPI
+
+## Phase 2 — Production Hardening
+
+* Rate limiting
+* Quotas
+* Timeouts
+* Connection pooling
+* Retry policies
+* Circuit breakers
+* Caching
+* Audit logging
+* Metrics
+* Distributed tracing
+* Health/readiness checks
+
+## Phase 3 — Enterprise Data Platform
+
+* Data provenance
+* Data lineage
+* Data quality
+* Schema registry
+* Multi-tenancy
+* Bulk operations
+* Async jobs
+* CDC
+* Event streaming
+* Reconciliation
+* Advanced authorization
+
+## Phase 4 — Scale
+
+* Query planning
+* Query cost management
+* Materialized views
+* Distributed caching
+* Multi-region deployment
+* Advanced disaster recovery
+* Cross-source search
+* Advanced analytics integration
+
+---
+
+# 48. Key Architectural Risks
+
+The following areas require explicit design decisions before implementation:
+
+1. **Canonical data model**
+2. **Identity mapping across systems**
+3. **Source-of-truth determination**
+4. **Cross-database consistency**
+5. **Distributed transactions**
+6. **Query translation**
+7. **Backend capability differences**
+8. **Authorization model**
+9. **Tenant isolation**
+10. **Data freshness**
+11. **Caching and invalidation**
+12. **Failure and retry behavior**
+13. **Large-query protection**
+14. **Data lineage**
+15. **Schema evolution**
+
+These decisions will have a larger impact on the architecture than the choice of REST framework itself.
+
+---
+
+# 49. Definition of Done
+
+The Unified Data Layer can be considered production-ready when:
+
+* [ ] Every API requires authenticated access where appropriate.
+* [ ] Authorization is enforced independently of the client.
+* [ ] Tenant boundaries are enforced.
+* [ ] APIs have stable versioned contracts.
+* [ ] All collection endpoints support bounded pagination.
+* [ ] Filtering and sorting are explicitly controlled.
+* [ ] Query complexity and resource usage are bounded.
+* [ ] Rate limits and quotas are enforced.
+* [ ] Requests have timeouts.
+* [ ] Retry behavior is explicitly defined.
+* [ ] Non-idempotent operations have appropriate idempotency controls.
+* [ ] Concurrent updates are handled safely.
+* [ ] Backend errors are normalized.
+* [ ] Sensitive information is not exposed through errors or logs.
+* [ ] All requests have correlation IDs.
+* [ ] Metrics and distributed tracing are available.
+* [ ] Sensitive operations are audited.
+* [ ] Data provenance can be determined.
+* [ ] Schemas are versioned and validated.
+* [ ] Backend-specific logic is isolated in adapters.
+* [ ] Backend capability limitations are explicit.
+* [ ] Health and readiness endpoints exist.
+* [ ] Circuit breakers and backpressure protect source systems.
+* [ ] Disaster recovery procedures are documented and tested.
+* [ ] API documentation is generated from the API contract.
+* [ ] SLOs are defined and monitored.
+* [ ] Security and privacy requirements have been reviewed.
+* [ ] Data consistency semantics are documented.
+* [ ] Reconciliation exists for eventually consistent workflows.
+
+---
+
+# 50. Summary
+
+The Unified Data Layer is not simply a REST wrapper around multiple databases.
+
+It should provide a **stable, secure, observable, governed abstraction over heterogeneous data sources**.
+
+The fundamental layers are:
+
+```text
+                    Unified Data Platform
+                            |
+        +-------------------+-------------------+
+        |                   |                   |
+     Security            Governance         Reliability
+        |                   |                   |
+   Auth/AuthZ          Schema/Data        Resilience
+   Encryption          Lineage            HA/DR
+   Tenancy             Quality            Backpressure
+        |                   |                   |
+        +-------------------+-------------------+
+                            |
+                     Unified REST API
+                            |
+                 Canonical Data Model
+                            |
+                   Query / Command Layer
+                            |
+                     Adapter Framework
+                            |
+             +--------------+--------------+
+             |              |              |
+          Database A     Database B     Database C
+```
+
+The central architectural principle is:
+
+> **Consumers interact with a stable canonical API; adapters translate that contract into the capabilities and semantics of each underlying data source.**
+
+This separation allows databases to change independently while keeping downstream applications insulated from backend-specific complexity.

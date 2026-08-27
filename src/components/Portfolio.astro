@@ -8,6 +8,7 @@ import activitiesData from '../data/student-activities.json';
 import skillsData from '../data/skills.json';
 
 const top5Projects = projectsData.slice(0, 5);
+const remainingProjects = projectsData.slice(5);
 ---
 
 <div class="container">
@@ -34,6 +35,24 @@ const top5Projects = projectsData.slice(0, 5);
             details={item.details}
         />
     ))}
+    {remainingProjects.length > 0 && (
+        <details class="more-projects">
+            <summary class="more-summary">
+                <span class="more-chev" aria-hidden="true">›</span>
+                <span class="more-label">{remainingProjects.length} more projects</span>
+            </summary>
+            <div class="more-body">
+                {remainingProjects.map(item => (
+                    <ExpandableCard
+                        title={item.title}
+                        date={item.period}
+                        overview={item.overview}
+                        details={item.details}
+                    />
+                ))}
+            </div>
+        </details>
+    )}
 
     <!-- Credentials -->
     <h2 class="label" id="credentials">Credentials</h2>
@@ -126,4 +145,49 @@ const top5Projects = projectsData.slice(0, 5);
     color: var(--accent);
     margin-top: 4px;
 }
+
+.more-projects {
+    border-left: 1px solid var(--line);
+    padding: 2px 0 2px 18px;
+    margin-bottom: 6px;
+}
+
+.more-summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 0;
+    outline: none;
+}
+
+.more-summary::-webkit-details-marker { display: none; }
+
+.more-summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.more-chev {
+    font-family: var(--font-mono);
+    color: var(--dim);
+    transition: transform 0.2s;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.more-projects[open] .more-chev { transform: rotate(90deg); }
+
+.more-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    border-radius: 3px;
+    padding: 1px 6px;
+}
+
+.more-body { margin-top: 6px; }
 </style>

@@ -1,0 +1,188 @@
+# Restaurant Reservation AI Agent
+
+An AI-powered WhatsApp reservation agent for high-end restaurants, built with Python. Handles natural language booking requests, manages table availability, prevents double-bookings, and sends automated reminders — all through WhatsApp.
+
+---
+
+## Features
+
+- Conversational booking via WhatsApp using natural language
+- Smart table allocation based on party size and pre-defined table combos
+- Turn-time aware availability checking (no naive time-slot blocking)
+- Automated reservation reminders via WhatsApp
+- No-show tracking
+- Multi-language support (English + Arabic)
+- Cover-based capacity management
+
+---
+
+## Tech Stack
+
+| Layer | Tool |
+|-------|------|
+| AI Agent | Claude API (claude-sonnet-4-6) |
+| WhatsApp | Twilio WhatsApp API or WhatsApp Cloud API |
+| Database | Supabase (Postgres) |
+| Backend | Python (FastAPI) |
+| Scheduler | APScheduler (for reminders) |
+| Hosting | Railway / Render / VPS |
+
+---
+
+## Project Structure
+
+```
+restaurant-agent/
+├── main.py                  # FastAPI app entry point
+├── agent/
+│   ├── __init__.py
+│   ├── claude_agent.py      # Claude API interaction & intent extraction
+│   └── prompts.py           # System prompts for the agent
+├── reservations/
+│   ├── __init__.py
+│   ├── availability.py      # Availability checking logic
+│   ├── booking.py           # Reservation creation & management
+│   └── combos.py            # Table combo resolution
+├── reminders/
+│   ├── __init__.py
+│   └── scheduler.py         # APScheduler reminder jobs
+├── whatsapp/
+│   ├── __init__.py
+│   ├── handler.py           # Incoming message handler
+│   └── sender.py            # Outgoing message sender
+├── db/
+│   ├── __init__.py
+│   ├── client.py            # Supabase client
+│   └── schema.sql           # Database schema
+├── config.py                # Environment config
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Database Schema
+
+```sql
+-- tables.sql
+
+CREATE TABLE restaurant_tables (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,          -- e.g. "T1", "T2"
+    capacity INT NOT NULL,
+    section TEXT,                -- e.g. "indoor", "terrace"
+    is_active BOOLEAN DEFAULT true
+);
+
+CREATE TABLE table_combos (
+    id SERIAL PRIMARY KEY,
+    name TEXT,                   -- e.g. "15-top terrace"
+    table_ids INT[],             -- e.g. {3, 4, 5}
+    total_capacity INT NOT NULL
+);
+
+CREATE TABLE reservations (
+    id SERIAL PRIMARY KEY,
+    customer_name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    party_size INT NOT NULL,
+    reserved_at TIMESTAMPTZ NOT NULL,
+    turn_time_mins INT DEFAULT 90,
+    table_ids INT[],
+    combo_id INT REFERENCES table_combos(id),
+    status TEXT DEFAULT 'confirmed',  -- confirmed, cancelled, no_show, completed
+    reminder_sent BOOLEAN DEFAULT false,
+    notes TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+```
+
+---
+
+## How Availability Works
+
+1. Agent extracts `party_size` and `datetime` from the WhatsApp message
+2. System queries all tables not overlapping with `reserved_at` to `reserved_at + turn_time`
+3. It first checks pre-defined **table combos** for the party size
+4. If no combo matches, it greedily picks tables (largest first) until capacity is met
+5. All selected tables are fully blocked — partial seating is never assumed
+
+---
+
+## Environment Variables
+
+```env
+ANTHROPIC_API_KEY=
+SUPABASE_URL=
+SUPABASE_KEY=
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_WHATSAPP_FROM=whatsapp:+14155238886
+RESTAURANT_NAME=
+RESTAURANT_PHONE=
+REMINDER_HOURS_BEFORE=24
+```
+
+---
+
+## Setup
+
+```bash
+git clone https://github.com/yourname/restaurant-agent
+cd restaurant-agent
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Run the schema against your Supabase project, then:
+
+```bash
+uvicorn main:app --reload
+```
+
+Expose your local server via ngrok or deploy to Railway, then point your Twilio/WhatsApp webhook to:
+
+```
+POST /webhook/whatsapp
+```
+
+---
+
+## Reminder Flow
+
+APScheduler runs every 15 minutes and checks for reservations where:
+- `reminder_sent = false`
+- `reserved_at` is within the next `REMINDER_HOURS_BEFORE` hours
+
+It sends a WhatsApp message and flips `reminder_sent = true`.
+
+---
+
+## Agent Behavior
+
+The Claude agent is given a system prompt that tells it to:
+
+- Only extract intent — never guess availability
+- Always confirm party size before proceeding
+- Ask for name and number if not already known
+- Respond in the same language the customer used
+- Hand off gracefully to a human if the request is ambiguous
+
+Availability decisions are never made by the AI — only by the Python availability logic against the database.
+
+---
+
+## Roadmap
+
+- [ ] OpenTable / Resy API integration as optional backend
+- [ ] Admin dashboard for the restaurant manager
+- [ ] Google Calendar sync for the host stand
+- [ ] Waitlist management
+- [ ] Post-dining feedback collection via WhatsApp
+
+---
+
+## License
+
+MIT

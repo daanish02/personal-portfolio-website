@@ -1,0 +1,907 @@
+Event-Free Survival Prediction for Post-HCT 
+Patients Using Ensemble Methods and Identifying 
+Patient Clusters
+
+Abstract— Hematopoietic cell transplantation (HCT) 
+remains a curative yet high-risk procedure for patients. 
+Predicting post-HCT survival is crucial for treatment strategies. 
+Traditional clinical scoring systems often have limited 
+predictive power due to complexity of patient characteristics. 
+This study aims to develop and evaluate a machine learning
+based predictive model for binary classification of event-free 
+survival in post-HCT patients, while emphasizing high recall 
+score. The dataset was obtained from Kaggle, and went through 
+data preprocessing, followed by six machine learning models. 
+Light Gradient Boosting Machine was the best model achieving 
+0.94 recall, 0.80 precision and an AUC of 0.74 after 
+hyperparameter optimization. Feature selection and feature 
+importance was carried out to reduce as well as increase 
+interpretability of the model. Clustering was performed to find 
+and group patients based on similar health records. Despite 
+considerable noise in the data, most algorithms consistently 
+captured patterns related to HLA attributes. The findings 
+confirm that machine learning can be used to effectively aid in 
+survival prediction of post-HCT patients. Prioritizing recall 
+ensured clinical reliability by minimizing false negatives. 
+Keywords—survival 
+prediction, 
+hematopoietic 
+cell 
+transplantation, predictive modelling, machine learning, 
+clustering 
+I. INTRODUCTION 
+Allogenic haematopoietic cell transplantation (allo-HCT) 
+is a fundamental and potentially curative treatment for patients 
+suffering from a variety of haematological malignancies and 
+bone marrow-related disorders [1] [2] [3]. The increased 
+utilisation of allo-HCT is supported by factors such as 
+enhanced alternative donor availability [3]. Despite these 
+advancements, allo-HCT procedures are associated with 
+considerably high rates of complications [3]. Major 
+complications are recognized as primary causes of death in 
+allo-HCT patients followed by cardiovascular disease. 
+Accurately predicting survival outcomes for post-HCT 
+patients is a challenge of high clinical importance. An accurate 
+prognosis is essential for timely decision-making, including 
+determining transplant eligibility, selecting appropriate 
+donors, and planning preparatory actions and treatment 
+methods [1] [4] [3]. The success rate of HCT is significantly 
+dependent on prior examination, data collection, and analysis. 
+By utilising machine learning (ML), one can establish a 
+reliable prior prognosis, by which healthcare professionals can 
+take necessary actions based on predicted outcomes [1]. 
+Traditional systems developed for post-HCT survival 
+prediction have often exhibited suboptimal prediction power. 
+Existing scoring systems, such as the HCT-specific 
+Comorbidity Index (HCT-CI), the Disease Risk Index (DRI), 
+and the European Group for Blood and Marrow 
+Transplantation (EBMT) risk score, typically rely on 
+conventional parametric statistical methodologies. The Area 
+Under the Receiver Operating Characteristic curve (AUC
+ROC) for such models lies between 0.6 and 0.7 [3]. 
+The challenge arises due to the nature of data generated in 
+healthcare characterised by high volume and high complexity, 
+particularly for HCT as outcomes are dependent on multiple 
+variables. Survivability varies based on numerous factors [5] 
+[3]. Traditional statistical methods are often unsuitable for 
+analysis considering the complex interactions between the 
+variables [3]. There is also a need for the development of novel 
+models that can more accurately predict long-term survival 
+and overall survival (OS) in HCT recipients [2]. 
+ML is a subset of Artificial Intelligence (AI), and it offers 
+a powerful solution to overcome the limitations of traditional 
+computing methods by employing advanced analytical tools. 
+ML algorithms are designed to analyse and model vast 
+quantities of complicated data, identifying hidden patterns that 
+conventional approaches cannot capture. The application of 
+ML is instrumental in enhancing decision-making [6]. ML 
+models can concurrently apply multiple clinical and 
+laboratory variables, thereby reducing potential biases 
+inherent in models relying on simpler analyses [3]. The goal 
+of ML is to find patterns within the data that can generate 
+models capable of making predictions on new unforeseen data 
+[5]. 
+The success of an ML model depends on the quality of its 
+input data [5] [7]. Raw data is complex, noisy, and may 
+contain missing or inconsistent values. Therefore, data 
+preprocessing is essential for cleaning, integrating, 
+transforming, and reducing data [5] [7]. Filling missing values 
+and converting input data into numerical form is essential 
+before training ML models [1]. Clustering is used to identify 
+unrecognized clusters or subgroups [6]. This approach is 
+essential for patient subtyping based on similarities [8]. 
+Feature selection is used to reduce the number of features 
+while retaining maximum predictive information. It is also 
+called as dimensionality reduction [6]. One purpose of 
+dimensionality reduction is to ensure optimal prediction with 
+minimal time and computation [1]. 
+The use of advanced ML algorithms for classification is 
+important for prediction of survival outcome. The field 
+benefits from algorithms like Logistic Regression (LR), 
+Decision Tree (DT), K-Nearest Neighbours (K-NN), and 
+powerful ensemble methods like Random Forest (RF) and 
+Gradient Boosting Machines (GBM) [5]. Ensemble methods 
+combine multiple weaker models to achieve increased 
+accuracy and stability, and also help in mitigating overfitting 
+[5] [6]. Assessing how well the model has performed is vital, 
+XXX-X-XXXX-XXXX-X/XX/$XX.00 ©20XX IEEE 
+as it allows one to quantify the performance of a model with 
+certain hyperparameters. In the case of classification, metrics 
+such as accuracy, AUC, recall (sensitivity), precision and F1 
+score are used [5].  
+The main aim for this study is to develop a robust ML 
+classification model that predicts a binary survival outcome 
+(event-free, event) for patients that have undergone HCT with 
+considerably high recall thereby minimizing the risk of high
+risk cases. Model should be able to support categorical 
+features and missing values. Model interpretability should 
+also be high enough so that professionals can understand how 
+different values for a certain attribute can affect a patient. This 
+involves systematically preprocessing the data as, employing 
+clustering and dimensionality reduction to find optimum 
+features, and testing different advanced ML algorithms to find 
+most suitable model. This study uses a retrospective, multi
+dimensional clinal dataset that has been synthesised to conceal 
+patient information using a real-world dataset from the Centre 
+for International Blood and Marrow Transplant Research 
+(CIBMTR).  
+This model offers an evidence-based method for early risk 
+detection in post-HCT care. This approach aims to improve 
+predictive performance over traditional tools by harnessing 
+advanced ML algorithms. High recall ensures that high-risk 
+patients are identified, thereby supporting timely intervention. 
+Furthermore, the methodological framework established in 
+this research is adaptable and scalable, enabling broader 
+applications across different patient populations, and 
+advancing the use of ML in clinical survival prediction.  
+II. LITERATURE SURVEY 
+The primary objective of developing ML models in 
+healthcare is to generate insights, and models capable of 
+making accurate predictions involving complex clinical data 
+[5]. ML is gaining popularity over traditional approaches due 
+to its ability to analyse and integrate large amounts of 
+complicated healthcare data for prediction and classification 
+tasks [6]. 
+Data preprocessing is a crucial step, often consuming  50% - 80% of the entire process [7]. For tabular data, effective 
+preprocessing typically involves, noise reduction, handling 
+missing values, scaling and feature selection. High
+dimensional datasets usually  have multicollinearity or 
+features that function largely as noise, which can deteriorate a 
+model’s performance [5] [7]. There are several methods to 
+optimise feature sets. One study utilised chi-square testing to 
+reduce 59 initial features down to top 11 to predict survival in 
+children undergoing HCT, achieving the same maximum 
+prediction accuracy (94.73%) while requiring lower time and 
+computation [1]. Wrapper methods such as Forward 
+Sequential Selection (FSS) and Backward Feature 
+Elimination (BFE) can also be used to ensure predictive 
+variables are minimally redundant [4] [6]. Recursive Feature 
+Elimination (RFE) is used to rank each variable based on its 
+TABLE I.  
+Author(s), 
+Year 
+Problem 
+Addressed 
+Method or Approach 
+importance when predicting target [3]. The use of an 
+optimized, smaller feature set ensures a simpler, more 
+economic, and ultimately more predictive model. 
+Existing ML research tackles HCT outcomes using 
+supervised learning algorithms, which are necessary when 
+predicting a labelled outcome like EFS (Event-Free Survival) 
+[5]. Several studies focus on predicting OS. A study used 
+GBM to predict 5-year OS after HCT using 45 relevant 
+variables selected via RFE achieving AUC score of 0.75 [3]. 
+Another study used a novel approach, Data Ensemble 
+Refinement Greedy Algorithm (DERGA) coupled with Extra 
+Trees meta-algorithm achieving an accuracy of 93.26% for 
+long-term survival, demonstrating the power of combing 
+advanced feature selection with ensemble methods [2].The 
+SPRIGHT model was developed specifically for HCT for 
+Sickle Cell Disease (SCD),which utilised RF achieving AUC 
+for EFS of 0.79 [4]. In predicting general survival outcomes, 
+DT, LR, Gradient Boosting Classifier (GBC), and AdaBoost 
+(AdB) have demonstrated high accuracy (up to 94.73%) [1]. 
+The Light Gradient Boosting Machine (LGBM) achieved a 
+maximum AUC value (0.86) after optimisation for predicting 
+5-year OS for Oral Tongue Squamous Cell Carcinoma [9].  
+Clustering is designed to identify inherent structure within 
+the data [6]. It is the primary method used to discover 
+unrecognised clusters or patterns that define different patient 
+subtypes [5]. Clustering allows for data-driven, hypothesis
+free approaches. This is how a study exploring patients with 
+obesity successfully identified three distinct clusters using the 
+Factor Probabilistic Distance Clustering (FPDC) algorithm 
+[10]. By identifying subtypes, one can understand how certain 
+features differentiate one group of patients from another. In 
+one study researchers used unsupervised Hierarchical 
+Clustering to identify eight distinct patient clusters (subtypes), 
+They noted that standard scores, National Early Warning 
+Score 2 (NEWS2) were unreliable for predicting outcomes for 
+patients with diverse presentations, suggesting that 
+incorporating patient subtypes could improve risk assessment 
+[8].  
+Prioritizing high recall (sensitivity) highlights a specific 
+research gap, particularly in dealing with healthcare domain 
+as it is associated with rare events. In a medical context like 
+HCT, a false negative (FN) would mean predicting that a 
+patient will be event-free when, in reality, they suffer the event 
+(death, relapse, graft failure). Minimizing FNs is often critical, 
+as these misclassifications can severely impact a patient's life 
+and clinical treatment pathway [1] [5]. Incorporating model 
+interpretability tools like SHapley Additive exPlanations 
+(SHAP) is essential, as these scores quantify each feature's 
+contribution to individual predictions, helping in understand 
+why a survival event was predicted, thus building clinical trust 
+[3] [4]. 
+LITERATURE REVIEW 
+Dataset or Domain 
+Key Results 
+Ratul et al., 
+2022 
+Need for  ML model 
+requiring 
+minimal 
+resources 
+to 
+Bone 
+Used 7 ML classifiers (DT, 
+RF, LR, KNN, GBC, AdB, 
+XGB) with chi-square feature 
+Limitations 
+Synthetic 
+Decision Tree achieved 
+94.73% accuracy with 
+minimal 
+time 
+determine 
+Marrow 
+Transplant: Children 
+Dataset (UCI ML 
+Repository) 
+resources. 
+and 
+dataset 
+constructed from raw 
+data. 
+survivability for 
+children undergoing 
+HCT. 
+selection, combined with grid 
+search cross validation. 
+Werner et al., 
+2023 
+Need to improve risk 
+prediction by 
+identifying and 
+utilising patient 
+subtype. 
+Used hierarchical clustering, 
+UMAP and HDBSCAN for 
+patient subtyping. Logistic 
+regression for outcomes per 
+cluster. 
+Historical data from a 
+large UK teaching 
+hospital. 
+Subtype models generally 
+outperformed NEWS2. 
+Identified 8 distinct patient 
+clusters. 
+Analysis based on data 
+from one hospital. 
+Presence of class 
+imbalance. 
+Beuken et al., 
+2025 
+Conventional 
+hypothesis-driven 
+methods struggle to 
+capture complex, 
+multifaceted nature 
+of obesity data. 
+FPDC to cluster high
+dimensional data. SES for 
+feature reduction. CRF for 
+missing data imputation. 
+Cross-sectional data 
+from the Maastricht 
+study. 
+Successfully identified 3 
+distinct clusters. 
+Overrepresented 
+individuals with Type 
+2 Diabetes. FPDC is 
+computationally 
+intensive. 
+Asteris et al., 
+2025 
+Existing models fail 
+to incorporate 
+critical changes in 
+patient status post
+allo-HCT. 
+DERGA to identify minimal 
+set of critical parameters with 
+Extra Trees. 
+George Papanikolaou 
+Hospital, Greece 
+93.26% accuracy in 
+predicting long-term 
+survival using only 7 
+parameters. Claimed to be 
+first model to combine pre- 
+and post-HSCT factors 
+with such high accuracy. 
+Single-centre data 
+with small patient 
+cohort. Focuses on 
+adult patients. 
+Chandrasekar 
+et al., 2025 
+Lack of ML models 
+to predict multiple 
+key outcomes of 
+HCT for SCD. 
+SPRIGHT using RF, with 
+FSS and BFE for feature 
+selection (selected 17 
+variables). Bootstrapping, 
+consensus-based decision
+making and CIC for class 
+imbalance. 
+Anonymised HCT for 
+the SCD dataset 
+derived from the 
+CIBMTR registry. 
+RF achieved highest AUC 
+across multiple outcomes 
+of interest (EFS, OS, GF, 
+AGVHD, etc.). 
+Limited variables 
+collected by CIBMTR 
+registry. 
+Choi et al., 
+2022 
+Need for ML model 
+to predict long-term 
+survival after HCT in 
+patients with 
+hematologic 
+malignancies. 
+GBM with RFE for feature 
+selection. Used 10-fold cross
+validation. 
+Asan Medical Centre, 
+South Korea 
+GBM achieved highest 
+AUC (0.75) for 5-year OS. 
+Single-centre, 
+moderate sample size. 
+No external validation. 
+Li et al., 2023 Need for simple, 
+economic and 
+accurate tool to 
+predict 5-year OS for 
+OTSCC. 
+Used 6 ML models (LR, 
+SVC, DT, RF, XGB, 
+LGBM), with Cox models 
+and LGBM for feature 
+importance of the top 8 
+features. Model output 
+explained using SHAP. 
+PLA General 
+Hospital, China 
+LGBM with grid search 
+achieved maximum AUC 
+value (0.860). RF model 
+with 18 features achieved 
+an AUC of 0.850. 
+Single-centre and mall 
+sample size. 
+An et al., 2023 Need to examine the 
+effectiveness of ML 
+algorithms in 
+healthcare. 
+Comprehensive review of 
+supervised and unsupervised 
+ML algorithms, evaluation 
+metrics, feature extraction 
+methods, applications, and 
+limitations. 
+Healthcare Summarized strengths and 
+weaknesses of ML 
+approaches. 
+Application is 
+challenged by data 
+privacy, ethical issues 
+and regulation. 
+Maharana et 
+al., 2022 
+Raw data is 
+vulnerable to noise, 
+corruption, missing 
+and inconsistent data 
+which affects 
+prediction. Need to 
+generate more data 
+to reduce 
+dependency on 
+limited data and 
+mitigate overfitting. 
+Review of data pre
+processing steps and data 
+augmentation techniques. 
+General ML 
+applications across 
+various data forms 
+Data pre-processing is 
+essential. Data 
+augmentation generates 
+new data and minimizes 
+overfitting. 
+If the data used has 
+more than 20% of data 
+missing, it must be 
+eliminated. 
+Albahra et al., 
+2023 
+Pathologists and 
+laboratory 
+professionals’ 
+unfamiliarity with 
+ML tools. 
+Covers data types, supervised 
+and unsupervised learning, 
+preprocessing, glossary of 
+ML terms. 
+Pathology and 
+laboratory medicine. 
+General ML concepts 
+applied to healthcare. 
+Notes the importance of 
+generalizability and 
+addressing overfitting. 
+Reinforcement learning is 
+not currently much used 
+within medicine. 
+Tabular data has a 
+higher tendency of 
+data drift compared to 
+standardized data such 
+as images. 
+III. DATASET DESCRIPTION 
+The dataset was collected by going through a Kaggle 
+competition titled, "Equity in Post-HCT Survival Predictions" 
+[11]. It consists of synthetically generated, de-identified 
+patient records from the CIBMTR registry, albeit preserves 
+realistic clinical structure and distribution. It focuses on 
+predicting survival outcomes for patients undergoing 
+allogenic HCT. The dataset contains 28,000 instances and 59 
+variables including demographic, clinical and donor/recipient 
+compatibility information. The dataset was de-identified to 
+protect patient privacy. The features are mostly categorical 
+with mainly two numerical features, one bimodal and other 
+multimodal.  
+ 
+The target variable EFS, indicates event-free survival 
+status, with 0 representing no event and one representing 
+occurrence of an event. The class labels are distributed fairly 
+IV. OVERALL METHODOLOGY 
+with class 0 having 46% and class 1 having 54%. There is 
+presence of many missing values, with two features having 
+more than 50% missing data. No duplicate or presence of 
+ordinal features has been mentioned about the dataset. The 
+dataset also has a feature, EFS time which denotes in how 
+much time a patient might suffer an event, if such an event 
+occurs given their medical record. This study does not make 
+use of this feature as the main objective is to classify the 
+occurrence of an event in binary terms. 
+Start 
+The overall workflow adopted in this study is illustrated in 
+Fig. 1, which outlines the sequence of stages from data 
+exploration to model selection and feature interpretation, 
+along with cluster analysis. This study followed a multi-phase 
+approach. After loading the dataset, a comprehensive 
+exploratory data analysis  (EDA) was conducted, involving
+Remove Irrelevant 
+Features 
+Exploratory Data 
+Analysis 
+Data Preprocessing 
+Model Training 
+Model Validation 
+Select Best Model 
+Hyperparameter 
+Tuning 
+Feature Importance 
+and Interpretability 
+Handle Missing 
+Values 
+Feature Binning 
+Feature Encoding 
+End 
+Fig. 1. Workflow of Overall Methodology 
+missing value analysis, datatype inspection, descriptive 
+statistical analysis, visual exploration at univariate, bivariate 
+and multivariate level, and statistical analysis including chi
+square score, mutual information score and multicollinearity 
+analysis was performed to identify statistically linked features 
+and also redundant features.  
+Data Sampling 
+Clustering Methods 
+Clustering Analysis 
+In the preprocessing phase, irrelevant features were 
+removed, missing values were imputed,  and datatypes were 
+corrected. A baseline LGBM model was trained and tested to 
+verify data quality, and to get a baseline statistic. Likewise, 
+multiple processed datasets were prepared for experimentation 
+and comparison. Feature binning was used to convert the two 
+numerical features into categorical for uniformity. Feature 
+encoding was implemented for techniques and models that 
+VI. EVALUATION METRICS 
+accept only numerical input. Feature selection was also carried 
+out to find top ten best features. 
+Six ML algorithms (Naïve Bayes (NB), RF, AdB, XGB, 
+LGBM and CatBoost), were trained and tested on the dataset. 
+They also underwent cross validation, and for the best 
+performing model, hyperparameter tuning was carried out to 
+find best parameters. Lastly, feature importance and 
+feature/model interpretability was carried out to better 
+understand the model using SHAP values. 
+Clustering was done to find inherent patient sub-groups in 
+the data. Five techniques (K-Means, K-Modes, Agglomerative 
+Hierarchical Clustering (AHC), Density-Based Spatial 
+Clustering of Applications with Noise (DBSCAN), 
+Hierarchical Density-Based Spatial Clustering of Applications 
+with Noise (HDBSCAN)) were used to cluster and analyse the 
+different patient clusters to recognise the common features and 
+values among them. 
+V. PREPROCESSING 
+The preprocessing phase was there to ensure data 
+consistency, quality and readiness for model training. Based 
+on insights from the EDA phase, several steps were taken to 
+clean data. Firstly, features that seemed irrelevant were 
+removed. Then, due to presence of large number of missing 
+values, the approach used was for the numerical features, 
+missing values were replaced with -1 value. Whereas, for 
+categorical features, missing values were replaced with a 
+“Missing” category. This was done so that the ML model 
+identifies and acknowledges missing data, and builds a model 
+taking that into consideration. As the dataset was from a 
+healthcare domain, filling missing values with arbitrary values 
+seemed incorrect as that might create unnecessary and 
+possibly incorrect relationships. Some features were assigned 
+the wrong datatype, which were corrected.  
+Feature binning was performed on the two available 
+features using equal-width bin technique. A feature was 
+binned into five bins, and the other was binned into ten bins 
+based on baseline LGBM model performance. The dataset 
+which then was totally categorical, was encoded to get 
+numerical values, which was necessary in the upcoming steps. 
+Few feature selection techniques like Sequential Forward 
+Selection (SFS), Sequential Backward Feature (SBS) and 
+Recursive Feature Selection (RFE) were employed to identify 
+the top ten features. However, none of them matched the 
+performance of the full feature set. Therefore, complete set of 
+engineered and encoded features was used for classification 
+and clustering. 
+After each major change to the dataset, a baseline model 
+was made using LGBM to check for data quality, and to also 
+get a baseline performance statistic. Multiple pre-processed 
+dataset versions were then generated for comparative analysis. 
+The first dataset retained the original categorical and 
+numerical features except the irrelevant features. After that, 
+missing values were handled, which then formed the second 
+dataset. The third dataset was created by applying feature 
+binning on the numerical features, and converting them into 
+categorical features. Lastly, the entire dataset was encoded for 
+algorithms and techniques that require numerical input to 
+perform. The last two datasets produced the same metrics, 
+establishing the native support of categorical features by 
+LGBM, when categorical features are passed as parameters. 
+A. Classification 
+In medical prediction tasks, evaluation metrics must be 
+selected keeping in mind clinical priorities. In this study, the 
+primary metric to be used is recall, as FNs can have severe 
+clinical implications. Recall (Sensitivity) measures the 
+proportion of actual positive cases correctly identified by the 
+model. A high recall value ensures that most patients who are 
+actually at risk are detected.  
+Recall = 
+True Positives
+True Positives + False Negatives
+Precision is another metric being used in this study. It 
+measures the proportion of predicted class that are actually 
+belonging to that class. This is useful and should be high as in 
+healthcare, low precision leads to unnecessary panic on 
+patients and additional strain on clinical resources which can 
+otherwise be utilized by someone truly affected. 
+Precision = 
+True Positives
+True Positives + False Positives
+F1-score is the harmonic mean of precision and recall, 
+balancing both metrics into a single value. It is valuable 
+especially when dealing with imbalanced datasets. In medical 
+applications, a high f1-score means that a model can detect 
+true cases reliably without raising many false alarms. 
+F1 Score = 2 x Precision x Recall
+Precision + Recall
+Along with recall, precision and f1-score, Area Under the 
+Receiver Operating Characteristic Curve (ROC-AUC) is 
+considered as another important metric. It provides a measure 
+of the model’s ability to distinguish between the two classes 
+across various threshold values. It is useful for comparing 
+multiple models’ discriminative capabilities. Finally, accuracy 
+is reported for completeness, but it is not the primary metric 
+used to evaluate models in this study. 
+Accuracy =
+True Positives+True Negatives
+True Positive + True Negatives+ False Positives+False Negatives
+Overall, the evaluation strategy in this study is chosen to 
+maximise recall first for class 1, ensuring minimal false 
+negatives, with a strong enough precision score for class 0, 
+followed by AUC score for assessing discriminative power, 
+and lastly accuracy as a general performance indicator. 
+B. Clustering 
+In this study, we make use of silhouette score as the main 
+metric to find optimal number of clusters. It measures how 
+similar each data point is to its own cluster compared to the 
+other clusters. A high score means well defined clusters. 
+Silhouette Score = 𝑏 − 𝑎
+max (𝑎,𝑏)
+Alongside silhouette score, inertia is also considered as an 
+evaluation metric that measures the total intra-cluster distance 
+between data points and their clusters. It reflects how tightly 
+swarm plot. These techniques enabled a transparent evaluation 
+packed the clusters are around their centroid. Lower inertia 
+often indicates better clusters but it can be misleading. 
+2
+𝑛
+Inertia = ∑ ||𝑥𝑖 −𝜇𝑐(𝑖)
+||
+𝑖=1 
+Davies-Bouldin Index (DBI) measures the average 
+similarity between each cluster and its most similar 
+counterpart. Lower values indicate more compact and better 
+separated clusters. 
+Davies − Bouldin Index = 1
+𝑘
+𝑘
+∑ max
+𝑖=1 
+�
+�≠𝑖
+ (𝑠𝑖+𝑠𝑗
+𝑑𝑖𝑗
+)
+Calinski-Harabasz Index (CHI) evaluates the ratio 
+between inter-cluster variance and intra-cluster variance. 
+Higher scores suggests that clustering achieves strong 
+separation between groups while maintaining tight cohesion 
+within each cluster. 
+Calinski − Harabasz  Index = Inter−cluster variance
+Intra−cluster variance
+The strategy is to find a clustering algorithm with a high 
+silhouette score as that is common for all algorithms being 
+used in this study. DBSCAN and HDBSCAN find number of 
+clusters on their own, instead they have different 
+hyperparameters which are useful for datasets with noise. 
+Therefore, the goal is to find optimal number of clusters by 
+evaluating the different metrics which can help find 
+representative and useful clusters. 
+VII. CLASSIFICATION 
+After preparing the data, several models were trained on 
+the encoded dataset. The algorithms included LGBM, 
+CatBoost, AdB, RF, XGB, and NB. LGBM and CatBoost have 
+native support for categorical features, hence categorical 
+features were declared to both of them as parameters. Each 
+model was trained using same train-test split, and the target 
+feature was stratified. All these models were evaluated based 
+on the aforementioned metrics. To verify the stability of these 
+results, all models underwent 5-fold cross validation, and all 
+classification related metrics were recorded. At the end, mean 
+of all runs for that metric along with the standard deviation 
+were measured to quantify the results. Among the models, 
+LGBM and CatBoost performed the strongest but due to high 
+time requirement of CatBoost, further optimizations and steps 
+proceeded with LGBM. 
+Hyperparameter tuning was carried out for LGBM using 
+two approaches. First, the classical grid search with cross 
+validation was performed to find the best parameters. Second, 
+Optuna was used for advanced optimization. The model tuned 
+by Optuna achieved the highest performance, improving both 
+recall and precision scores with a fairly good ROC-AUC score 
+as compared to previous configurations.  
+To better interpret the results and the model, as is crucial 
+in the field of medicine, feature importance scores were 
+calculated for the best performing LGBM variant. The 
+associated tree was plotted for doctors and professionals to 
+understand how and why a prediction was made. Also, SHAP 
+was used to further interpret the findings by plotting a bee 
+of the model’s decision process. 
+VIII. CLUSTERING 
+Clustering was conducted to explore the inherent structure 
+of the dataset without relying on the target feature. Two pre
+processed datasets were used, one with fully numerically 
+encoded values, and the other without any encoding to help in 
+visualising. Due to the large size of the dataset, random 
+sampling was performed and 25% of the original data was 
+used to perform clustering due to time and computational 
+constraints. Firstly, pairwise distances were calculated using 
+Hamming metric due to presence of categorical features. 
+These distances were used in multiple clustering algorithms to 
+capture relationships in the data. Five clustering algorithms 
+were used, namely, K-Means, K-Modes, AHC, DBSCAN and 
+HDBSCAN. 
+K-Means was implemented using K-Means++ 
+initialization and evaluated on all clustering related metrics to 
+find best cluster size. K-Modes is a special case of the K
+Means algorithm but for categorical features only, which 
+underwent the same process, but using Huang initialization to 
+find optimal number of clusters. Next, AHC was used with 
+linkage method set as average and clustering metrics were 
+used to find best cluster size. Both, DBSCAN and HDBSCAN 
+are algorithms that form clusters based on the parameter 
+values due to the way they work. So, DBSCAN was iteratively 
+tested to find best epsilon and minimum sample parameters on 
+the basis of a good silhouette score, and so was HDBSCAN 
+with parameters, minimum cluster size and minimum samples 
+parameter. 
+After finding the optimal number of clusters for each 
+algorithm, clusters were formed based on those findings. 
+These clusters were then analysed using graphs and the 
+unencoded dataset to better understand the different sub
+groups formed and what categories they contained. This 
+comparative analysis enabled a comprehensive understanding 
+of how different clustering techniques captured the hidden 
+patterns in the data.  
+IX. IMPLEMENTATION DETAILS 
+All experiments were implemented using the Python 
+programming language (version 3.11.7) in a Jupyter Lab 
+environment with Anaconda. The libraries included Pandas, 
+NumPy, scikit-learn, XGBoost, LightGBM, CatBoost, 
+Matplotlib, Seaborn, dtreeviz, kmodes, Optuna and SHAP. All 
+random states were fixed at 42 for reproducibility. A custom 
+metric combining precision (class 0), recall (class 1) and ROC
+AUC was used for evaluation. 
+The experiments were executed on a Windows 11 
+operating system with Intel Core i5 12th Gen and 16 GB 
+RAM. The entire workflow was implemented and executed 
+within a virtual environment. Raw, interim and processed data 
+were stored in CSV files with appropriate names. All code, 
+data and supporting resources used in this study are openly 
+accessible on my GitHub repository [12]. 
+X. RESULTS AND DISCUSSION 
+A. Classification 
+Six ML algorithms, LGBM, CatBoost, XGB, AdB, RF and 
+NB were trained on the same encoded dataset. Data was split 
+into two sets, train and test sets with 75% of the dataset in the 
+train set and 25% in the test set. Data was stratified on the 
+target feature. For LGBM and CatBoost, categorical features 
+were specified as they both have native support for handling 
+categorical features. After the initial run on all six algorithms, 
+CatBoost model had achieved the highest score, closely 
+followed by LGBM.  
+ 
+To ensure that the model was truly performing well and the 
+values were not due to a bad data split, 5-fold cross validation 
+was run on all six ML algorithms, and all the appropriate 
+metrics were recorded for analysis. Those metrics are 
+mentioned below in Table 2.  
+TABLE II.  EVALUATION METRICS FOR CLASSIFICATION 
+ Recall Precision ROC-AUC Accuracy F1 
+LGBM 0.767 0.681 0.743 0.682 0.722 
+CatBoost 0.775 0.690 0.751 0.688 0.728 
+XGB 0.739 0.658 - 0.669 0.706 
+AdB 0.781 0.677 0.725 0.669 0.718 
+RF 0.751 0.657 0.710 0.662 0.705 
+NB 0.746 0.651 0.710 0.657 0.701 
+ 
+It was found that CatBoost classifier performed better than 
+the rest of the algorithms. However, it took a lot of time to 
+train and took even longer for cross validation. Therefore, if 
+time is crucial then, LGBM can be used as it is marginally 
+behind CatBoost. This study has used LGBM for further steps 
+like hyperparameter tuning and feature importance and 
+interpretation.  
+ 
+ Hyperparameter tuning (HT) is an essential part of 
+building ML models as it can greatly improve the model’s 
+performance. This study used two approaches to HT, one 
+made use of scikit-learn’s native grid search with cross 
+validation, that trains and tests many models based on a 
+dictionary of hyperparameter values and validates it using 5
+fold cross validation. The other approach made use of Optuna, 
+an automatic hyperparameter optimization library. With HT, 
+the LGBM model produced the following results mentioned 
+below in Table 3. 
+TABLE III.  EVALUATION METRICS FOR CLASSIFICATION AFTER 
+HYPERPARAMETER TUNING 
+ Recall Precision ROC
+AUC Accuracy F1 
+Approach 
+1 
+0.760 0.680 0.749 0.680 0.720 
+Approach 
+2 
+0.940 0.800 0.738 0.640 0.740 
+ 
+As evident from Table 3, Optuna was extremely helpful at 
+finding hyperparameters that help the model reach a high 
+recall score and high precision score, with acceptable values 
+for other metrics as well.  
+ 
+Therefore, an LGBM model with best parameter values 
+found by Optuna was selected and feature importances were 
+plotted. According to the model, in vivo tcd (In-vivo T-cell 
+depletion (ATG/alemtuzumab)), hla match drb1 high 
+(Recipient / 1st donor allele level (high resolution) matching 
+at HLA-DRB1), pulm severe (Pulmonary, severe), gvhd proph 
+(Planned GVHD prophylaxis), and dri score (Refined disease 
+risk index) are the top five most important features. A tree was 
+also plotted to understand the flow of decision making, and the 
+associated features and values the model is considering to 
+reach a decision.  
+ 
+SHAP values were also computed and plotted to 
+understand how much of each feature value is likely to cause 
+the model to predict which class. Some significant results from 
+SHAP values were that people with lower age at HCT are 
+more likely to suffer no event as compared to older people. 
+People with graft type and product type as bone marrow are 
+more likely to also have no event, as compared to peripheral 
+blood. Additionally, high to medium DRI scores are more 
+likely to suffer event after HCT.  
+B. Clustering 
+Clustering was done to discover sub-groups among 
+patients. Five clustering algorithms were used which were K
+Means, K-Modes, AHC, DBSCAN and HDBSCAN. Target 
+feature was removed from the dataset and the above 
+algorithms were tested with multiple hyperparameter values. 
+Due to presence of categorical features, conventional distance 
+metrics were unsuitable, therefore this study employed 
+pairwise hamming distance.  
+ 
+After iteratively going through multiple cluster numbers 
+and hyperparameter values, clustering related metrics were 
+calculated and tabulated to find the best performing models 
+and cluster sizes that might explain the data’s structure better. 
+The metrics have been mentioned in Table 4. 
+ 
+TABLE IV.  EVALUATION METRICS FOR CLUSTERING 
+ Clusters Inertia Silhouette DBI CHI 
+K-Means 3 724675  0.050 2.145 1085 
+K-Modes 3 115646  0.300 2.751 588 
+AHC 7 - 0.269 2.786 178 
+DBSCAN 5 - 0.083 - - 
+HDBSCA
+N 
+5 - 0.0.83 - - 
+ 
+By observing the metrics, it was evident that inherent 
+structure was lacking in the data due to the low values of all 
+metrics. However, clusters were plotted with the exact number 
+of clusters and hyperparameter values as was discovered to 
+have the most optimal clusters. After forming clusters, 
+visualization was carried out by plotting the graphs with the 
+clusters and category labels by using the unencoded dataset. 
+ 
+After observing the clusters formed and the category labels 
+it held, it was evident that there was a lot of noise in the data 
+and there was no substantial structure. Nevertheless, all 
+algorithms except HDBSCAN were able to identify and 
+cluster data with features belonging to different HLA 
+attributes. The resulting clusters effectively separated 
+observations into meaningful categories, including missing 
+HLA values, high HLA levels, and low HLA levels. 
+XI. CONCLUSION 
+This study was conducted to evaluate whether ML could 
+enhance survival prediction for patients undergoing allo-HCT, 
+particularly emphasizing recall to minimise FNs. The results 
+demonstrate that modern ML approaches offer clear 
+advantages over traditional techniques when dealing with 
+complex, heterogenous clinical data. Among the evaluated 
+models, LGBM stood out as the most optimal model, with 
+high recall, precision and strong ROC-AUC. This model was 
+a resultant of being optimized with Optuna to find best 
+hyperparameter values. 
+Interpretability analysis, including feature importance, 
+decision tree visualisation and SHAP values reinforced the 
+clinical relevance of several key predictors. These insights 
+support the idea that ML can complement clinical judgement 
+by highlighting variables that most strongly associated with 
+outcomes. Clustering was used to examine whether the data 
+contained meaningful sub-groups. Although the overall 
+structure was noisy and weakly defined, multiple algorithms 
+consistently differentiated patients based on HLA-related 
+characteristics. 
+Overall, the study confirms that ML-based survival 
+prediction is both feasible and clinically valuable for post
+HCT care. By prioritizing recall, the model ensures that high
+risk patients are identified early, supporting timely 
+interventions. The methodology developed here is scalable, 
+transparent and adaptable, offering a strong foundation for 
+future work on personalized risk prediction in transplant 
+medicine. 
