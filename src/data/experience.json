@@ -23,10 +23,10 @@
   },
   {
     "id": "exp-omni",
-    "title": "Data & Automation Engineer",
+    "title": "AI Engineer",
     "subtitle": "OMNI Group",
     "period": "Apr 2026 - Jun 2026",
-    "overview": "First analyst hired; built the company's entire data and reporting function from scratch on a 150+ table SQL database with millions of rows.",
+    "overview": "First Data & AI team hire; built the company's entire data and reporting function from scratch on a 150+ table SQL database with millions of rows.",
     "details": {
       "approach": "Designed an executive arrears dashboard covering 3,000+ live cases with drill-down into arrears, catch-up balances, and assignment-stage pipeline. Built an API layer to serve query results to reporting tools, and engineered custom SQL logic with senior leadership to surface and reconcile cases not accounted for by existing systems.",
       "impact": "Exposed £60K in previously untracked arrears and catch-up payments, tracked ~£500K in customer payments; dashboard adopted operationally by senior leadership and two business teams.",
@@ -36,7 +36,7 @@
   },
   {
     "id": "exp-2b",
-    "title": "Software Engineer",
+    "title": "AI Engineer",
     "subtitle": "KingScote Informatics",
     "period": "Feb 2025 - Mar 2026",
     "overview": "Built and shipped AI-native backend systems and agentic pipelines spanning data infrastructure, production incident management, and enterprise AI tooling.",
