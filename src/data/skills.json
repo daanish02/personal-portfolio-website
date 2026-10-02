@@ -35,7 +35,7 @@
     { "name": "Prometheus",  "icon": "https://cdn.simpleicons.org/prometheus/8A92A0" },
     { "name": "Linux",       "icon": "https://cdn.simpleicons.org/linux/8A92A0" },
     { "name": "Azure",       "icon": "https://cdn.simpleicons.org/microsoftazure/8A92A0" },
-    { "name": "AWS",         "icon": "https://cdn.simpleicons.org/amazonwebservices/8A92A0" },
+    { "name": "AWS",         "icon": "https://cdn.simpleicons.org/amazonaws/8A92A0" },
     { "name": "MySQL",       "icon": "https://cdn.simpleicons.org/mysql/8A92A0" },
     { "name": "SQL Server",  "icon": "https://cdn.simpleicons.org/microsoftsqlserver/8A92A0" },
     { "name": "Claude Agents SDK" },

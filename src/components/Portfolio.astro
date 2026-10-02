@@ -96,7 +96,7 @@ const remainingProjects = projectsData.slice(5);
     <div class="techCloud skillsCloud">
         {skillsData.skills.map(skill => (
             <span class="techTag">
-                {skill.icon && <img src={skill.icon} alt={skill.name} loading="lazy" width="14" height="14" />}
+                {skill.icon && <img src={skill.icon} alt={skill.name} loading="lazy" width="14" height="14" onerror="this.style.display='none'" />}
                 {skill.name}
             </span>
         ))}
