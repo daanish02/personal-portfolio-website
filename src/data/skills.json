@@ -27,6 +27,19 @@
     { "name": "Flask",       "icon": "https://cdn.simpleicons.org/flask/8A92A0" },
     { "name": "n8n",         "icon": "https://cdn.simpleicons.org/n8n/8A92A0" },
     { "name": "C",           "icon": "https://cdn.simpleicons.org/c/8A92A0" },
-    { "name": "C++",         "icon": "https://cdn.simpleicons.org/cplusplus/8A92A0" }
+    { "name": "C++",         "icon": "https://cdn.simpleicons.org/cplusplus/8A92A0" },
+    { "name": "JavaScript",  "icon": "https://cdn.simpleicons.org/javascript/8A92A0" },
+    { "name": "TypeScript",  "icon": "https://cdn.simpleicons.org/typescript/8A92A0" },
+    { "name": "Next.js",     "icon": "https://cdn.simpleicons.org/nextdotjs/8A92A0" },
+    { "name": "Grafana",     "icon": "https://cdn.simpleicons.org/grafana/8A92A0" },
+    { "name": "Prometheus",  "icon": "https://cdn.simpleicons.org/prometheus/8A92A0" },
+    { "name": "Linux",       "icon": "https://cdn.simpleicons.org/linux/8A92A0" },
+    { "name": "Azure",       "icon": "https://cdn.simpleicons.org/microsoftazure/8A92A0" },
+    { "name": "AWS",         "icon": "https://cdn.simpleicons.org/amazonwebservices/8A92A0" },
+    { "name": "MySQL",       "icon": "https://cdn.simpleicons.org/mysql/8A92A0" },
+    { "name": "SQL Server",  "icon": "https://cdn.simpleicons.org/microsoftsqlserver/8A92A0" },
+    { "name": "Claude Agents SDK" },
+    { "name": "Pinecone",    "icon": "https://cdn.simpleicons.org/pinecone/8A92A0" },
+    { "name": "Supabase",    "icon": "https://cdn.simpleicons.org/supabase/8A92A0" }
   ]
 }
